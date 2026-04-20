@@ -739,7 +739,15 @@ function switchMode(mode) {
     pickLegacy(activeLegacy, false);
   }
 
-  if (annoMode) setTimeout(renderAnnotations, 80);
+  if (annoMode) {
+    // Scroll to top so getBoundingClientRect measurements are accurate (scrollY = 0)
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        renderAnnotations();
+      });
+    });
+  }
 }
 
 /* ── BUILD PILLS ─────────────────────────────────────────────── */
@@ -954,7 +962,14 @@ function setThumb(el) {
 }
 
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeAllTrays(); if(expandOpen) toggleExpand(); } });
-window.addEventListener('scroll', function(){ if(annoMode) renderAnnotations(); }, {passive:true});
+var scrollTimer = null;
+window.addEventListener('scroll', function(){
+  if (!annoMode) return;
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(function() {
+    requestAnimationFrame(function() { renderAnnotations(); });
+  }, 120);
+}, {passive:true});
 
 /* ── INIT — default to PDP Condition Grouping, annotations on ── */
 switchMode('legacy');
