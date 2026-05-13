@@ -630,7 +630,7 @@ var STAGES = [
     sub: "Sellers can't find B&H's trade-in program — and many don't know it exists",
     source: "Benchmark: 100% of participants struggled to find the trade-in page · Avg 42 sec to locate · 3.5/5 findability score",
     problems: [
-      "100% of usability benchmark participants (6/6) struggled to find the trade-in page from the homepage — the megamenu link was consistently skipped. Average time to locate the page was 42 seconds.",
+      "100% of usability benchmark participants (6/6) struggled to find the sell-used page from the homepage — the megamenu link was consistently skipped. Average time to locate the page was 42 seconds.",
       "Even loyal B&H customers were surprised to learn that B&H buys used gear. The program is not effectively marketed within the site architecture.",
       "Sellers have no upfront awareness of which product categories B&H accepts, causing wasted effort and early drop-off when their item isn't supported.",
       "The outdated look and feel of the Sell Used experience immediately reduces seller confidence — one participant closed the site immediately describing it as 'fully cluttered' and 'confusing.'",
@@ -641,12 +641,12 @@ var STAGES = [
       "As a seller, I want to know upfront which product categories B&H accepts so I don't waste time on items they don't buy.",
       "As a seller, I want the Sell Used experience to feel modern and credible so I'm confident my transaction is in good hands.",
       "As a seller, I want to know if a trade-in event or promotion is currently active so I don't miss out on a better deal.",
-      "As a seller, I want to hear from people like me who've successfully sold to B&H so I trust the process before I commit."
     ]
   },
   {
     num: 2, label: "Item Identification",
     headerColor: "#1E3A8A",
+    overviewText: "Sell Used search is the #1 cited pain point in the overall customer experience. Customers find it buggy and struggle to find their products. Search terms are treated as OR not AND, returning erroneous result noise.",
     sub: "Once on the page, 67% of participants couldn't find their specific gear in search results",
     source: "Benchmark: 67% struggled to identify gear · Search logic: OR not AND · Results not ranked by relevance",
     problems: [
@@ -667,6 +667,7 @@ var STAGES = [
   {
     num: 3, label: "Condition Self-Assessment",
     headerColor: "#1D6B48",
+    overviewText: "Customers want more detailed descriptions of condition ratings to guide self-assessment given the subjective nature of rating (3rd most cited pain point in customer surveys). In usability testing, sellers intentionally rated gear one level lower than accurate, assuming B&H would be stricter — eroding quote accuracy and trust.",
     sub: "Sellers deliberately under-rate their gear out of fear — and the current scale makes it worse",
     source: "Benchmark: 4.0/5 confidence · Foundational research: users used Gemini to pre-grade · Defensive under-rating observed",
     problems: [
@@ -748,6 +749,7 @@ var STAGES = [
   {
     num: 8, label: "Progress Awareness",
     headerColor: "#1E40AF",
+    overviewText: "Survey responses show customers want an online status tracker — not email updates — to follow their progress through the sell used journey. Silence after shipping is the highest-anxiety moment.",
     sub: "After the seller ships their gear, silence is the experience",
     source: "Foundational research: transparency post-ship is a top trust driver · MPB praised for speed and communication",
     problems: [
@@ -766,6 +768,7 @@ var STAGES = [
   {
     num: 9, label: "Payment & Getting Paid",
     headerColor: "#065F46",
+    overviewText: "Payment issues are the 2nd most cited pain point in sell used surveys. Customers want ACH, they don't want to call in to use store credit, and they want to apply store credit online seamlessly.",
     sub: "B&H is perceived as 'store credit only' — a deal-breaker for digital-native sellers",
     source: "Foundational research: payment flexibility named as top decision driver · Store credit perceived as restriction by non-loyalists",
     problems: [
@@ -796,7 +799,7 @@ STAGES.forEach(function(st, i) {
       '<div class="ov-title">' + st.label + '</div>' +
     '</div>' +
     '<div class="ov-card-body">' +
-      '<div class="ov-problem">' + st.problems[0] + '</div>' +
+      '<div class="ov-problem">' + (st.overviewText || st.problems[0] || '') + '</div>' +
     '</div>';
   grid.appendChild(card);
 });
