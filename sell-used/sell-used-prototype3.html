@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B&amp;H — Sell Your Used Items</title>
+<style>
+  :root{
+    --bh-red:#cc0000;
+    --bh-green:#4a7d2c;
+    --bh-green-dark:#3d6b2a;
+    --bh-green-btn:#5a9c3e;
+    --bh-gold:#e3a72f;
+    --bh-link:#1a6bb0;
+    --ink:#1b1b1b;
+    --ink-soft:#666;
+    --line:#e2e2e2;
+    --bg:#ffffff;
+    --bg-soft:#f1f1f1;
+    --radius:6px;
+    --maxw:1280px;
+    --shadow:0 6px 24px rgba(0,0,0,.14);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.45}
+  a{color:var(--bh-link);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+
+  /* icons */
+  .ico{display:inline-block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;width:22px;height:22px;vertical-align:middle}
+
+  /* utility bar */
+  .utilbar{border-bottom:1px solid var(--line);font-size:12px;color:var(--ink-soft)}
+  .utilbar .wrap{display:flex;align-items:center;gap:18px;height:32px}
+  .utilbar .left{display:flex;gap:18px;align-items:center}
+  .utilbar .center{flex:1;text-align:center;color:var(--bh-green);font-weight:600}
+  .utilbar .right{display:flex;gap:18px;align-items:center}
+  .utilbar a{color:var(--ink-soft);display:flex;align-items:center;gap:5px}
+  .utilbar .ico{width:14px;height:14px}
+
+  /* masthead */
+  .masthead .wrap{display:flex;align-items:center;gap:18px;padding:12px 18px}
+  .logo{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bh-red);color:#fff;font-weight:800;letter-spacing:1px;width:74px;height:54px;border-radius:4px;line-height:1}
+  .logo b{font-size:25px}
+  .logo span{font-size:6.5px;letter-spacing:1.5px;margin-top:3px}
+  .experts{display:flex;align-items:center;gap:8px;font-size:13px;white-space:nowrap;color:var(--ink)}
+  .experts .ico{width:26px;height:26px}
+  .experts b{font-size:17px}
+  .experts small{display:block;font-size:11px;color:var(--ink-soft)}
+  .searchbar{flex:1;min-width:120px;display:flex;border:1px solid #bbb;border-radius:4px;overflow:hidden;background:#fff}
+  .searchbar input{flex:1;border:0;padding:10px 12px;font-size:14px;outline:none}
+  .searchbar button{border:0;background:#f3f3f3;width:46px;cursor:pointer;color:#555}
+  .head-actions{display:flex;gap:20px;align-items:center}
+  .head-actions .item{text-align:center;font-size:11px;color:var(--ink-soft);white-space:nowrap;cursor:pointer}
+  .head-actions .item .ico{width:20px;height:20px;color:var(--ink);display:block;margin:0 auto 2px}
+  .head-actions .item b{display:block;color:var(--ink);font-size:11px}
+  .deal .timer{color:var(--bh-red);font-weight:700}
+
+  /* nav */
+  .nav{background:var(--bh-green)}
+  .nav .wrap{display:flex;gap:2px;align-items:center;flex-wrap:wrap;padding:0 18px}
+  .nav a{color:#fff;font-size:14px;padding:11px 12px;display:block}
+  .nav a:hover{background:rgba(0,0,0,.12);text-decoration:none}
+  .nav a.muted{color:#dbe8cf}
+  .shipstrip{border-bottom:1px solid var(--line);font-size:13px}
+  .shipstrip .wrap{display:flex;gap:26px;justify-content:center;align-items:center;height:38px}
+
+  /* intro */
+  .breadcrumb{padding-top:14px;font-size:13px;color:var(--ink-soft)}
+  .breadcrumb a{color:var(--bh-link)}
+  h1.page-title{font-size:24px;margin:8px 0 6px}
+
+  /* stepper */
+  .stepper{display:flex;align-items:flex-start;justify-content:center;gap:6px;padding:18px 0 22px;flex-wrap:nowrap}
+  .step{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:90px;color:var(--ink-soft)}
+  .step.active{color:var(--bh-green)}
+  .step .dot .ico{width:28px;height:28px}
+  .step .lbl{font-size:13px;text-align:center}
+  .step-line{height:1px;background:var(--line);flex:1;max-width:120px;margin-top:14px}
+
+  /* hero */
+  .hero{background:var(--bh-green-dark);padding:30px 0}
+  .hero h2{color:var(--bh-gold);text-align:center;font-size:34px;margin:0 0 22px;font-weight:800}
+  .searchwrap{max-width:760px;margin:0 auto;position:relative}
+  .bigsearch{display:flex;align-items:center;background:#fff;border-radius:6px;padding:4px 6px}
+  .bigsearch .mag{padding:0 6px 0 10px;color:#888;display:flex}
+  .bigsearch input{flex:1;border:0;padding:14px 6px;font-size:16px;outline:none}
+  .bigsearch .clear{border:0;background:none;font-size:20px;color:#888;cursor:pointer;padding:0 12px;display:none}
+
+  .typeahead{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border-radius:6px;box-shadow:var(--shadow);overflow:hidden;display:none;z-index:40;max-height:420px;overflow-y:auto}
+  .typeahead.open{display:block}
+  .ta-item{padding:12px 18px;cursor:pointer;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .ta-item:hover,.ta-item.hl{background:#f4f8f0}
+  .ta-item .name mark{background:transparent;font-weight:700;color:var(--ink)}
+  .ta-item .tag{font-size:11px;color:#fff;background:#b23b3b;border-radius:10px;padding:2px 8px;white-space:nowrap}
+  .ta-foot{padding:14px 18px;font-size:14px;color:var(--ink-soft)}
+  .ta-foot a{font-weight:600}
+  .ta-empty{padding:16px 18px;color:var(--ink-soft);font-size:14px}
+
+  /* inline "we do not purchase" message */
+  .search-msg{display:none;align-items:center;gap:10px;background:#f6e2df;border:1px solid #eccac4;
+    border-radius:6px;padding:10px 14px;margin-top:8px;font-size:14px;color:var(--ink)}
+  .search-msg.show{display:flex}
+  .search-msg .ico{color:var(--bh-red);width:20px;height:20px;flex:none}
+  .search-msg a{font-weight:600}
+
+  /* exclusion policy panel */
+  .excl-panel{max-width:760px;margin:18px auto 0;text-align:center}
+  .excl-panel .et{font-weight:700;margin:0 0 14px}
+  .excl-list{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 28px;text-align:left;max-width:620px;margin:0 auto}
+  .excl-list div{font-size:14px;color:var(--ink)}
+  .excl-list div::before{content:'•';color:var(--ink-soft);margin-right:8px}
+  .excl-note{color:var(--ink-soft);font-size:13.5px;margin:18px auto 0;max-width:560px}
+  .excl a{font-weight:600}
+
+  /* badges */
+  .badges{background:var(--bg-soft);padding:22px 0}
+  .badges .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .badge{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+  .badge .ico{width:24px;height:24px;color:var(--bh-green);flex:none}
+  .badge b{font-size:14px}
+  .badge p{margin:3px 0 0;font-size:12.5px;color:var(--ink-soft)}
+
+  /* sections */
+  .section{padding:34px 0}
+  .section h3{text-align:center;font-size:24px;margin:0 0 6px}
+  .section .sub{text-align:center;color:var(--ink-soft);margin:0 0 22px}
+  .promos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto}
+  .promo{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+  .promo .top{height:140px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:19px;text-align:center;padding:0 14px}
+  .promo .top.sony{background:linear-gradient(135deg,#7a3b1d,#42210f)}
+  .promo .top.nikon{background:linear-gradient(135deg,#1a1a1a,#000)}
+  .promo .top.canon{background:linear-gradient(135deg,#2a2a2a,#555)}
+  .promo .bot{padding:14px 16px}
+  .promo .bot b{display:block;font-size:15px}
+  .promo .bot small{color:var(--ink-soft)}
+  .promo .bot .cta{display:block;margin-top:8px;color:var(--bh-green-btn);font-weight:600}
+
+  .hr{border:0;border-top:1px solid var(--line);max-width:1000px;margin:0 auto}
+  .cats{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;max-width:1000px;margin:0 auto}
+  .cat{text-align:center}
+  .cat .circle{width:84px;height:84px;border-radius:50%;background:#eaf2e3;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:var(--bh-green)}
+  .cat .circle .ico{width:38px;height:38px}
+  .cat span{font-size:13.5px}
+  .excl{text-align:center;margin-top:18px}
+  .excl a{font-weight:600}
+
+  .ways{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .way{background:var(--bg-soft);border-radius:6px;padding:16px}
+  .way b{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .way b .ico{width:18px;height:18px;color:var(--ink)}
+  .way p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+
+  footer.site{background:#222;color:#bbb;font-size:12px;text-align:center;padding:24px}
+
+  /* ===================== Condition screen ===================== */
+  .cond-bg{background:var(--bg-soft);padding:26px 0 60px}
+  .cond-grid{display:grid;grid-template-columns:1fr 320px;gap:22px;align-items:start}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:8px}
+  .cond-head{display:flex;align-items:center;gap:16px;padding:20px 22px;border-bottom:1px solid var(--line)}
+  .cond-thumb{width:70px;height:56px;border-radius:6px;background:#f3f5f1;display:flex;align-items:center;justify-content:center;color:var(--bh-green);flex:none}
+  .cond-thumb .ico{width:34px;height:34px}
+  .cond-head h2{margin:0;font-size:22px}
+  .cond-body{padding:22px}
+  .cond-body h3{margin:0 0 4px;font-size:18px}
+  .cond-body .hint{margin:0 0 16px;color:var(--ink-soft);font-size:13.5px}
+
+  .opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:7px;padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:.12s}
+  .opt:hover{border-color:#bcd0ad}
+  .opt input{margin-top:3px;accent-color:var(--bh-green-btn);width:17px;height:17px;flex:none}
+  .opt b{display:block;font-size:15px}
+  .opt span{display:block;color:var(--ink-soft);font-size:13px}
+  .opt:has(input:checked){border-color:var(--bh-green-btn);background:#f1f8ec;box-shadow:inset 0 0 0 1px var(--bh-green-btn)}
+
+  .acc-head{display:flex;align-items:center;justify-content:space-between;margin:24px 0 12px}
+  .acc-head h3{margin:0}
+  .selall{border:1px solid var(--bh-green-btn);color:var(--bh-green-btn);background:#fff;border-radius:6px;padding:7px 14px;font-size:13px;cursor:pointer;font-weight:600}
+  .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+  .acc{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer;padding:4px 0}
+  .acc input{accent-color:var(--bh-green-btn);width:17px;height:17px;flex:none}
+  .acc em{color:var(--ink-soft);font-style:normal}
+
+  .cond-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:26px}
+  .btn{border-radius:6px;padding:12px 26px;font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--bh-green-btn)}
+  .btn.ghost{background:#fff;color:var(--bh-green-btn)}
+  .btn.solid{background:var(--bh-green-btn);color:#fff;border-color:var(--bh-green-btn)}
+  .btn:disabled{opacity:.55;cursor:not-allowed}
+
+  .est{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;text-align:center;position:sticky;top:16px}
+  .est .lbl{font-size:17px;font-weight:700;margin-bottom:8px}
+  .est .total{font-size:34px;font-weight:800}
+  .est .total.empty{color:#999}
+  .est .ehint{color:var(--ink-soft);font-size:12.5px;margin:6px 0 14px}
+  .est .rows{border-top:1px solid var(--line);padding-top:14px;text-align:left;font-size:14px}
+  .est .rows div{display:flex;justify-content:space-between;margin-bottom:8px}
+  .cartlink{text-align:center;margin-top:14px;font-weight:600}
+
+  /* ===================== Quote Summary screen ===================== */
+  .sum-grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
+  .sum-main{padding:22px}
+  .sum-main h3{margin:0 0 4px;font-size:20px}
+  .li-row{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .li-row:last-child{border-bottom:0}
+  .li-thumb{width:64px;height:54px;border-radius:6px;background:#f3f5f1;display:flex;align-items:center;justify-content:center;color:var(--bh-green);flex:none}
+  .li-thumb .ico{width:32px;height:32px}
+  .li-info{flex:1}
+  .li-info .li-name{font-size:15.5px;font-weight:600}
+  .li-info .li-cond{color:var(--ink-soft);font-size:13.5px;margin-top:2px}
+  .li-info .li-acc{color:var(--ink-soft);font-size:12.5px;margin-top:4px}
+  .li-price{font-weight:700;white-space:nowrap;text-align:right}
+  .li-actions{margin-top:8px;font-size:13.5px;display:flex;gap:14px;justify-content:flex-end}
+  .li-actions a{cursor:pointer}
+  .li-actions a.del{color:#b23b3b}
+  .add-item-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #cfcfcf;background:#fff;border-radius:6px;padding:12px 22px;font-size:15px;cursor:pointer;margin:18px auto 0}
+  .add-wrap{text-align:center;position:relative;margin-top:6px}
+  .add-inline{text-align:left}
+  .bigsearch.inline{border:1px solid #c4c4c4;border-radius:6px;padding:4px 8px}
+  .add-wrap .typeahead{left:0;right:0}
+
+  .qsum{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;position:sticky;top:16px}
+  .qsum h3{margin:0 0 14px;font-size:20px}
+  .qsum .qrow{display:flex;justify-content:space-between;padding:7px 0;font-size:14.5px}
+  .qsum .qtot{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font-size:17px;font-weight:800}
+  .qsum .fine{color:var(--ink-soft);font-size:12.5px;text-align:center;margin:14px 0}
+  .qsum .login{text-align:center;font-size:14px;margin-bottom:12px}
+  .btn.block{display:block;width:100%;text-align:center;padding:14px}
+
+  /* ===================== Form / Payment / Review / Confirm ===================== */
+  .formcard{max-width:760px;margin:0 auto;padding:26px}
+  .formcard h3{margin:0 0 18px;font-size:20px}
+  .field{position:relative;margin-bottom:14px}
+  .field label{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:4px}
+  .field input,.field select{width:100%;border:1px solid #c4c4c4;border-radius:5px;padding:12px 12px;font-size:15px;outline:none;background:#fff}
+  .field input:focus,.field select:focus{border-color:var(--bh-green-btn)}
+  .field .help{font-size:12px;color:var(--ink-soft);margin-top:4px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row-city{display:grid;grid-template-columns:1fr 130px;gap:14px}
+  .inline-link{font-size:13.5px;font-weight:600}
+  .form-actions{display:flex;justify-content:flex-end;margin-top:8px}
+
+  .pay-card{max-width:760px;margin:0 auto;padding:26px}
+  .pay-opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:7px;padding:14px 16px;margin-bottom:12px;cursor:pointer}
+  .pay-opt input{margin-top:2px;accent-color:var(--bh-green-btn);width:17px;height:17px;flex:none}
+  .pay-opt b{display:block;font-size:15px}
+  .pay-opt span{display:block;color:var(--ink-soft);font-size:13px}
+  .pay-opt:has(input:checked){border-color:var(--bh-green-btn);background:#f1f8ec;box-shadow:inset 0 0 0 1px var(--bh-green-btn)}
+
+  .review-card{max-width:820px;margin:0 auto;padding:0}
+  .review-block{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin-bottom:16px}
+  .review-block .rb-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .review-block h3{margin:0;font-size:18px}
+  .review-block .addr{font-size:14.5px;line-height:1.55}
+  .smallbtn{border:1px solid #cfcfcf;background:#fff;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer}
+  .rev-total{display:flex;justify-content:space-between;font-weight:800;font-size:17px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+  .rev-fine{color:var(--ink-soft);font-size:12.5px;margin-top:10px}
+  .rev-submit{display:flex;justify-content:flex-end;margin-top:4px}
+
+  .confirm-card{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:8px;padding:34px 30px}
+  .confirm-card .tick{text-align:center;color:var(--bh-green-btn);font-size:30px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
+  .qbox{background:#f3f3f3;border-radius:6px;text-align:center;padding:16px;margin:0 auto 18px;max-width:420px}
+  .qbox b{font-size:17px}
+  .qbox div{color:var(--ink-soft);font-size:13px;margin-top:4px}
+  .confirm-sent{text-align:center;font-size:14.5px;margin-bottom:18px}
+  .confirm-card h3{font-size:20px;margin:20px 0 6px}
+  .steps-list{list-style:none;margin:14px 0 0;padding:0}
+  .steps-list li{display:flex;gap:14px;padding-bottom:18px;position:relative}
+  .steps-list .num{width:26px;height:26px;border-radius:50%;background:var(--bh-green-btn);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+  .steps-list .st b{display:block;font-size:15px;margin-bottom:3px}
+  .steps-list .st p{margin:0;color:var(--ink-soft);font-size:13.5px}
+  .steps-list .st .row{display:flex;gap:10px;margin-top:10px}
+
+  .step.done{color:var(--bh-green)}
+
+  /* mobile sticky bar */
+  .mobilebar{display:none}
+  .mobile-only{display:none}
+  .desktop-only{display:block}
+  .hamburger{display:none;font-size:22px;background:none;border:0;color:#fff;cursor:pointer}
+
+  @media (max-width:900px){
+    .utilbar,.shipstrip,.nav{display:none}
+    .desktop-only{display:none}
+    .mobile-only{display:block}
+    .masthead{background:var(--bh-green)}
+    .masthead .wrap{flex-wrap:wrap;gap:10px;padding:10px 14px}
+    .logo{width:60px;height:42px}
+    .logo b{font-size:19px}
+    .hamburger{display:block;order:-1;color:#fff}
+    .head-actions{margin-left:auto;gap:16px}
+    .head-actions .item .lbltxt{display:none}
+    .head-actions .item .ico{color:#fff}
+    .searchbar{order:5;flex-basis:100%}
+    .experts{display:none}
+    .hero h2{font-size:24px}
+    .badges .grid{grid-template-columns:1fr}
+    .promos{grid-template-columns:1fr}
+    .cats{grid-template-columns:repeat(2,1fr);gap:18px}
+    .ways{grid-template-columns:1fr}
+    .step{min-width:60px}
+    .step .lbl{font-size:11px}
+    .step .dot .ico{width:22px;height:22px}
+    .step-line{max-width:24px}
+
+    /* condition responsive */
+    .cond-grid{grid-template-columns:1fr;gap:0}
+    .cond-aside{display:none}
+    .acc-grid{grid-template-columns:1fr}
+    .cond-head h2{font-size:18px}
+    .cond-actions{display:none}            /* moved to sticky bar */
+    .cond-bg{padding-bottom:120px}
+    .mobilebar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);
+      box-shadow:0 -3px 14px rgba(0,0,0,.08);padding:12px 14px;gap:12px;align-items:center;z-index:60}
+    .mobilebar .mb-est{flex:1}
+    .mobilebar .mb-est .lbl{font-size:13px;font-weight:700}
+    .mobilebar .mb-est .mb-total{font-size:18px;font-weight:800}
+    .mobilebar .mb-est .mb-total.empty{color:#999}
+    .mobilebar .btn{padding:11px 16px;font-size:14px;white-space:nowrap}
+
+    /* summary responsive */
+    .sum-grid{grid-template-columns:1fr;gap:16px}
+    .qsum{position:static}
+
+    /* form responsive */
+    .formcard,.pay-card{padding:18px}
+    .row2{grid-template-columns:1fr}
+    .excl-list{gap:8px 12px}
+  }
+  @media (max-width:520px){ .hero h2{font-size:20px} }
+</style>
+</head>
+<body>
+
+<!-- ===================== SVG sprite ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cam" viewBox="0 0 24 24"><path d="M3 8h3l1.6-2.2h8.8L18 8h3v11H3z"/><circle cx="12" cy="13.5" r="3.6"/><circle cx="12" cy="13.5" r="1.1"/></symbol>
+  <symbol id="i-lens" viewBox="0 0 24 24"><rect x="7" y="3.5" width="10" height="17" rx="2"/><path d="M7 8h10M7 16h10"/><circle cx="12" cy="12" r="2.6"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="11" rx="1.5"/><circle cx="9" cy="13.5" r="3"/><path d="M14 12.5h4"/><rect x="6" y="5" width="5" height="3" rx="1"/></symbol>
+  <symbol id="i-flash" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10.5v3"/><path d="M7.5 12h4M9.5 10v4"/></symbol>
+  <symbol id="i-tripod" viewBox="0 0 24 24"><path d="M9 5h6v2H9z"/><path d="M12 7v5M12 12 5.5 20M12 12l6.5 8M9 9.5h6"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2"/><path d="M15 10l6-3v10l-6-3z"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></symbol>
+  <symbol id="i-optics" viewBox="0 0 24 24"><path d="M9 5l1 3M15 5l-1 3"/><rect x="4" y="8" width="6" height="11" rx="3"/><rect x="14" y="8" width="6" height="11" rx="3"/><path d="M10 12.5h4"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6.5a4 4 0 0 1 8 0V8"/><path d="M3 13h18"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><rect x="1.5" y="6" width="12" height="9" rx="1.2"/><path d="M13.5 9h3.6l3 3v3h-6.6z"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5"/><path d="M5 9.5v8M9.5 9.5v8M14.5 9.5v8M19 9.5v8"/><path d="M3.5 20.5h17"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 11.5V4h7.5l9.5 9.5-7.5 7.5L3 11.5z"/><circle cx="7.5" cy="7.5" r="1.4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 16.5h7"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5.5 9v6M18.5 9v6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2 3h3l2.4 12h11l2-8H6"/><circle cx="9" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5 5l1.5-2 4 1.5v3c0 1.1-.9 2-2 2A16 16 0 0 1 4.5 5c0-1.1.9-2 2-2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9l1-4h14l1 4a2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0z"/><path d="M5 11v9h14v-9"/><path d="M9.5 20v-5h5v5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h6v16H6a2 2 0 0 0-2 2z"/><path d="M20 5a2 2 0 0 0-2-2h-6v16h6a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="5" rx="1"/><path d="M5 13v8h14v-8M12 8v13"/><path d="M12 8S10 3 7.5 4.5 12 8 12 8zM12 8s2-5 4.5-3.5S12 8 12 8z"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8.5V7h2M17 8.5V7h-2M7 15.5V17h2M17 15.5V17h-2"/><path d="M7 12h10"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.5 21 19.5H3z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.4" r="0.7" fill="currentColor" stroke="none"/></symbol>
+</svg>
+<script>function icon(id,cls){return '<svg class="ico '+(cls||'')+'"><use href="#'+id+'"/></svg>';}</script>
+
+<!-- ===================== Utility bar ===================== -->
+<div class="utilbar">
+  <div class="wrap">
+    <div class="left">
+      <a href="#">B2B, Gov, Students &amp; More ▾</a>
+      <a href="#"><svg class="ico"><use href="#i-book"/></svg> News, Tips &amp; Reviews</a>
+      <a href="#"><svg class="ico"><use href="#i-gift"/></svg> B&amp;H Gift Cards</a>
+    </div>
+    <div class="center">The Professional's Source Since 1973</div>
+    <div class="right"><a href="#">About Us</a><a href="#">Help</a><a href="#">Live Chat</a></div>
+  </div>
+</div>
+
+<!-- ===================== Masthead ===================== -->
+<header class="masthead">
+  <div class="wrap">
+    <button class="hamburger" aria-label="Menu">☰</button>
+    <div class="logo"><b>B&amp;H</b><span>PHOTO·VIDEO</span></div>
+    <div class="experts">
+      <svg class="ico"><use href="#i-phone"/></svg>
+      <div><small>Ask Our Experts</small><b>800-606-6969</b></div>
+    </div>
+    <div class="searchbar">
+      <input type="text" placeholder="Search B&amp;H">
+      <button><svg class="ico"><use href="#i-search"/></svg></button>
+    </div>
+    <div class="head-actions">
+      <div class="item desktop-only deal"><svg class="ico"><use href="#i-scan"/></svg><b>Deal Zone</b><span class="timer">10:39:23</span></div>
+      <div class="item"><svg class="ico"><use href="#i-user"/></svg><span class="lbltxt"><b>Log In</b>Account</span></div>
+      <div class="item"><svg class="ico"><use href="#i-cart"/></svg><span class="lbltxt"><b>Cart</b></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== Green nav ===================== -->
+<nav class="nav desktop-only">
+  <div class="wrap">
+    <a href="#">Photography</a><a href="#">Computers</a><a href="#">Pro Video</a>
+    <a href="#">Lighting</a><a href="#">Pro Audio</a><a href="#">Drones</a>
+    <a href="#">Camcorders</a><a href="#">TVs &amp; Entertainment</a><a href="#">Audio-Visual</a>
+    <a href="#">Optics</a><a href="#">Surveillance</a>
+    <a href="#" class="muted">Used</a><a href="#" class="muted">Specials</a>
+  </div>
+</nav>
+<div class="shipstrip">
+  <div class="wrap">
+    <span>Free Next Day Shipping* to <a href="#">Union City</a> Order by 6pm ET, get it tomorrow. ▾</span>
+    <span>NYC SuperStore Pickup <a href="#">Within 30 Minutes</a></span>
+  </div>
+</div>
+
+<!-- ===================== Page intro (shared) ===================== -->
+<div class="wrap">
+  <div class="breadcrumb"><a href="#">Home</a> › <a href="#">Used Department</a> › <a href="#" onclick="showLanding();return false;">Sell Used</a></div>
+  <h1 class="page-title">Sell Your Used Items</h1>
+  <div class="stepper">
+    <div class="step active" id="step0"><span class="dot"><svg class="ico"><use href="#i-cam"/></svg></span><span class="lbl">Add Items</span></div>
+    <div class="step-line"></div>
+    <div class="step" id="step1"><span class="dot"><svg class="ico"><use href="#i-doc"/></svg></span><span class="lbl">Create Quote</span></div>
+    <div class="step-line"></div>
+    <div class="step" id="step2"><span class="dot"><svg class="ico"><use href="#i-box"/></svg></span><span class="lbl">Pack &amp; Ship</span></div>
+    <div class="step-line"></div>
+    <div class="step" id="step3"><span class="dot"><svg class="ico"><use href="#i-cash"/></svg></span><span class="lbl">Get Paid</span></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VIEW: LANDING
+     ============================================================ -->
+<div id="view-landing">
+  <section class="hero">
+    <div class="wrap">
+      <h2>What would you like to sell today?</h2>
+      <div class="searchwrap">
+        <div class="bigsearch">
+          <span class="mag"><svg class="ico"><use href="#i-search"/></svg></span>
+          <input id="search" type="text" placeholder="Enter make, model, or category of item" autocomplete="off">
+          <button class="clear" id="clearBtn" aria-label="Clear">✕</button>
+        </div>
+        <div class="typeahead" id="typeahead"></div>
+        <div class="search-msg" id="searchMsg">
+          <svg class="ico"><use href="#i-warn"/></svg>
+          <span>We do not currently purchase this item. <a href="#" onclick="openExclusionPolicy();return false;">See our exclusion policy</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="badges">
+    <div class="wrap"><div class="grid">
+      <div class="badge"><svg class="ico"><use href="#i-truck"/></svg><div><b>Free FedEx Shipping</b><p>Pre-paid shipping labels sent directly to you.</p></div></div>
+      <div class="badge"><svg class="ico"><use href="#i-shield"/></svg><div><b>Fully Insured</b><p>Your items are safe and secure when sending them in.</p></div></div>
+      <div class="badge"><svg class="ico"><use href="#i-bank"/></svg><div><b>50+ Years in Business</b><p>Over 400,000 pieces of used gear bought.</p></div></div>
+      <div class="badge"><svg class="ico"><use href="#i-tag"/></svg><div><b>Tax-Free Trade-In</b><p>Take your used items further with our Trade-In offers.</p></div></div>
+    </div></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h3>Get more from your gear with Trade-In Bonuses</h3>
+      <p class="sub">Check back often! We regularly offer new trade in promotions.</p>
+      <div class="promos">
+        <div class="promo"><div class="top sony">SONY Spring Trade-In</div><div class="bot"><b>Up to $1,700 in Savings</b><small>Any working lens or digital camera body</small><span class="cta">Shop Now ›</span></div></div>
+        <div class="promo"><div class="top nikon">Nikon</div><div class="bot"><b>Save Up to $4800</b><small>on cameras, lenses &amp; more</small><span class="cta">Shop Now ›</span></div></div>
+        <div class="promo"><div class="top canon">Canon EOS R1 Trade-In</div><div class="bot"><b>EOS R1 $800 Trade-In</b><small>Trade in for $800 toward a new Mirrorless Camera</small><span class="cta">Learn How ›</span></div></div>
+      </div>
+    </div>
+  </section>
+  <hr class="hr">
+  <section class="section">
+    <div class="wrap">
+      <h3>Items We Purchase</h3>
+      <div class="cats" style="margin-top:18px">
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-cam"/></svg></div><span>Digital Cameras</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-lens"/></svg></div><span>Lenses</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-film"/></svg></div><span>Film Cameras</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-flash"/></svg></div><span>Flashes &amp; Lighting</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-battery"/></svg></div><span>Batteries &amp; Power</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-tripod"/></svg></div><span>Tripods &amp; Support</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-video"/></svg></div><span>Pro Video Equipment</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-mic"/></svg></div><span>Pro Audio Equipment</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-optics"/></svg></div><span>Optics</span></div>
+        <div class="cat"><div class="circle"><svg class="ico"><use href="#i-bag"/></svg></div><span>Bags &amp; Cases</span></div>
+      </div>
+      <div class="excl"><a href="#" id="exclToggle" onclick="toggleExcl();return false;">Exclusions policy <span id="exclChev">▾</span></a></div>
+      <div class="excl-panel" id="exclPanel" style="display:none">
+        <p class="et">We do not currently purchase these used items:</p>
+        <div class="excl-list">
+          <div>8- or 16mm cameras</div><div>Computers</div><div>Televisions</div>
+          <div>Monitors</div><div>Surveillance Equipment</div><div>Printers</div>
+          <div>Scanners</div><div>Drones</div><div>Mobile Devices</div>
+        </div>
+        <p class="excl-note">If you have non-photographic electronic equipment to sell, please feel free to inquire with us on our purchasing policy.</p>
+      </div>
+    </div>
+  </section>
+  <hr class="hr">
+  <section class="section">
+    <div class="wrap">
+      <h3>Other Ways to Sell</h3>
+      <div class="ways" style="margin-top:18px">
+        <div class="way"><b><svg class="ico"><use href="#i-doc"/></svg> Quote Form</b><p>Fill out a <a href="#">Custom Online Quote Form</a> for any of your items that are not listed.</p></div>
+        <div class="way"><b><svg class="ico"><use href="#i-phone"/></svg> Call</b><p>Call our Used Department at (800) 606-6969 Option 2 to receive a quote by phone.</p></div>
+        <div class="way"><b><svg class="ico"><use href="#i-mail"/></svg> Email</b><p><a href="#">Email us</a> a description of what you would like to sell.</p></div>
+        <div class="way"><b><svg class="ico"><use href="#i-store"/></svg> In-Store</b><p>Stop by our NYC SuperStore's trade-in counter at <a href="#">366 W. 34th Street</a>.</p></div>
+      </div>
+    </div>
+  </section>
+</div><!-- /view-landing -->
+
+<!-- ============================================================
+     VIEW: ITEM CONDITION + ACCESSORIES
+     ============================================================ -->
+<div id="view-condition" style="display:none">
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="cond-grid">
+        <div class="panel cond-main">
+          <div class="cond-head">
+            <div class="cond-thumb" id="condThumb"></div>
+            <h2 id="condName">Product</h2>
+          </div>
+          <div class="cond-body">
+            <h3>Item Condition</h3>
+            <p class="hint">Unsure? An expert will inspect your gear and give the most accurate assessment.</p>
+            <div id="condOptions"></div>
+
+            <div class="acc-head" id="accHead" style="display:none">
+              <h3>Add Accessories</h3>
+              <button class="selall" id="selAll">Select All</button>
+            </div>
+            <div class="acc-grid" id="accGrid"></div>
+
+            <div class="cond-actions">
+              <button class="btn ghost" onclick="cancelCondition()">Cancel</button>
+              <button class="btn solid" id="addBtn" disabled>Add to Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="cond-aside">
+          <div class="est">
+            <div class="lbl">Estimated Quote</div>
+            <div class="total empty" id="estTotal">$—</div>
+            <div class="ehint" id="estHint">Select condition to get quote price</div>
+            <div class="rows">
+              <div><span id="estCondLabel">Condition</span><span id="estCondVal">$—</span></div>
+              <div><span>Accessories <span id="estAccCount"></span></span><span id="estAccVal">$—</span></div>
+            </div>
+          </div>
+          <div class="cartlink"><a href="#">Items in Cart (0)</a></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- mobile sticky action bar -->
+  <div class="mobilebar">
+    <div class="mb-est">
+      <div class="lbl">Estimated Quote</div>
+      <div class="mb-total empty" id="mbTotal">$—</div>
+    </div>
+    <button class="btn ghost" onclick="cancelCondition()">Cancel</button>
+    <button class="btn solid" id="mbAddBtn" disabled>Add to Quote</button>
+  </div>
+</div><!-- /view-condition -->
+
+<!-- ============================================================
+     VIEW: QUOTE SUMMARY
+     ============================================================ -->
+<div id="view-summary" style="display:none">
+  <section class="hero"><div class="wrap"><h2>What would you like to sell today?</h2></div></section>
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="sum-grid">
+        <div class="panel sum-main">
+          <h3>Your Items</h3>
+          <div id="itemList"></div>
+          <div class="add-wrap" id="addWrap">
+            <button class="add-item-btn" id="addItemBtn">＋ Add Item</button>
+            <div class="add-inline" id="addInline" style="display:none">
+              <div class="bigsearch inline">
+                <span class="mag"><svg class="ico"><use href="#i-search"/></svg></span>
+                <input id="addSearch" type="text" placeholder="Enter make, model, or category of item" autocomplete="off">
+                <button class="clear" id="addClear" aria-label="Clear">✕</button>
+              </div>
+              <div class="typeahead" id="addTypeahead"></div>
+              <div class="search-msg" id="addMsg">
+                <svg class="ico"><use href="#i-warn"/></svg>
+                <span>We do not currently purchase this item. <a href="#" onclick="openExclusionPolicy();return false;">See our exclusion policy</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside>
+          <div class="qsum">
+            <h3>Quote Summary</h3>
+            <div class="qrow"><span>Items:</span><span id="sumItems">$0.00</span></div>
+            <div class="qrow"><span>Accessories:</span><span id="sumAcc">$0.00</span></div>
+            <div class="qtot"><span>Quote Total</span><span id="sumTotal">$0.00</span></div>
+            <div class="fine">Quotes are valid 14 days after submission. Prices are estimates. Final price confirmed after inspection.</div>
+            <div class="login">Have a B&amp;H Account? <a href="#">Log In</a></div>
+            <button class="btn solid block" onclick="createQuote()">Create Free Quote</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div><!-- /view-summary -->
+
+<!-- ============================================================
+     VIEW: SHIPPING / CONTACT INFORMATION
+     ============================================================ -->
+<div id="view-shipping" style="display:none">
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="panel formcard">
+        <h3>Shipping Information</h3>
+        <div class="field">
+          <label>Country</label>
+          <select id="f-country"><option>United States</option><option>Canada</option></select>
+        </div>
+        <div class="row2">
+          <div class="field"><input id="f-first" type="text" placeholder="First Name"></div>
+          <div class="field" style="display:flex;align-items:flex-end;gap:12px">
+            <input id="f-last" type="text" placeholder="Last Name">
+            <a href="#" class="inline-link" style="white-space:nowrap;padding-bottom:12px">Add Company Name</a>
+          </div>
+        </div>
+        <div class="field"><input id="f-addr1" type="text" placeholder="Address 1"></div>
+        <div class="field"><input id="f-addr2" type="text" placeholder="Address 2"><div class="help">Apartment, Suite, Unit, Floor (Optional)</div></div>
+        <div class="field"><input id="f-zip" type="text" placeholder="Zip Code"></div>
+        <div class="row-city">
+          <div class="field"><input id="f-city" type="text" placeholder="City"></div>
+          <div class="field"><select id="f-state"><option value="">State</option><option>NY</option><option>NJ</option><option>CA</option><option>TX</option></select></div>
+        </div>
+        <div class="field" style="max-width:340px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <input id="f-phone" type="text" placeholder="Phone"><a href="#" class="inline-link">Add Ext</a>
+          </div>
+          <div class="help">In case questions arise</div>
+        </div>
+        <div class="form-actions">
+          <button class="btn solid" onclick="submitShipping()">Review Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VIEW: PAYMENT INFORMATION
+     ============================================================ -->
+<div id="view-payment" style="display:none">
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="panel pay-card">
+        <h3>Payment Information</h3>
+        <label class="pay-opt"><input type="radio" name="pay" value="B&amp;H Trade In Credit">
+          <div><b>B&amp;H Trade In Credit</b><span>Tax-free toward future phone or store orders only</span></div></label>
+        <label class="pay-opt"><input type="radio" name="pay" value="B&amp;H Electronic Gift Card">
+          <div><b>B&amp;H Electronic Gift Card</b><span>Applicable towards future orders by phone, in-store, or online</span></div></label>
+        <label class="pay-opt"><input type="radio" name="pay" value="Check">
+          <div><b>Check</b><span>Will be addressed to name on shipping address</span></div></label>
+        <div class="form-actions">
+          <button class="btn solid" id="payContinue" disabled onclick="submitPayment()">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VIEW: REVIEW QUOTE
+     ============================================================ -->
+<div id="view-review" style="display:none">
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="review-card">
+        <div class="review-block">
+          <div class="rb-head"><h3>Shipping Address</h3><button class="smallbtn" onclick="goShipping()">Edit</button></div>
+          <div class="addr" id="rev-addr"></div>
+        </div>
+        <div class="review-block">
+          <div class="rb-head"><h3>Payment Information</h3><button class="smallbtn" onclick="goPayment()">Change</button></div>
+          <div id="rev-pay" class="addr"></div>
+        </div>
+        <div class="review-block">
+          <div class="rb-head"><h3>Items</h3><button class="smallbtn" onclick="showSummary()">Edit</button></div>
+          <div id="rev-items"></div>
+          <div class="rev-total"><span>Quote Total:</span><span id="rev-total"></span></div>
+          <div class="rev-fine">This is a preliminary estimate for your equipment. We assume that the merchandise is in working order, and is supplied accurately with manufacturer accessories. A conclusive trade-in price for any item can only be set after examination by one of our technicians.</div>
+        </div>
+        <div class="rev-submit"><button class="btn solid" onclick="submitQuote()">Submit Free Quote</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VIEW: QUOTE CONFIRMED
+     ============================================================ -->
+<div id="view-confirmed" style="display:none">
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="confirm-card">
+        <div class="tick"><svg class="ico" style="width:34px;height:34px"><use href="#i-check"/></svg> Quote Confirmed!</div>
+        <div class="qbox"><b>Quote #<span id="quoteNum"></span></b><div>Valid until <span id="quoteValid"></span></div></div>
+        <div class="confirm-sent">A confirmation email with pre-paid shipping label and quote has been sent to <b id="quoteEmail"></b>.</div>
+
+        <h3>Next Steps</h3>
+        <p style="color:var(--ink-soft);font-size:14px;margin:0">If you have questions, see our <a href="#">FAQ</a> or call the Used Department at 888-520-3010.</p>
+        <ol class="steps-list">
+          <li><span class="num">1</span><div class="st"><b>Print Pre-Paid Shipping Label and Quote</b><p>Shipping label and quote will also be emailed to you.</p>
+            <div class="row"><button class="btn solid" onclick="window.print()">Print</button><button class="btn ghost">⤓ Download PDF</button></div></div></li>
+          <li><span class="num">2</span><div class="st"><b>Protect &amp; Pack Items</b><p>Wrap your items in protective wrapping and place in appropriately sized box. Please include a copy of your quote.</p></div></li>
+          <li><span class="num">3</span><div class="st"><b>Confirm Items</b><p>Double check to make sure all items are included in your box.</p></div></li>
+          <li><span class="num">4</span><div class="st"><b>Ship Your Package</b><p>Take your boxed gear with label attached to a <a href="#">FedEx drop off location</a>. You'll be given a receipt with your tracking reference number.</p></div></li>
+          <li><span class="num">5</span><div class="st"><b>Wait for Email Updates</b><p>We'll send emails to update you on the progress of your sale items. If there is any change to the final assessed condition, an associate will reach out to discuss. You can accept the revised amount or decline and have items shipped back at no cost.</p></div></li>
+        </ol>
+        <div style="text-align:center;margin-top:20px"><a href="#" onclick="resetFlow();return false;">Start a new quote</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     VIEW: CUSTOM QUOTE REQUEST  (desktop page / mobile sheet)
+     ============================================================ -->
+<div id="view-custom" style="display:none">
+  <div class="cond-bg">
+    <div class="wrap">
+      <div class="cond-grid">
+        <div class="panel cond-main">
+          <div class="cond-head"><h2>Custom Quote Request</h2></div>
+          <div class="cond-body">
+            <h3 style="margin-top:0">Briefly describe your item</h3>
+            <div class="row2">
+              <div class="field"><input id="cq-brand" type="text" placeholder="Brand"></div>
+              <div class="field"><input id="cq-model" type="text" placeholder="Model"></div>
+            </div>
+            <div class="field"><textarea id="cq-desc" rows="4" placeholder="Don't forget the accessories! They boost your gear's value (Optional)" style="width:100%;border:1px solid #c4c4c4;border-radius:5px;padding:12px;font-size:15px;outline:none;resize:vertical;font-family:inherit"></textarea></div>
+
+            <h3 style="margin-top:22px">Item Condition</h3>
+            <p class="hint">Unsure? An expert will inspect your gear and give the most accurate assessment.</p>
+            <div id="cqOptions"></div>
+
+            <div class="cond-actions">
+              <button class="btn ghost" onclick="cancelCustom()">Cancel</button>
+              <button class="btn solid" id="cqAddBtn" disabled>Add to Quote</button>
+            </div>
+          </div>
+        </div>
+        <aside class="cond-aside">
+          <div class="est">
+            <div class="lbl">Estimated Quote</div>
+            <div class="total" style="font-size:30px">TBD</div>
+            <div class="ehint" style="margin-top:12px">We will have to manually review this product in order to give you an accurate quote. A buyer will reach out to you for more information.</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <div class="mobilebar">
+    <div class="mb-est"><div class="lbl">Estimated Quote</div><div class="mb-total">TBD</div></div>
+    <button class="btn ghost" onclick="cancelCustom()">Cancel</button>
+    <button class="btn solid" id="cqMbAddBtn" disabled>Add to Quote</button>
+  </div>
+</div><!-- /view-custom -->
+
+<footer class="site">© 1973–2026 B&amp;H Foto &amp; Electronics Corp. — Prototype for the Sell Used user flow.</footer>
+
+<script>
+/* ============================================================
+   SEARCH MODULE — swappable data source
+   Toggle SEARCH_CONFIG.source: 'local' (demo list) | 'solr'.
+   ============================================================ */
+const SEARCH_CONFIG = {
+  source: 'local',
+  minChars: 2,
+  maxResults: 8,
+  fuzzy: true,            // tolerate typos in local mode (Soony -> Sony)
+  solr: {
+    baseUrl: 'https://YOUR-SOLR-HOST/solr/used_catalog/select',
+    queryField: 'name', labelField: 'name', idField: 'id',
+    mapDoc: (doc) => ({ id: doc.id, name: doc.name, purchased: doc.purchased !== false })
+  }
+};
+
+const LOCAL_CATALOG = [
+  { id:'sony-a7cr',    name:'Sony a7CR',                                  purchased:true },
+  { id:'sony-a7r4',    name:'Sony a7R IV',                                purchased:true },
+  { id:'sony-a7-4',    name:'Sony a7 IV Mirrorless Camera',               purchased:true },
+  { id:'sony-a7r5',    name:'Sony a7R V',                                 purchased:true },
+  { id:'sony-a7-5',    name:'Sony a7 V',                                  purchased:true },
+  { id:'sony-a7s3',    name:'Sony a7S III',                               purchased:true },
+  { id:'sony-a7c3',    name:'Sony a7C III',                               purchased:true },
+  { id:'sony-a7-3',    name:'Sony a7 III',                                purchased:true },
+  { id:'godox-v1',     name:'Godox V1 Flash for Sony',                    purchased:true },
+  { id:'sigma-1850-e', name:'Sigma 18-50mm f/2.8 DC DN Lens for Sony E',  purchased:true },
+  { id:'canon-eos-r1', name:'Canon EOS R1',                               purchased:true },
+  { id:'nikon-z8',     name:'Nikon Z8',                                   purchased:true },
+  { id:'gopro-h5',     name:'GoPro HERO5 Black',                          purchased:false },
+  { id:'apple-ipad9',  name:'Apple iPad 9th Gen',                         purchased:false }
+];
+
+/* ---- Synonyms / aliases: typed term -> canonical word(s) in catalog names.
+   Maintain this list as needed; the same map can feed a SOLR synonyms file later. */
+const SYNONYMS = {
+  fuji:'fujifilm', fujix:'fujifilm',
+  alpha:'sony', sony_alpha:'sony',
+  speedlight:'flash', speedlite:'flash', strobe:'flash',
+  cam:'camera', body:'camera',
+  a7iv:'a7 iv', a74:'a7 iv', a7m4:'a7 iv',
+  glass:'lens', zoom:'lens'
+};
+
+/* ---- Fuzzy matching (typo tolerance), dependency-free ---- */
+function levenshtein(a,b){
+  const m=a.length,n=b.length; if(!m)return n; if(!n)return m;
+  let prev=Array.from({length:n+1},(_,i)=>i);
+  for(let i=1;i<=m;i++){ const cur=[i];
+    for(let j=1;j<=n;j++){ const cost=a[i-1]===b[j-1]?0:1;
+      cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+cost); }
+    prev=cur; }
+  return prev[n];
+}
+function fuzzyTol(len){ return len<=3?0:(len<=6?1:2); }   // longer word -> more slack
+function wordMatches(qw,pw){
+  if(pw.includes(qw)) return true;                         // substring / prefix
+  if(!SEARCH_CONFIG.fuzzy) return false;
+  const tol=fuzzyTol(qw.length); if(!tol) return false;
+  if(levenshtein(qw,pw)<=tol) return true;                 // full-word typo
+  if(pw.length>qw.length && levenshtein(qw,pw.slice(0,qw.length))<=tol) return true; // prefix typo
+  return false;
+}
+function searchLocal(query){
+  const raw=query.trim().toLowerCase();
+  const words=raw.split(/\s+/).filter(Boolean);
+  // each typed word -> itself plus any synonym expansion words
+  const groups=words.map(w=>{ const v=[w];
+    if(SYNONYMS[w]) SYNONYMS[w].split(/\s+/).forEach(x=>v.push(x)); return v; });
+  return LOCAL_CATALOG.map(p=>{
+    const name=p.name.toLowerCase();
+    const pwords=name.split(/[\s\-\/(),.]+/).filter(Boolean);
+    // every typed group must match (any variant) somewhere in the product
+    const ok=groups.every(variants=>variants.some(v=>name.includes(v)||pwords.some(pw=>wordMatches(v,pw))));
+    if(!ok) return null;
+    return { p, score:name.includes(raw)?0:1 };            // exact substring ranks first
+  }).filter(Boolean).sort((a,b)=>a.score-b.score).map(x=>x.p).slice(0,SEARCH_CONFIG.maxResults);
+}
+
+async function searchProducts(query){
+  const q = query.trim().toLowerCase();
+  if(q.length < SEARCH_CONFIG.minChars) return [];
+  if(SEARCH_CONFIG.source === 'solr'){
+    const c = SEARCH_CONFIG.solr;
+    const url = `${c.baseUrl}?q=${encodeURIComponent(c.queryField+':*'+query+'*')}&rows=${SEARCH_CONFIG.maxResults}&wt=json`;
+    try{ const res = await fetch(url); const data = await res.json();
+      return (data.response?.docs || []).map(c.mapDoc);
+    }catch(err){ console.warn('SOLR fetch failed:', err); return []; }
+  }
+  return searchLocal(query);
+}
+
+/* ============================================================
+   PRODUCT PRICING DATA  (per-condition values + accessories)
+   ============================================================ */
+const PRODUCTS = {
+  'sony-a7-4':{ name:'Sony a7 IV Mirrorless Camera', icon:'i-cam',
+    conditions:{ rough:540, fair:700, good:880, veryGood:990, excellent:1078 },
+    accessories:[
+      {name:'AC Adapter and Power Cord', price:29},
+      {name:'ALC-B1EM Body Cap for E-Mount Cameras', price:2},
+      {name:'NP-FZ100 Rechargeable Lithium-Ion Battery (2280mAh)', price:65},
+      {name:'Shoulder Strap', price:10},
+      {name:'Accessory Shoe Cap', price:7},
+      {name:'Eyepiece Cup', price:18},
+      {name:'USB Type-C to Type-A Cable', price:1}
+    ]},
+  'godox-v1':{ name:'Godox V1 Flash for Sony', icon:'i-flash',
+    conditions:{ rough:60, fair:85, good:105, veryGood:118, excellent:127 },
+    accessories:[
+      {name:'Rechargeable Lithium-Ion Battery', price:15.95},
+      {name:'Battery Charger', price:20},
+      {name:'USB Charger and Cable', price:1},
+      {name:'Godox Mini Stand For Camera Flash', price:5}
+    ]},
+  'sigma-1850-e':{ name:'Sigma 18-50mm f/2.8 DC DN Lens for Sony E', icon:'i-lens',
+    conditions:{ rough:90, fair:120, good:150, veryGood:165, excellent:178.95 },
+    accessories:[
+      {name:'Front Lens Cap', price:3},
+      {name:'Rear Lens Cap', price:3},
+      {name:'Lens Hood', price:9}
+    ]}
+};
+const ICON_BY_KEYWORD = [[/lens|sigma/i,'i-lens'],[/flash|godox/i,'i-flash'],[/camera|sony|canon|nikon|a7/i,'i-cam']];
+function guessIcon(name){ for(const[re,ic]of ICON_BY_KEYWORD) if(re.test(name)) return ic; return 'i-cam'; }
+
+// Default accessory set used for any product without explicit data,
+// so the Accessories options always appear at the bottom of the page.
+const DEFAULT_ACCESSORIES=[
+  {name:'Rechargeable Battery', price:40},
+  {name:'Battery Charger', price:20},
+  {name:'Body / Lens Cap', price:5},
+  {name:'Strap', price:10},
+  {name:'USB Charging Cable', price:5},
+  {name:'Original Box & Manual', price:15}
+];
+function getProduct(id,name){
+  if(PRODUCTS[id]) return Object.assign({id},PRODUCTS[id]);
+  const base=500; // generic fallback pricing
+  return { id, name, icon:guessIcon(name||''),
+    conditions:{ rough:base*0.5, fair:base*0.65, good:base*0.82, veryGood:base*0.92, excellent:base },
+    accessories:DEFAULT_ACCESSORIES.slice() };
+}
+
+const CONDITIONS = [
+  ['rough','Rough','Shows considerable wear, finishing loss, and above-average signs of hard use'],
+  ['fair','Fair','Well used with visible cosmetic flaws, scuffs, and marks'],
+  ['good','Good','Shows moderate wear consistent with regular use'],
+  ['veryGood','Very Good','Gently used, minimal signs of wear'],
+  ['excellent','Excellent','Like-new, no visible signs of wear']
+];
+
+/* ============================================================
+   TYPEAHEAD UI
+   ============================================================ */
+const input=document.getElementById('search');
+const dropdown=document.getElementById('typeahead');
+const clearBtn=document.getElementById('clearBtn');
+let activeIndex=-1, currentResults=[];
+
+function highlight(name,q){ const i=name.toLowerCase().indexOf(q.toLowerCase());
+  return i<0?name:name.slice(0,i)+'<mark>'+name.slice(i,i+q.length)+'</mark>'+name.slice(i+q.length); }
+
+/* categories / keywords we do NOT purchase -> trigger the inline message */
+const EXCLUDED_KEYWORDS=['8mm','16mm','computer','laptop','desktop','television','televisions',
+  'monitor','surveillance','printer','scanner','drone','mobile','phone','ipad','tablet','cell','gopro'];
+function isExcluded(q){ const s=q.trim().toLowerCase(); if(s.length<4) return false;
+  const words=s.split(/\s+/);
+  // Excluded when the query is a prefix of an excluded word ("scan" -> "scanner"),
+  // or a whole query word equals an excluded word or its plural ("printers", "drones").
+  // It is NOT enough to be a substring inside a keyword, so "can" never hits "scanner",
+  // and "microphone" never hits "phone".
+  return EXCLUDED_KEYWORDS.some(k=> k.startsWith(s) || words.some(w=> w===k || w===k+'s')); }
+
+const searchMsg=document.getElementById('searchMsg');
+async function runSearch(){
+  const q=input.value; clearBtn.style.display=q?'block':'none'; searchMsg.classList.remove('show');
+  if(q.trim().length<SEARCH_CONFIG.minChars){ closeDropdown(); return; }
+  if(isExcluded(q)){ closeDropdown(); searchMsg.classList.add('show'); return; }
+  currentResults=await searchProducts(q); activeIndex=-1; renderDropdown(q);
+}
+function renderDropdown(q){
+  let html = currentResults.length
+    ? currentResults.map((p,i)=>`<div class="ta-item" data-i="${i}"><span class="name">${highlight(p.name,q)}</span>${p.purchased?'':'<span class="tag">Not purchased</span>'}</div>`).join('')
+    : `<div class="ta-empty">No matching products found.</div>`;
+  html += `<div class="ta-foot">Can't find what you're looking for? <a href="#" id="customQuote">Request a custom quote</a></div>`;
+  dropdown.innerHTML=html; dropdown.classList.add('open');
+  dropdown.querySelectorAll('.ta-item').forEach(el=>el.addEventListener('click',()=>selectProduct(currentResults[+el.dataset.i])));
+  document.getElementById('customQuote').addEventListener('click',e=>{e.preventDefault();requestCustomQuote();});
+}
+function closeDropdown(){ dropdown.classList.remove('open'); activeIndex=-1; }
+
+function selectProduct(p){
+  closeDropdown();
+  if(p.purchased){ input.value=p.name; clearBtn.style.display='block'; openCondition(p.id,p.name); }
+  else { input.value=p.name; clearBtn.style.display='block'; searchMsg.classList.add('show'); }
+}
+function requestCustomQuote(){ closeDropdown(); openCustom(); }
+
+/* Exclusion policy panel (Items We Purchase) */
+function toggleExcl(){
+  const panel=document.getElementById('exclPanel'), chev=document.getElementById('exclChev');
+  const open=panel.style.display!=='none';
+  panel.style.display=open?'none':'block'; chev.textContent=open?'▾':'▴';
+}
+function openExclusionPolicy(){
+  showLanding();
+  const panel=document.getElementById('exclPanel');
+  panel.style.display='block'; document.getElementById('exclChev').textContent='▴';
+  setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'center'}),60);
+}
+
+input.addEventListener('input',runSearch);
+input.addEventListener('keydown',e=>{
+  const items=dropdown.querySelectorAll('.ta-item');
+  if(e.key==='ArrowDown'){e.preventDefault();activeIndex=Math.min(activeIndex+1,items.length-1);paintActive(items);}
+  else if(e.key==='ArrowUp'){e.preventDefault();activeIndex=Math.max(activeIndex-1,0);paintActive(items);}
+  else if(e.key==='Enter'){
+    if(activeIndex>=0&&currentResults[activeIndex])selectProduct(currentResults[activeIndex]);
+    else if(input.value.trim().length>=SEARCH_CONFIG.minChars&&currentResults.length===0)requestCustomQuote();
+  } else if(e.key==='Escape'){closeDropdown();}
+});
+function paintActive(items){ items.forEach((el,i)=>el.classList.toggle('hl',i===activeIndex));
+  if(items[activeIndex])items[activeIndex].scrollIntoView({block:'nearest'}); }
+clearBtn.addEventListener('click',()=>{input.value='';clearBtn.style.display='none';closeDropdown();searchMsg.classList.remove('show');input.focus();});
+document.addEventListener('click',e=>{ if(!e.target.closest('.searchwrap'))closeDropdown(); });
+
+/* ============================================================
+   STATE + NAVIGATION
+   ============================================================ */
+let cur=null;                 // product on the condition screen
+let selCond=null;             // selected condition key
+let checked=new Set();        // checked accessory indices
+let editIndex=null;           // index in cart being edited (null = new item)
+let cart=[];                  // line items added to the quote
+
+const fmt=n=>'$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const VIEWS=['view-landing','view-condition','view-summary','view-shipping','view-payment','view-review','view-confirmed','view-custom'];
+/* which stepper dots are active per view: [Add Items, Create Quote, Pack & Ship, Get Paid] */
+const VIEW_STEPS={
+  'view-landing':[0],'view-condition':[0],'view-summary':[0],'view-custom':[0],
+  'view-shipping':[0,1],'view-payment':[0,1],'view-review':[0,1],
+  'view-confirmed':[0,1,2]
+};
+function setSteps(active){
+  [0,1,2,3].forEach(i=>{ const el=document.getElementById('step'+i);
+    el.classList.toggle('active',active.includes(i)); });
+}
+function show(view){
+  VIEWS.forEach(v=>document.getElementById(v).style.display='none');
+  document.getElementById(view).style.display='block';
+  setSteps(VIEW_STEPS[view]||[0]);
+  window.scrollTo(0,0);
+}
+function showLanding(){ show('view-landing'); }
+
+/* ---- Condition screen ---- */
+function openCondition(id,name,edit=null){
+  editIndex=edit;
+  if(edit!==null){ // editing an existing line item -> restore its product + selections
+    const li=cart[edit];
+    cur=getProduct(li.id,li.name);
+    selCond=li.cond;
+    checked=new Set(li.accIdx);
+  } else {
+    cur=getProduct(id,name); selCond=null; checked=new Set();
+  }
+
+  document.getElementById('condThumb').innerHTML=`<svg class="ico"><use href="#${cur.icon}"/></svg>`;
+  document.getElementById('condName').textContent=cur.name;
+  document.getElementById('addBtn').textContent = edit!==null?'Save Changes':'Add to Quote';
+  document.getElementById('mbAddBtn').textContent = edit!==null?'Save':'Add to Quote';
+
+  document.getElementById('condOptions').innerHTML = CONDITIONS.map(([key,label,desc])=>`
+    <label class="opt"><input type="radio" name="cond" value="${key}" ${selCond===key?'checked':''}>
+      <div><b>${label}</b><span>${desc}</span></div></label>`).join('');
+  document.querySelectorAll('input[name=cond]').forEach(r=>r.addEventListener('change',()=>{selCond=r.value;recalc();}));
+
+  const accHead=document.getElementById('accHead'), accGrid=document.getElementById('accGrid');
+  if(cur.accessories.length){
+    accHead.style.display='flex';
+    accGrid.innerHTML=cur.accessories.map((a,i)=>`
+      <label class="acc"><input type="checkbox" data-i="${i}" ${checked.has(i)?'checked':''}>
+        <span>${a.name}</span><em>+${fmt(a.price)}</em></label>`).join('');
+    accGrid.querySelectorAll('input').forEach(c=>c.addEventListener('change',()=>{
+      const i=+c.dataset.i; c.checked?checked.add(i):checked.delete(i); syncSelAll(); recalc(); }));
+  } else { accHead.style.display='none'; accGrid.innerHTML=''; }
+  syncSelAll(); recalc();
+  show('view-condition');
+}
+function cancelCondition(){ cart.length ? showSummary() : showLanding(); }
+
+const selAllBtn=document.getElementById('selAll');
+selAllBtn.addEventListener('click',()=>{
+  const allOn=checked.size===cur.accessories.length;
+  document.querySelectorAll('#accGrid input').forEach(c=>c.checked=!allOn);
+  checked = allOn ? new Set() : new Set(cur.accessories.map((_,i)=>i));
+  syncSelAll(); recalc();
+});
+function syncSelAll(){ if(!cur||!cur.accessories.length) return;
+  selAllBtn.textContent=(checked.size===cur.accessories.length)?'Deselect All':'Select All'; }
+
+function recalc(){
+  const accVal=[...checked].reduce((s,i)=>s+cur.accessories[i].price,0);
+  const hasCond=!!selCond;
+  const condVal=hasCond?cur.conditions[selCond]:0;
+  const total=condVal+accVal;
+  const condLabel=hasCond?CONDITIONS.find(c=>c[0]===selCond)[1]:'';
+  const estTotal=document.getElementById('estTotal'), mbTotal=document.getElementById('mbTotal');
+  if(hasCond){
+    estTotal.textContent=fmt(total); estTotal.classList.remove('empty');
+    mbTotal.textContent=fmt(total);  mbTotal.classList.remove('empty');
+    document.getElementById('estHint').style.display='none';
+    document.getElementById('estCondLabel').textContent=`Condition (${condLabel})`;
+    document.getElementById('estCondVal').textContent=fmt(condVal);
+    document.getElementById('estAccCount').textContent=`(${checked.size})`;
+    document.getElementById('estAccVal').textContent=fmt(accVal);
+    document.getElementById('addBtn').disabled=false; document.getElementById('mbAddBtn').disabled=false;
+  } else {
+    estTotal.textContent='$—'; estTotal.classList.add('empty');
+    mbTotal.textContent='$—';  mbTotal.classList.add('empty');
+    document.getElementById('estHint').style.display='block';
+    document.getElementById('estCondLabel').textContent='Condition';
+    document.getElementById('estCondVal').textContent='$—';
+    document.getElementById('estAccCount').textContent='';
+    document.getElementById('estAccVal').textContent='$—';
+    document.getElementById('addBtn').disabled=true; document.getElementById('mbAddBtn').disabled=true;
+  }
+}
+
+function addToQuote(){
+  if(!selCond) return;
+  const accIdx=[...checked].sort((a,b)=>a-b);
+  const accList=accIdx.map(i=>cur.accessories[i]);
+  const accVal=accList.reduce((s,a)=>s+a.price,0);
+  const condVal=cur.conditions[selCond];
+  const li={ id:cur.id, name:cur.name, icon:cur.icon, cond:selCond,
+    condLabel:CONDITIONS.find(c=>c[0]===selCond)[1], condVal,
+    accIdx, accList, accVal, total:condVal+accVal };
+  if(editIndex!==null) cart[editIndex]=li; else cart.push(li);
+  editIndex=null;
+  showSummary();
+}
+document.getElementById('addBtn').addEventListener('click',addToQuote);
+document.getElementById('mbAddBtn').addEventListener('click',addToQuote);
+
+/* ============================================================
+   QUOTE SUMMARY
+   ============================================================ */
+function showSummary(){ closeAddInline(); renderSummary(); show('view-summary'); }
+function renderSummary(){
+  const list=document.getElementById('itemList');
+  list.innerHTML=cart.map((li,idx)=>`
+    <div class="li-row">
+      <div class="li-thumb"><svg class="ico"><use href="#${li.icon}"/></svg></div>
+      <div class="li-info">
+        <div class="li-name">${li.name}</div>
+        <div class="li-cond">Condition: ${li.condLabel}</div>
+        ${li.custom&&li.desc?`<div class="li-acc">Description: ${li.desc}</div>`:''}
+        ${li.accList.length?`<div class="li-acc">Accessories (${li.accList.length}): ${li.accList.map(a=>a.name).join(', ')}</div>`:''}
+        <div class="li-actions"><a onclick="editItem(${idx})">Edit</a><a class="del" onclick="deleteItem(${idx})">Delete</a></div>
+      </div>
+      <div class="li-price">${li.custom?'TBD':fmt(li.total)}</div>
+    </div>`).join('');
+  const items=cart.reduce((s,li)=>s+li.condVal,0);
+  const acc=cart.reduce((s,li)=>s+li.accVal,0);
+  document.getElementById('sumItems').textContent=fmt(items);
+  document.getElementById('sumAcc').textContent=fmt(acc);
+  document.getElementById('sumTotal').textContent=fmt(items+acc);
+}
+function editItem(idx){ if(cart[idx].custom) openCustom(idx); else openCondition(null,null,idx); }
+function deleteItem(idx){ cart.splice(idx,1); cart.length?showSummary():showLanding(); }
+
+/* ============================================================
+   CONTACT  ->  PAYMENT  ->  REVIEW  ->  CONFIRMED
+   ============================================================ */
+let shipping=null, payment=null;
+const SAMPLE_SHIPPING={country:'United States',first:'Mike',last:'Jones',addr1:'440 9th Ave',addr2:'Fl 9',zip:'10001',city:'New York',state:'NY',phone:'281-330-8004'};
+
+function createQuote(){ goShipping(); }     // "Create Free Quote" on summary
+
+function goShipping(){
+  const s=shipping||SAMPLE_SHIPPING;        // prefill (sample on first visit)
+  f('f-country',s.country); f('f-first',s.first); f('f-last',s.last);
+  f('f-addr1',s.addr1); f('f-addr2',s.addr2); f('f-zip',s.zip);
+  f('f-city',s.city); f('f-state',s.state); f('f-phone',s.phone);
+  show('view-shipping');
+}
+function f(id,val){ document.getElementById(id).value=val||''; }
+function submitShipping(){
+  shipping={ country:val('f-country'),first:val('f-first'),last:val('f-last'),
+    addr1:val('f-addr1'),addr2:val('f-addr2'),zip:val('f-zip'),
+    city:val('f-city'),state:val('f-state'),phone:val('f-phone') };
+  goPayment();
+}
+function val(id){ return document.getElementById(id).value.trim(); }
+
+function goPayment(){
+  document.querySelectorAll('input[name=pay]').forEach(r=>r.checked=(r.value===payment));
+  document.getElementById('payContinue').disabled=!payment;
+  show('view-payment');
+}
+document.querySelectorAll('input[name=pay]').forEach(r=>r.addEventListener('change',()=>{
+  payment=r.value; document.getElementById('payContinue').disabled=false; }));
+function submitPayment(){ if(!payment) return; goReview(); }
+
+function goReview(){
+  const s=shipping;
+  document.getElementById('rev-addr').innerHTML=
+    `${s.first} ${s.last}<br>${s.addr1}${s.addr2?'<br>'+s.addr2:''}<br>${s.city}, ${s.state} ${s.zip}<br>${s.phone}`;
+  document.getElementById('rev-pay').textContent=payment;
+  document.getElementById('rev-items').innerHTML=cart.map(li=>`
+    <div class="li-row">
+      <div class="li-thumb"><svg class="ico"><use href="#${li.icon}"/></svg></div>
+      <div class="li-info">
+        <div class="li-name">${li.name}</div>
+        <div class="li-cond">Condition: ${li.condLabel}</div>
+        ${li.custom&&li.desc?`<div class="li-acc">Description: ${li.desc}</div>`:''}
+        ${li.accList.length?`<div class="li-acc">Accessories (${li.accList.length}): ${li.accList.map(a=>a.name).join(', ')}</div>`:''}
+      </div>
+      <div class="li-price">${li.custom?'TBD':fmt(li.total)}</div>
+    </div>`).join('');
+  const total=cart.reduce((s2,li)=>s2+li.total,0);
+  document.getElementById('rev-total').textContent=fmt(total);
+  show('view-review');
+}
+
+function submitQuote(){
+  document.getElementById('quoteNum').textContent=Math.floor(10000000+Math.random()*89999999);
+  const d=new Date(); d.setDate(d.getDate()+14);
+  document.getElementById('quoteValid').textContent=d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  document.getElementById('quoteEmail').textContent=(shipping&&shipping.first?shipping.first.toLowerCase()[0]+shipping.last.toLowerCase():'jkeeler')+'@email.com';
+  show('view-confirmed');
+}
+
+function resetFlow(){ cart=[]; shipping=null; payment=null; showLanding(); }
+
+/* ============================================================
+   CUSTOM QUOTE REQUEST
+   ============================================================ */
+let cqCond=null, cqEditIndex=null;
+function openCustom(edit=null){
+  cqEditIndex=(typeof edit==='number')?edit:null;
+  const li=cqEditIndex!==null?cart[cqEditIndex]:null;
+  cqCond=li?li.cond:null;
+  // split stored "Brand Model" back into the two fields for editing
+  document.getElementById('cq-brand').value=li?(li.name.split(' ')[0]||''):'';
+  document.getElementById('cq-model').value=li?li.name.split(' ').slice(1).join(' '):'';
+  document.getElementById('cq-desc').value=li?(li.desc||''):'';
+  document.getElementById('cqOptions').innerHTML=CONDITIONS.map(([key,label,desc])=>`
+    <label class="opt"><input type="radio" name="cqcond" value="${key}" ${cqCond===key?'checked':''}>
+      <div><b>${label}</b><span>${desc}</span></div></label>`).join('');
+  document.querySelectorAll('input[name=cqcond]').forEach(r=>r.addEventListener('change',()=>{cqCond=r.value;cqValidate();}));
+  document.getElementById('cq-brand').oninput=cqValidate;
+  document.getElementById('cq-model').oninput=cqValidate;
+  document.getElementById('cqAddBtn').textContent=cqEditIndex!==null?'Save Changes':'Add to Quote';
+  document.getElementById('cqMbAddBtn').textContent=cqEditIndex!==null?'Save':'Add to Quote';
+  cqValidate();
+  show('view-custom');
+}
+function cqValidate(){
+  const ok=cqCond && val('cq-brand') && val('cq-model');
+  document.getElementById('cqAddBtn').disabled=!ok;
+  document.getElementById('cqMbAddBtn').disabled=!ok;
+}
+function cancelCustom(){ cart.length?showSummary():showLanding(); }
+function addCustomToQuote(){
+  if(!(cqCond && val('cq-brand') && val('cq-model'))) return;
+  const name=(val('cq-brand')+' '+val('cq-model')).trim();
+  const li={ id:'custom-'+Date.now(), name, icon:'i-tag', custom:true,
+    cond:cqCond, condLabel:CONDITIONS.find(c=>c[0]===cqCond)[1],
+    desc:val('cq-desc'), condVal:0, accList:[], accVal:0, total:0 };
+  if(cqEditIndex!==null) cart[cqEditIndex]=li; else cart.push(li);
+  cqEditIndex=null;
+  showSummary();
+}
+document.getElementById('cqAddBtn').addEventListener('click',addCustomToQuote);
+document.getElementById('cqMbAddBtn').addEventListener('click',addCustomToQuote);
+
+/* ---- Add Item: inline search that replaces the button (no modal) ---- */
+const addItemBtn=document.getElementById('addItemBtn');
+const addInline=document.getElementById('addInline');
+const addInput=document.getElementById('addSearch');
+const addDrop=document.getElementById('addTypeahead');
+const addClear=document.getElementById('addClear');
+const addMsg=document.getElementById('addMsg');
+let addResults=[];
+
+addItemBtn.addEventListener('click',()=>{
+  addItemBtn.style.display='none';
+  addInline.style.display='block';
+  addInput.value=''; addClear.style.display='none';
+  addDrop.classList.remove('open'); addMsg.classList.remove('show');
+  addInput.focus();
+});
+function closeAddInline(){
+  addInline.style.display='none';
+  addItemBtn.style.display='inline-flex';
+  addDrop.classList.remove('open'); addMsg.classList.remove('show');
+}
+addClear.addEventListener('click',()=>{ addInput.value=''; addClear.style.display='none'; addDrop.classList.remove('open'); addMsg.classList.remove('show'); addInput.focus(); });
+
+addInput.addEventListener('input',async()=>{
+  const q=addInput.value;
+  addClear.style.display=q?'block':'none';
+  addMsg.classList.remove('show');
+  if(q.trim().length<SEARCH_CONFIG.minChars){ addDrop.classList.remove('open'); return; }
+  if(isExcluded(q)){ addDrop.classList.remove('open'); addMsg.classList.add('show'); return; }
+  addResults=await searchProducts(q);
+  let html=addResults.length
+    ? addResults.map((p,i)=>`<div class="ta-item" data-i="${i}"><span class="name">${highlight(p.name,q)}</span>${p.purchased?'':'<span class="tag">Not purchased</span>'}</div>`).join('')
+    : `<div class="ta-empty">No matching products found.</div>`;
+  html+=`<div class="ta-foot">Can't find what you're looking for? <a href="#" id="addCustom">Request a custom quote</a></div>`;
+  addDrop.innerHTML=html; addDrop.classList.add('open');
+  addDrop.querySelectorAll('.ta-item').forEach(el=>el.addEventListener('click',()=>{
+    const p=addResults[+el.dataset.i];
+    if(p.purchased){ closeAddInline(); openCondition(p.id,p.name); }
+    else { addDrop.classList.remove('open'); addMsg.classList.add('show'); }
+  }));
+  document.getElementById('addCustom').addEventListener('click',e=>{e.preventDefault();closeAddInline();openCustom();});
+});
+addInput.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddInline(); });
+</script>
+</body>
+</html>
