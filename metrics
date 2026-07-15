@@ -1,0 +1,29 @@
+I'm putting together a list of metrics we can use to track impact (i.e. case study numbers). The first list of questions could be found via GA, and the quote numbers would be through the data team/Issac. Let me know if I am missing anything:
+Unique visitors to the trade-in landing page
+Visitors who use search or click a category
+Search-to-add-to-basket rate
+Search abandonment: searches with zero clicks, or searches followed by exit
+Entry point breakdown (organic, direct, mega menu, PDP callout)
+Time from page landing to quote submission (median)
+In the past 90 days:
+Quote quantity and quality:
+# of quotes created
+# of quotes that are part of a trade-in promotion
+# that qualify for pre-paid shipping label
+# that are Instant Quotes
+# that are Custom Quote
+Average # of items per quote and average quote dollar value
+Average # of accessories per item
+Quote revision rate
+Quote revision acceptance rate
+Condition rating distribution as submitted vs. as evaluated
+Ship and completion:
+Time from quote creation to tracking number created (or when items received)
+% of shipped quotes that arrive with wrong/missing items
+Business impact:
+Total dollar value of inventory acquired, and dollars acquired per trade-in customer 
+Payout method split (check / trade-in credit / EGC)
+Total amount in trade-in credit
+Experience:
+Medallia CSAT/NPS for the sell flow, isolated from general site scores
+% of quotes generating a support touch (phone/email/chat)
