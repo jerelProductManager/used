@@ -1042,7 +1042,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
               <div><span>Accessories <span id="estAccCount"></span></span><span id="estAccVal">$—</span></div>
             </div>
           </div>
-          <div class="cartlink"><a href="#" id="condCartLink" onclick="if(cart.length){showSummary();}return false;">Items in Cart (0)</a></div>
+          <div class="cartlink"><a href="#">Items in Cart (0)</a></div>
         </aside>
       </div>
     </div>
@@ -1643,8 +1643,6 @@ function openCondition(id,name,edit=null){
   document.getElementById('condName').textContent=cur.name;
   document.getElementById('addBtn').textContent = edit!==null?'Save Changes':'Add to Quote';
   document.getElementById('mbAddBtn').textContent = edit!==null?'Save':'Add to Quote';
-  const cartLink=document.getElementById('condCartLink');
-  if(cartLink) cartLink.textContent='Items in Cart ('+cart.length+')';
 
   document.getElementById('condOptions').innerHTML = CONDITIONS.map(([key,label,desc])=>`
     <label class="opt"><input type="radio" name="cond" value="${key}" ${selCond===key?'checked':''}>
