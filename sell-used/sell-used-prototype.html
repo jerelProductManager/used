@@ -405,6 +405,83 @@
     .row2{grid-template-columns:1fr}
     .excl-list{gap:8px 12px}
   }
+
+  /* ===================== HOMEPAGE ===================== */
+  .hp .wrap{padding-top:6px;padding-bottom:6px}
+  .hp-hero{position:relative;height:380px;overflow:hidden;border-radius:6px;margin:14px 0 24px;
+    background:linear-gradient(115deg,#141414 0%,#242424 55%,#101010 100%);display:flex;align-items:center}
+  .hp-hero .hero-in{position:relative;z-index:2;color:#fff;padding:0 8%;max-width:620px}
+  .hp-hero h2{font-size:46px;line-height:1.04;margin:0 0 16px;font-weight:800}
+  .hp-hero h2 .grn{color:#7ec37e}
+  .hp-hero p{font-size:16px;line-height:1.5;margin:0 0 22px;color:#e8e8e8}
+  .hp-hero .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+  .hp-hero .h-btn{padding:12px 24px;border-radius:6px;font-weight:700;font-size:15px;cursor:pointer;border:2px solid transparent}
+  .hp-hero .h-btn.grn{background:var(--bh-green-btn);color:#fff}
+  .hp-hero .h-btn.out{background:transparent;color:#fff;border-color:#fff}
+  .hp-hero .h-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,.22);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer}
+  .hp-hero .h-arrow.l{left:16px}.hp-hero .h-arrow.r{right:16px}
+  .hp-hero .h-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+  .hp-hero .h-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5)}
+  .hp-hero .h-dots i.on{background:#fff}
+
+  .hp-cats{display:flex;gap:6px;padding:6px 0 26px}
+  .hp-cat{flex:1 1 0;min-width:0;text-align:center;text-decoration:none;color:var(--ink)}
+  .hp-cat .cc{width:66px;height:66px;border-radius:50%;background:#f3f5f1;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;color:var(--bh-green)}
+  .hp-cat .cc .ico{width:34px;height:34px}
+  .hp-cat span{font-size:12.5px;line-height:1.25;display:block}
+
+  .hp-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px}
+  .hp-card{border-radius:8px;overflow:hidden;background:#f2f2f2;display:flex;flex-direction:column}
+  .hp-card .media{height:188px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;text-align:center}
+  .hp-card .media img{width:100%;height:100%;object-fit:contain;background:#fff}
+  .hp-card .body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+  .hp-card .body b{font-size:15px;display:block;margin-bottom:3px}
+  .hp-card .body p{margin:0;font-size:13.5px;color:var(--ink-soft);flex:1;line-height:1.4}
+  .hp-card .body .cta{margin-top:12px;color:var(--bh-green-btn);font-weight:600;font-size:13.5px;align-self:flex-end}
+  .hp-card.clickable{cursor:pointer}
+
+  .hp-history{display:grid;grid-template-columns:420px 1fr;gap:36px;align-items:center;margin:6px 0 32px}
+  .hp-history .vid{position:relative;height:250px;border-radius:6px;overflow:hidden;background:linear-gradient(160deg,#2a2f37,#11151b);display:flex;align-items:center;justify-content:center}
+  .hp-history .vid .play{width:70px;height:70px;border-radius:50%;border:3px solid rgba(255,255,255,.9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px}
+  .hp-history .vid .yt{position:absolute;left:12px;bottom:10px;color:#eee;font-size:12px}
+  .hp-history h3{font-size:34px;font-weight:800;margin:0 0 10px}
+  .hp-history .sub{font-size:16px;font-weight:700;margin:0 0 18px}
+  .hp-history .learn{background:var(--bh-green-btn);color:#fff;border:0;border-radius:6px;padding:12px 26px;font-size:15px;font-weight:700;cursor:pointer}
+
+  .hp-h{text-align:center;font-size:27px;font-weight:800;margin:14px 0 22px}
+  .hp-h .sep{color:#ccc;font-weight:300;margin:0 10px}
+  .hp-h .sub{font-weight:400}
+  .dz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+  .dz-card{border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;gap:12px;position:relative}
+  .dz-card .dz-img{width:82px;height:104px;object-fit:contain;flex:none;background:#fff}
+  .dz-info{flex:1;min-width:0}
+  .dz-ends{font-size:12px;color:#444;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+  .dz-ends .ico{width:13px;height:13px;color:var(--bh-green)}
+  .dz-ends b{color:var(--bh-green);font-weight:700}
+  .dz-ends.flash b{color:#d33}
+  .dz-title{font-size:13.5px;line-height:1.3;margin-bottom:6px;font-weight:600}
+  .dz-stars{color:var(--bh-gold);font-size:12px;margin-bottom:6px;letter-spacing:1px}
+  .dz-stars span{color:var(--ink-soft);margin-left:5px;letter-spacing:0}
+  .dz-price{font-size:19px;font-weight:800}
+  .dz-was{font-size:12.5px;color:var(--ink-soft);text-decoration:line-through;font-weight:400;margin-left:6px}
+  .dz-save{color:var(--bh-green);font-size:12.5px;margin-top:2px;font-weight:600}
+  .dz-flash{position:absolute;top:12px;right:12px;background:#fff;border:1px solid #d33;color:#d33;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}
+  .hp-viewall{display:block;margin:4px auto 30px;background:#111;color:#fff;border:0;border-radius:6px;padding:15px 40px;font-size:16px;font-weight:700;cursor:pointer}
+  .hp-hr{border:0;border-top:1px solid var(--line);margin:6px 0 24px}
+  .nr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:18px}
+  .nr-card{text-decoration:none;color:var(--ink)}
+  .nr-img{width:100%;height:236px;object-fit:cover;border-radius:4px;background:#f2f2f2;display:block}
+  .nr-title{font-size:15px;font-weight:600;margin-top:12px;line-height:1.32}
+  .hp-explore{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 34px;font-weight:700;flex-wrap:wrap}
+  .hp-explore a{border:1px solid var(--bh-green-btn);color:var(--bh-green-btn);border-radius:6px;padding:7px 18px;font-weight:600;text-decoration:none}
+  @media (max-width:900px){
+    .hp-hero{height:300px}.hp-hero h2{font-size:30px}
+    .hp-cats{overflow-x:auto}.hp-cat{flex:0 0 84px}
+    .hp-cards,.dz-grid,.nr-grid{grid-template-columns:repeat(2,1fr)}
+    .hp-history{grid-template-columns:1fr;gap:16px}.hp-history h3{font-size:26px}
+  }
+
   @media (max-width:520px){ .hero h2{font-size:20px} }
 </style>
 <script>/*!
@@ -856,6 +933,11 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2 3h3l2.4 12h11l2-8H6"/><circle cx="9" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5 5l1.5-2 4 1.5v3c0 1.1-.9 2-2 2A16 16 0 0 1 4.5 5c0-1.1.9-2 2-2z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-computer" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.6"/><path d="M8.5 20h7M12 16v4"/></symbol>
+  <symbol id="i-drone" viewBox="0 0 24 24"><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M6.6 7.6l2.4 1.9M17.4 7.6l-2.4 1.9M6.6 16.4l2.4-1.9M17.4 16.4l-2.4-1.9"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="12.5" rx="1.6"/><path d="M8 21l4-3.5 4 3.5"/></symbol>
+  <symbol id="i-av" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2.4"/><circle cx="12" cy="15" r="3.2"/><circle cx="12" cy="7.4" r="1.5"/></symbol>
+  <symbol id="i-surveil" viewBox="0 0 24 24"><path d="M3.5 8.2l13-3.4 1.1 4.2-13 3.4z"/><path d="M6 11.8l-1.6 4.3M17.7 9.3l3 1M12.6 14.6v3.1a2.2 2.2 0 0 1-2.2 2.2"/></symbol>
   <symbol id="i-step-add" viewBox="0 0 64 64"><path d="M56.6667 20H7.33333C5.49238 20 4 21.4924 4 23.3333V48.6667C4 50.5076 5.49238 52 7.33333 52H56.6667C58.5076 52 60 50.5076 60 48.6667V23.3333C60 21.4924 58.5076 20 56.6667 20Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M52.0532 19.5597H28.0132L32.3998 13.3463C32.9998 12.5063 34.1065 11.9863 35.2932 11.9863H44.7732C45.9732 11.9863 47.0799 12.5063 47.6665 13.3463L52.0532 19.5597Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
 <path d="M22.6667 17.4004H17.1733V19.1604H22.6667V17.4004Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
@@ -880,7 +962,9 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></symbol>
   <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3.5 21 19.5H3z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.4" r="0.7" fill="currentColor" stroke="none"/></symbol>
 </svg>
-<script>function icon(id,cls){return '<svg class="ico '+(cls||'')+'"><use href="#'+id+'"/></svg>';}</script>
+<script>function icon(id,cls){return '<svg class="ico '+(cls||'')+'"><use href="#'+id+'"/></svg>';}
+var PLACEHOLDER="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><rect width='120' height='120' fill='%23f0f0f0'/><circle cx='46' cy='46' r='8' fill='none' stroke='%23bcbcbc' stroke-width='3'/><path d='M30 82l22-24 15 17 10-11 13 18' fill='none' stroke='%23bcbcbc' stroke-width='3' stroke-linejoin='round'/></svg>";
+function bhImgFail(el){ el.onerror=null; el.src=PLACEHOLDER; el.style.objectFit='contain'; }</script>
 
 <!-- ===================== Utility bar ===================== -->
 <div class="utilbar">
@@ -899,7 +983,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 <header class="masthead">
   <div class="wrap">
     <button class="hamburger" aria-label="Menu">☰</button>
-    <div class="logo"><b>B&amp;H</b><span>PHOTO·VIDEO</span></div>
+    <div class="logo" onclick="showHome()" style="cursor:pointer" title="Home"><b>B&amp;H</b><span>PHOTO·VIDEO</span></div>
     <div class="experts">
       <svg class="ico"><use href="#i-phone"/></svg>
       <div><small>Ask Our Experts</small><b>800-606-6969</b></div>
@@ -936,7 +1020,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 </div>
 
 <!-- ===================== Page intro (shared) ===================== -->
-<div class="wrap">
+<div class="wrap" id="page-intro" style="display:none">
   <div class="breadcrumb"><a href="#">Home</a> › <a href="#">Used Department</a> › <a href="#" onclick="showLanding();return false;">Sell Used</a></div>
   <h1 class="page-title">Sell Your Used Items</h1>
   <div class="stepper">
@@ -950,10 +1034,23 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   </div>
 </div>
 
+<div id="view-home" class="hp">
+<div class="wrap">
+<div class="hp-hero"><div class="hero-in"><h2><span class="grn">Talk to</span><br>An Expert – LIVE</h2><p>Connect with a pro about photography, pro video, pro audio &amp; lighting via:<br>Video Chat | In Person</p><div class="hero-btns"><button class="h-btn grn">Video Chat Now</button><button class="h-btn out">Schedule a Session</button></div></div><div class="h-arrow l">‹</div><div class="h-arrow r">›</div><div class="h-dots"><i></i><i></i><i></i><i></i><i class="on"></i></div></div>
+<div class="hp-cats"><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-cam"/></svg></span><span>Photography</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-computer"/></svg></span><span>Computers</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-video"/></svg></span><span>Pro Video</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-flash"/></svg></span><span>Lighting</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-mic"/></svg></span><span>Pro Audio</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-drone"/></svg></span><span>Drones</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-video"/></svg></span><span>Camcorders</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-tv"/></svg></span><span>TVs &amp; Entertainment</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-av"/></svg></span><span>Audio-Visual</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-optics"/></svg></span><span>Optics</span></a><a class="hp-cat" href="#"><span class="cc"><svg class="ico"><use href="#i-surveil"/></svg></span><span>Surveillance</span></a></div>
+<div class="hp-cards"><div class="hp-card"><div class="media" style="background:#8CC152;color:#1e3a0c;flex-direction:column"><div style="padding:0 14px"><div style="font-size:12px;color:#2c4a12;margin-bottom:2px">The B&amp;H Payboo Credit Card</div><div style="font-size:38px;font-weight:800;color:#1e3a0c;line-height:.95">SAVE THE<br>TAX<sup style="font-size:16px">‡</sup></div><div style="font-size:11px;color:#2c4a12;margin-top:6px">on eligible orders shipped to eligible states</div></div></div><div class="body"><b>Enjoy Exclusive Benefits</b><p>when you shop B&amp;H &amp; use your Payboo credit card</p><span class="cta">Learn More ›</span></div></div><div class="hp-card"><div class="media" style="background:linear-gradient(135deg,#5a5f66,#2f333a);color:#fff;flex-direction:column"><div style="text-align:center"><svg class="ico" style="width:46px;height:46px;color:#fff"><use href="#i-phone"/></svg><div style="margin-top:8px;font-weight:700">Talk to an Expert</div></div></div><div class="body"><b>Talk to an Expert</b><p>Get answers via Video Chat</p><span class="cta">Chat Now ›</span></div></div><div class="hp-card"><div class="media"><img src="https://www.bhphotovideo.com/images/fb/leica_19210_q3_digital_camera_gray_1975600.jpg" alt="Leica Q3" onerror="bhImgFail(this)"></div><div class="body"><b>New Q3 Compact Camera (Metal Gray)</b><p>60MP full-frame sensor, hybrid AF, 8K video + new EVF &amp; LCD</p><span class="cta">Shop Now ›</span></div></div><div class="hp-card"><div class="media" style="background:linear-gradient(135deg,#3a2f2a,#120d0b);color:#fff;flex-direction:column"><div style="text-align:center"><div style="font-weight:800;letter-spacing:2px;font-size:20px">e<span style="color:#e0552b">X</span>plora</div><div style="font-size:12px;margin-top:6px;color:#ddd">FIFA World Cup</div></div></div><div class="body"><b>Inside Lenovo’s FIFA World Cup Partnership</b><p>An exclusive B&amp;H interview</p><span class="cta">Learn More ›</span></div></div></div>
+<div class="hp-history"><div class="vid"><div class="play">▶</div><span class="yt">▶ Watch on YouTube</span></div><div><h3>Your Creative Partner Since 1973</h3><div class="sub">A brief (91 seconds) history of B&amp;H.</div><button class="learn">Learn More</button></div></div>
+<div class="hp-cards"><div class="hp-card"><div class="media" style="background:linear-gradient(135deg,#1f7ac0,#0b4a86);color:#fff;flex-direction:column"><div style="text-align:center"><div style="font-weight:800;font-size:20px">B&amp;H <span style="font-weight:400">EDU</span></div><div style="font-size:12px;margin-top:4px;color:#dfefff">Advantage</div></div></div><div class="body"><b>Free Discount Program</b><p>College students &amp; faculty save up to 50%</p><span class="cta">Learn More ›</span></div></div><div class="hp-card"><div class="media" style="background:linear-gradient(135deg,#2a2a2a,#000);color:#fff;flex-direction:column"><div style="text-align:center"><div style="font-weight:800;font-size:18px;letter-spacing:1px">ALLEN&amp;HEATH</div><div style="font-size:12px;margin-top:6px;color:#bbb">dLive Digital Mixing</div></div></div><div class="body"><b>dLive: The Forefront of Digital Mixing</b><p>Flexible, powerful solutions for your front of house needs</p><span class="cta">Learn More ›</span></div></div><div class="hp-card"><div class="media" style="background:#2f6b34;color:#fff;flex-direction:column"><div style="text-align:center"><div style="display:inline-block;border:2px solid #fff;border-radius:4px;padding:3px 8px;font-weight:800;font-size:20px">B&amp;H</div><span style="font-size:22px;font-weight:800;margin-left:8px;vertical-align:middle">Used Department</span><div style="color:var(--bh-gold);font-weight:800;letter-spacing:2px;margin-top:12px;font-size:16px">BUY · SAVE · UPGRADE</div></div></div><div class="body"><b>Up to 40% Off Used Gear</b><p>Save big on trusted one-of-a-kind finds while they last</p><span class="cta">Shop Used ›</span></div></div><div class="hp-card"><div class="media" style="background:linear-gradient(135deg,#caa24a,#6e4d14);color:#fff;flex-direction:column"><div style="text-align:center"><div style="font-weight:800;letter-spacing:2px;font-size:20px">e<span style="color:#e0552b">X</span>plora</div><div style="font-size:12px;margin-top:6px;color:#fff4e0">Pet Photography</div></div></div><div class="body"><b>Become a Pet Photography Pro</b><p>Create animal portraits with real personality</p><span class="cta">Learn More ›</span></div></div></div>
+<div class="hp-h">Deal Zone<span class="sep">|</span><span class="sub">New savings every day</span></div><div class="dz-grid"><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/smallhd_16_1003_vm_ultra_10_bolt_6_1908172.jpg" alt="SmallHD ULTRA 10 Bolt 6 RX 1500 Monitors (2)" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">SmallHD ULTRA 10 Bolt 6 RX 1500 Monitors (2)</div><div class="dz-price">$4,299<sup style="font-size:11px">00</sup><span class="dz-was">$6,999.00</span></div><div class="dz-save">Save $2,700</div></div></div><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/dzofilm_dzo_ff70135e_catta_70_to_135mm_1673807.jpg" alt="DZOFilm Catta 70-135mm T2.9 E-Mount…" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">DZOFilm Catta 70-135mm T2.9 E-Mount…</div><div class="dz-stars">★★★★½ <span>3</span></div><div class="dz-price">$749<sup style="font-size:11px">00</sup><span class="dz-was">$1,605.00</span></div><div class="dz-save">Save $856</div></div></div><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/manfrotto_mvh504xah_504x_fluid_video_head_1566535.jpg" alt="Manfrotto 504X Fluid Video Head &amp;…" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">Manfrotto 504X Fluid Video Head &amp;…</div><div class="dz-stars">★★★★ <span>19</span></div><div class="dz-price">$564<sup style="font-size:11px">95</sup><span class="dz-was">$1,164.95</span></div><div class="dz-save">Save $600</div></div></div><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/airwheel_se3s_smart_riding_suitcase_1859475.jpg" alt="Airwheel SE3S Electric Ride-On Suitcase…" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">Airwheel SE3S Electric Ride-On Suitcase…</div><div class="dz-stars">★★★★★ <span>5</span></div><div class="dz-price">$449<sup style="font-size:11px">00</sup><span class="dz-was">$879.00</span></div><div class="dz-save">Save $430</div></div></div><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/peak_design_l_bl_3_leash_quick_connecting_versatile_camera_1352297.jpg" alt="Peak Design Leash Camera Straps (2)" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">Peak Design Leash Camera Straps (2)</div><div class="dz-stars">★★★★★ <span>920</span></div><div class="dz-price">$44<sup style="font-size:11px">96</sup></div><div class="dz-save">+ Save $13 with Coupon</div></div></div><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/smallrig_5715_s_70_2_person_wireless_1937143.jpg" alt="SmallRig S 70 2-Person Wireless Microphone…" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">SmallRig S 70 2-Person Wireless Microphone…</div><div class="dz-stars">★★★★½ <span>6</span></div><div class="dz-price">$59<sup style="font-size:11px">99</sup><span class="dz-was">$89.99</span></div><div class="dz-save">Save 33%</div></div></div><div class="dz-card"><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/anton_bauer_dionic_xt90gm_dionic_xt90_gold_nbsp_mount_battery_1409805.jpg" alt="Anton/Bauer Dionic XT90 Gold Mount…" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">Anton/Bauer Dionic XT90 Gold Mount…</div><div class="dz-stars">★★★★½ <span>5</span></div><div class="dz-price">$281<sup style="font-size:11px">55</sup><span class="dz-was">$521.55</span></div><div class="dz-save">Save $240</div></div></div><div class="dz-card"><div class="dz-flash">Flash Deal</div><img class="dz-img" src="https://www.bhphotovideo.com/images/fb/harlowe_1510061_rocket_quick_release_carbon_1898094.jpg" alt="Harlowe Rocket Quick Release Carbon Fiber…" onerror="bhImgFail(this)"><div class="dz-info"><div class="dz-ends flash"><svg class="ico"><use href="#i-scan"/></svg>Ends in <b>09:48:00</b></div><div class="dz-title">Harlowe Rocket Quick Release Carbon Fiber…</div><div class="dz-price">$849<sup style="font-size:11px">00</sup><span class="dz-was">$999.00</span></div><div class="dz-save">Save $150</div></div></div></div><button class="hp-viewall">View All Deals</button>
+<hr class="hp-hr">
+<div class="hp-h">New Product Releases</div><div class="nr-grid"><a class="nr-card" href="#"><img class="nr-img" src="https://www.bhphotovideo.com/images/fb/godox_lux_junior_retro_camera_1712780.jpg" alt="Retro Design, Reimagined: GODOX Lux Junior II" onerror="bhImgFail(this)"><div class="nr-title">Retro Design, Reimagined: GODOX Lux Junior II</div></a><a class="nr-card" href="#"><img class="nr-img" src="https://www.bhphotovideo.com/images/fb/viltrox_af_26_2_8_fe_af_26mm_f_2_8_evo_1984041.jpg" alt="Viltrox’s Latest EVO Lens Is a 26mm f/2.8 Autofocus Pancake Prime" onerror="bhImgFail(this)"><div class="nr-title">Viltrox’s Latest EVO Lens Is a 26mm f/2.8 Autofocus Pancake Prime</div></a><a class="nr-card" href="#"><img class="nr-img" src="https://www.bhphotovideo.com/images/fb/tamron_afa064s700_16_30mm_f_2_8_di_iii_1904845.jpg" alt="Tamron’s Widest Full Frame Lens To Date" onerror="bhImgFail(this)"><div class="nr-title">Tamron’s Widest Full Frame Lens To Date</div></a><a class="nr-card" href="#"><img class="nr-img" src="https://www.bhphotovideo.com/images/fb/smallrig_6284_x_potato_jet_tribex_1975020.jpg" alt="SmallRig Releases TRIBEX PRO Hydraulic Monopod Alongside New Tripods" onerror="bhImgFail(this)"><div class="nr-title">SmallRig Releases TRIBEX PRO Hydraulic Monopod Alongside New Tripods</div></a></div><div class="hp-explore"><span>Explore More:</span><a href="#">Articles</a><a href="#">Podcasts</a><a href="#">Events</a><a href="#">Videos</a></div>
+</div>
+</div><!-- /view-home -->
+
 <!-- ============================================================
      VIEW: LANDING
      ============================================================ -->
-<div id="view-landing">
+<div id="view-landing" style="display:none">
   <section class="hero">
     <div class="wrap">
       <h2>What would you like to sell today?</h2>
@@ -1645,9 +1742,10 @@ function imgFallback(img,icon){
   const u=document.createElementNS('http://www.w3.org/2000/svg','use'); u.setAttribute('href','#'+icon);
   s.appendChild(u); img.replaceWith(s);
 }
-const VIEWS=['view-landing','view-condition','view-summary','view-shipping','view-payment','view-review','view-confirmed','view-custom'];
+const VIEWS=['view-home','view-landing','view-condition','view-summary','view-shipping','view-payment','view-review','view-confirmed','view-custom'];
 /* which stepper dots are active per view: [Add Items, Create Quote, Pack & Ship, Get Paid] */
 const VIEW_STEPS={
+  'view-home':[0],
   'view-landing':[0],'view-condition':[0],'view-summary':[0],'view-custom':[0],
   'view-shipping':[0,1],'view-payment':[0,1],'view-review':[0,1],
   'view-confirmed':[0,1,2]
@@ -1661,13 +1759,15 @@ function setSteps(active){
     if(el) el.src=STEP_SRC[i][st];
   }
 }
-setSteps([0]);   // initialize stepper on the default (landing) view
+showHome();   // start on the B&H homepage
 function show(view){
   VIEWS.forEach(v=>document.getElementById(v).style.display='none');
   document.getElementById(view).style.display='block';
+  document.getElementById('page-intro').style.display = (view==='view-home') ? 'none' : '';
   setSteps(VIEW_STEPS[view]||[0]);
   window.scrollTo(0,0);
 }
+function showHome(){ show('view-home'); }
 function showLanding(){ show('view-landing'); }
 
 /* ---- Condition screen ---- */
