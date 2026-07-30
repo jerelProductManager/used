@@ -1,0 +1,39 @@
+Did an AI comparison of the design file with the html of the prototype:
+ 
+BREADCRUMBS & PAGE TITLE
+Change "Sell Your Used Items" font weight from Bold to SemiBold
+Change "Sell Your Used Items" font size from 24px to 16px
+Change "Sell Your Used Items" color from rgb(27,27,27) to rgb(0,0,0)
+Change "Sell Your Used Items" line-height from 34.8px to 22px
+Change breadcrumb line-height from 18.85px to 18px
+ 
+SEARCH / "WHAT WOULD YOU LIKE TO SELL" SECTION
+Change background color from rgb(52,130,74) to rgb(48,111,61) and bind to the design system variable
+Change heading font from Open Sans ExtraBold to Montserrat Bold
+Change heading font size from 20px to 24px
+Change heading line-height from 29px to 33.6px
+Change search placeholder font from Arial Regular to Open Sans Regular
+Change search placeholder font size from 16px to 14px
+Change search placeholder color from rgb(117,117,117) to rgb(102,102,102)
+ 
+TRADE-IN PROMOS SECTION
+Change promo layout from vertically stacked to horizontal carousel with all 3 promos visible side-by-side
+Change section height from 1171px to 394px
+Change heading color from rgb(27,27,27) to rgb(0,0,0)
+Change subheading font size from 15px to 16px
+Change subheading line-height from 21.75px to 22px
+Change subheading color from rgb(102,102,102) to rgb(0,0,0)
+Add navigation dots (3 dots in horizontal auto-layout frame) below the promo carousel
+ITEMS WE PURCHASE — CATEGORY GRID
+Change category grid layout to 2-column HORIZONTAL wrap auto-layout, 343px wide
+Change category card structure from separate icon frame + text node to unified component instances (icon + label inside a single card)
+Change category card size from 84×84px icon + separate text to 144×106px unified cards
+Change category label font weight from Regular to SemiBold
+Change category label font size from 13.5px to 16px
+Change category label line-height from 19.58px to 22px
+Change category label color from rgb(27,27,27) to rgb(0,0,0)
+Change "Batteries & Power" label text to "Batteries & Power Accessories"
+Change section heading "Items We Purchase" color from rgb(27,27,27) to rgb(0,0,0)
+Change "Exclusions Policy" button font size from 15px to 14px
+Change "Exclusions Policy" button size from 171×45px to 146×30px
+ 
