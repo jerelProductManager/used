@@ -2220,6 +2220,37 @@ addInput.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddInline(); 
   }
   window.uxTrack=track;
 
+  /* ================= REMOTE COLLECTION (moderator's endpoint) =================
+     Paste your Google Apps Script Web App URL (ends in /exec) between the quotes
+     below, then commit + push so the hosted prototype sends sessions to it.
+     Leave blank to keep everything local only. A ?collect=<url> URL param can
+     override it for quick testing; ?p=<label> tags the participant. */
+  var ENDPOINT = "";
+  try{
+    var _q=new URLSearchParams(location.search);
+    if(_q.get('collect')) ENDPOINT=_q.get('collect');
+    if(_q.get('p')){ S.pid=_q.get('p'); try{ localStorage.setItem('bh_ux_pid', S.pid); }catch(e){} }
+  }catch(e){}
+  var _sent=0, _sending=false;
+  function flush(useBeacon){
+    if(!ENDPOINT || _sent>=S.events.length) return;
+    var upTo=S.events.length;
+    var payload=JSON.stringify({session:S.sid, participant:S.pid, startedAt:S.started, ua:navigator.userAgent, events:S.events.slice(_sent)});
+    if(useBeacon && navigator.sendBeacon){
+      try{ if(navigator.sendBeacon(ENDPOINT, new Blob([payload],{type:'text/plain;charset=utf-8'}))) _sent=upTo; }catch(e){}
+      return;
+    }
+    if(_sending) return; _sending=true;
+    fetch(ENDPOINT, {method:'POST', mode:'no-cors', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:payload})
+      .then(function(){ _sent=upTo; }).catch(function(){})
+      .then(function(){ _sending=false; });
+  }
+  setInterval(function(){ flush(false); }, 12000);
+  document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden') flush(true); });
+  window.addEventListener('pagehide', function(){ flush(true); });
+  window.addEventListener('beforeunload', function(){ flush(true); });
+  window.uxFlush=function(b){ flush(!!b); };  /* manual send-now hook */
+
   /* --- wrap show() for view transitions, timing, funnel --- */
   var _show=window.show;
   window.show=function(v){
@@ -2374,7 +2405,8 @@ addInput.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddInline(); 
       +'<span class="k">Elapsed:</span> '+mins+'m '+secs+'s &nbsp; <span class="k">Events:</span> '+S.events.length+'<br>'
       +'<span class="k">Search select:</span> typeahead <b>'+sm.typeahead_click+'</b> / enter <b>'+sm.enter_key+'</b><br>'
       +'<span class="k">Cond. changes:</span> '+count('condition_select')+' &nbsp; <span class="k">Deletes:</span> '+count('item_delete')+'<br>'
-      +'<span class="k">Rage:</span> '+count('rage_click')+' &nbsp; <span class="k">Dead:</span> '+count('dead_click')+' &nbsp; <span class="k">Idle:</span> '+count('idle')+' &nbsp; <span class="k">Back:</span> '+count('back_nav');
+      +'<span class="k">Rage:</span> '+count('rage_click')+' &nbsp; <span class="k">Dead:</span> '+count('dead_click')+' &nbsp; <span class="k">Idle:</span> '+count('idle')+' &nbsp; <span class="k">Back:</span> '+count('back_nav')
+      +'<br><span class="k">Collect:</span> '+(ENDPOINT?('<b>on</b> \u2014 '+_sent+'/'+S.events.length+' sent'):'off (local only)');
     var log=document.getElementById('uxLog'); var last=S.events.slice(-26).reverse();
     log.innerHTML=last.map(function(e){ var p=JSON.stringify(e.props); if(p==='{}')p=''; return '<div><span class="v">'+(e.rel/1000).toFixed(1)+'s</span> <span class="e">'+e.event+'</span> '+ (p? '<span class="v">'+p.replace(/[<>]/g,'')+'</span>':'') +'</div>'; }).join('');
   }
