@@ -2225,7 +2225,7 @@ addInput.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddInline(); 
      below, then commit + push so the hosted prototype sends sessions to it.
      Leave blank to keep everything local only. A ?collect=<url> URL param can
      override it for quick testing; ?p=<label> tags the participant. */
-  var ENDPOINT = "";
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwvBJa5PIEi7BdU_BX-qBBOS8UlhPJDnlDObJIlvbGBdpvY-Ptgyxf4_ak2U50H2Ju9Ag/exec";
   try{
     var _q=new URLSearchParams(location.search);
     if(_q.get('collect')) ENDPOINT=_q.get('collect');
