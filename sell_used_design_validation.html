@@ -454,7 +454,7 @@ function render(model){
   document.getElementById('app').style.display='';
   renderKpis(model);renderFunnel(model);renderSessions(model);
   if(model.summaryMode){
-    var msg='Event-level detail comes from the Events tab. Open the hosted dashboard (or hit ↻ Refresh there) to populate this — the Sessions summary alone doesn’t carry per-event behavior.';
+    var msg='Waiting on Events-tab data. Surest way to populate this: in Google Sheets do File → Download → CSV on the Events tab, then click “Upload CSV…” above. (Live refresh also fills this when the browser can read the sheet.)';
     ['fricChart','dwellChart','searchSplit','scrollChart','easeTable','hotspots'].forEach(function(id){noteBox(id,msg);});
     document.getElementById('fricLegend').innerHTML='';
   }else{
@@ -762,24 +762,45 @@ function loadSeed(){
   var txt=el.textContent.trim();if(!txt)return;
   try{loadSummary(parseCSV(txt),'Snapshot (sheet as of Aug 3)');}catch(e){}
 }
-function fetchSheet(url,note){
-  setStatus(HAS_DATA?'Refreshing from Google Sheet…':'Fetching from Google Sheet…');
-  fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
-    .then(function(t){
-      if(/^\s*</.test(t)){throw new Error('got a sign-in/HTML page');}
-      ingestRows(parseCSV(t),(note||'Live sheet')+' · '+timeNow());
-    })
-    .catch(function(e){
-      if(HAS_DATA){setStatus('Showing the baked-in snapshot ('+SRC_NOTE+') — live refresh is blocked by the browser here ('+e.message+'). Open the hosted https page for full event detail, or use Upload CSV.','');}
-      else{setStatus('Could not read the sheet ('+e.message+'). Use Upload CSV, or open the hosted https version. Click Demo data to preview.','err');}
-    });
-}
 function timeNow(){try{return new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});}catch(e){return'';}}
-document.getElementById('loadUrl').addEventListener('click',function(){fetchSheet(SHEET_URL,'Live sheet');});
+function fetchText(url){
+  return fetch(url,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
+    .then(function(t){if(/^\s*</.test(t))throw new Error('sign-in/HTML page');return parseCSV(t);});
+}
+function headHas(rows,name){return (rows[0]||[]).map(function(h){return String(h).trim().toLowerCase();}).indexOf(name)>=0;}
+function isEvents(rows){return headHas(rows,'event')&&headHas(rows,'props');}
+function isSummary(rows){return headHas(rows,'furthest_step');}
+function detailWarn(){setStatus('Funnel is live, but this browser could not read the Events tab for friction detail. Surest fix: download the Events tab as CSV and use Upload CSV. (Or open the hosted https page.)','');}
+/* Robust live load: get the EVENTS tab for detail; fall back across endpoints. */
+function loadLive(){
+  setStatus(HAS_DATA?'Refreshing from Google Sheet…':'Fetching from Google Sheet…');
+  fetchText(SHEET_URL).then(function(rows){
+    if(isEvents(rows)){loadEvents(eventsFromCsvRows(rows),'Live Events · '+timeNow());return;}
+    if(isSummary(rows)){
+      loadSummary(rows,'Live Sessions · '+timeNow());
+      // published URL served the Sessions tab — go get the Events tab for detail
+      return fetchText(SHEET_URL_ALT).then(function(er){
+        if(isEvents(er))loadEvents(eventsFromCsvRows(er),'Live · '+timeNow()); else detailWarn();
+      }).catch(detailWarn);
+    }
+    setStatus('Loaded a sheet with unexpected columns (not Events or Sessions).','err');
+  }).catch(function(e){
+    // published URL failed — try the Events tab directly via gviz
+    fetchText(SHEET_URL_ALT).then(function(er){
+      if(isEvents(er)){loadEvents(eventsFromCsvRows(er),'Live Events · '+timeNow());}
+      else if(isSummary(er)){loadSummary(er,'Live · '+timeNow());detailWarn();}
+      else throw new Error('unexpected columns');
+    }).catch(function(e2){
+      if(HAS_DATA)setStatus('Showing the snapshot ('+SRC_NOTE+'). This browser can’t read the Google Sheet ('+e.message+'). For friction detail: download the Events tab as CSV → Upload CSV, or open the hosted https page.','');
+      else setStatus('Could not read the sheet ('+e.message+'). Download the Events tab as CSV → Upload CSV, or open the hosted page.','err');
+    });
+  });
+}
+document.getElementById('loadUrl').addEventListener('click',loadLive);
 document.getElementById('loadUrlAlt').addEventListener('click',function(){
   var url=document.getElementById('urlIn').value.trim();
   if(!url){setStatus('Paste a CSV URL first, or use Refresh for the connected sheet.','err');return;}
-  fetchSheet(url,'Custom URL');
+  fetchText(url).then(function(rows){ingestRows(rows,'Custom URL · '+timeNow());}).catch(function(e){setStatus('Could not read that URL ('+e.message+').','err');});
 });
 document.getElementById('pickCsv').addEventListener('click',function(){document.getElementById('fileCsv').click();});
 document.getElementById('fileCsv').addEventListener('change',function(e){
@@ -838,7 +859,7 @@ document.addEventListener('mousemove',function(e){if(tip.style.opacity==1)moveTi
 
 /* show baked-in snapshot immediately, then try to overlay live data */
 loadSeed();
-fetchSheet(SHEET_URL,'Live sheet');
+loadLive();
 </script>
 </body>
 </html>
