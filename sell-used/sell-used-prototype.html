@@ -2288,13 +2288,23 @@ addInput.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddInline(); 
   /* --- rage / dead click detection --- */
   var INTERACTIVE='a,button,input,select,textarea,label,.opt,.acc,.ta-item,.li-actions a,.hp-cat,.dz-card,.nr-card,.tip,.smallbtn,.r-link,.bf-signup,.hp-viewall,.h-btn,.h-arrow,[onclick]';
   var clickHist=[];
+  /* click position for heatmap overlays: normalized to viewport width & full doc height */
+  function pos(e){
+    var de=document.documentElement, b=document.body;
+    var docH=Math.max(b?b.scrollHeight:0,de.scrollHeight,b?b.offsetHeight:0,de.offsetHeight,window.innerHeight)||1;
+    var sy=window.pageYOffset||de.scrollTop||0;
+    var vw=window.innerWidth||de.clientWidth||1, vh=window.innerHeight||1;
+    return { x:Math.round(e.clientX), y:Math.round(e.clientY),
+             nx:+(e.clientX/vw).toFixed(4), ny:+((e.clientY+sy)/docH).toFixed(4),
+             vw:vw, vh:vh, docH:Math.round(docH) };
+  }
   function rageDead(e,t){
     var now=Date.now();
     clickHist.push({t:now,x:e.clientX,y:e.clientY,el:t});
     clickHist=clickHist.filter(function(c){return now-c.t<800;});
     var near=clickHist.filter(function(c){return Math.abs(c.x-e.clientX)<24 && Math.abs(c.y-e.clientY)<24;});
-    if(near.length>=3){ track('rage_click',{target:descr(t)}); clickHist=[]; }
-    if(!(t.closest && t.closest(INTERACTIVE))) track('dead_click',{target:descr(t)});
+    if(near.length>=3){ track('rage_click',Object.assign({target:descr(t)},pos(e))); clickHist=[]; }
+    if(!(t.closest && t.closest(INTERACTIVE))) track('dead_click',Object.assign({target:descr(t)},pos(e)));
   }
 
   /* --- delegated capture listeners --- */
@@ -2321,7 +2331,7 @@ addInput.addEventListener('keydown',e=>{ if(e.key==='Escape') closeAddInline(); 
     var sb=t.closest('.review-block .smallbtn'); if(sb){ var hb=sb.closest('.review-block').querySelector('h3'); track('review_back',{section:hb?hb.textContent:''}); }
     rageDead(e,t);
     var il=t.closest('a,button,label,.opt,.acc,.hp-cat,.dz-card,.nr-card,input,select,.tip');
-    if(il) track('click',{el:descr(il)});
+    if(il) track('click',Object.assign({el:descr(il)},pos(e)));
   }, true);
 
   document.addEventListener('change', function(e){
