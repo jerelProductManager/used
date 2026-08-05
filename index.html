@@ -339,6 +339,41 @@
       main { padding: 40px 24px 64px; }
       .options { grid-template-columns: 1fr; }      footer { padding: 20px 24px; }
     }
+
+    /* ── Card thumbnails ──────────────────────────────── */
+    .option-card { padding-top: 0; overflow: hidden; }
+    .card-thumb {
+      margin: 0 -32px 22px;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .card-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+      transition: transform .5s cubic-bezier(.2,.7,.3,1);
+    }
+    .option-card:hover .card-thumb img { transform: scale(1.04); }
+    .option-card .card-num {
+      position: absolute;
+      top: 12px; right: 12px;
+      z-index: 2;
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: .10em; color: #fff;
+      background: rgba(15,31,75,.88);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      padding: 5px 10px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 1px 6px rgba(15,31,75,.14);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .option-card:hover .card-thumb img { transform: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -364,12 +399,12 @@
         <div class="eyebrow-rule"></div>
         <span class="eyebrow-text">Product Portfolio</span>
       </div>
-      <h1>Jerel Smith<br><span class="accent">Senior Product Manager</span><br>Prototypes</h1>
-      <p class="hero-sub">Building enterprise-grade PM demo experiences</p>
+      <h1>B&amp;H Used<br><span class="accent">Sell &amp; Trade-In</span><br>Prototypes &amp; Research</h1>
+      <p class="hero-sub">A $100M pre-owned business on an outdated stack &mdash; nine friction points mapped across the seller journey, and the condition scale, image tooling, and validation work built to close them.</p>
       <div class="tags">
-        <span class="tag tag-navy">Enterprise Platforms · B2B</span>
-        <span class="tag tag-navy">Used Web Liaison</span>
-        <span class="tag tag-gold">E-Commerce Search &amp; Navigation</span>
+        <span class="tag tag-navy">Condition Integrity</span>
+        <span class="tag tag-navy">Seller Journey</span>
+        <span class="tag tag-gold">Research &amp; Validation</span>
       </div>
     </div>
   </div>
@@ -388,6 +423,7 @@
     <div class="options">
 
       <a class="option-card" href="https://jerelproductmanager.github.io/used/condition-ratings-pdp.html">
+        <div class="card-thumb"><img src="thumbs/condition-pdp.webp" alt="Condition grouping on the product detail page" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Interactive</div>
         <h3 class="card-title">Grouping by Condition on the PDP</h3>
         <p class="card-desc">Explore how condition ratings are surfaced and grouped on the Product Detail Page — a standardized display pattern for communicating pre-owned item states to buyers at the point of decision.</p>
@@ -400,6 +436,7 @@
       </a>
 
       <a class="option-card" href="https://jerelproductmanager.github.io/used/used-image-upload.html">
+        <div class="card-thumb"><img src="thumbs/image-upload.webp" alt="Used product image upload and annotation tool" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Tool</div>
         <h3 class="card-title">Actual Used Images</h3>
         <p class="card-desc">Upload and manage product images for used department listings — assign label templates, arrange multiple image slots, and annotate with condition notes for pre-owned gear submissions.</p>
@@ -412,6 +449,7 @@
       </a>
 
       <a class="option-card" href="https://jerelproductmanager.github.io/used/condition-rating/">
+        <div class="card-thumb"><img src="thumbs/condition-scale.webp" alt="Condition rating scale framework" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Reference</div>
         <h3 class="card-title">Condition Rating Scale</h3>
         <p class="card-desc">Explore the proposed condition grading framework used in the Buy &amp; Sell Used workflows — a standardized scale that helps sellers and buyers assess and communicate the state of pre-owned gear.</p>
@@ -424,6 +462,7 @@
       </a>
 
       <a class="option-card" href="https://jerelproductmanager.github.io/used/bh_sell_used_problems.html">
+        <div class="card-thumb"><img src="thumbs/problems.webp" alt="Seller journey problems mapped to user stories" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Deck</div>
         <h3 class="card-title">Sell Used — Problems to Solve</h3>
         <p class="card-desc">Maps the 9 friction areas across the seller journey to customer user stories — sourced from usability benchmark (n=6) and foundational research (n=4). Covers findability, search, condition, quote, submission, shipping, progress, and payment.</p>
@@ -436,6 +475,7 @@
       </a>
 
             <a class="option-card" href="https://jerelproductmanager.github.io/used/sell-used/index.html">
+        <div class="card-thumb"><img src="thumbs/sell-concept.webp" alt="Interactive Sell Used concept flow" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Interactive</div>
         <h3 class="card-title">Sell Used Concept</h3>
         <p class="card-desc">Experience the full pre-owned selling flow — item search, condition grading, payment selection, and free shipping confirmation. Full seller journey from search to offer acceptance.</p>
@@ -448,6 +488,7 @@
       </a>
 
       <a class="option-card" href="https://jerelproductmanager.github.io/used/sell-used/sell-used-prototype.html">
+        <div class="card-thumb"><img src="thumbs/sell-prototype.webp" alt="Lo-fi Sell Used interactive prototype" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Interactive</div>
         <h3 class="card-title">Sell Used Prototype</h3>
         <p class="card-desc">A lo-fi interactive prototype of the redesigned Sell Used flow — covering item search, condition assessment, accessories checklist, payment selection, and offer confirmation across desktop and mobile screens.</p>
@@ -459,19 +500,8 @@
         <div class="card-cta">Launch Prototype <span class="cta-arrow">→</span></div>
       </a>
 
-      <a class="option-card" href="https://jerelproductmanager.github.io/used/sell_used_traffic_ytd_2026.html">
-        <div class="card-type"><span class="pulse"></span> Dashboard</div>
-        <h3 class="card-title">Sell Used Dashboard</h3>
-        <p class="card-desc">View the Sell Used web traffic/operations dashboard.</p>
-        <div class="card-tags">
-          <span class="card-tag ct-navy">Operations</span>
-          <span class="card-tag ct-navy">Analytics</span>
-          <span class="card-tag ct-gold">Live</span>
-        </div>
-        <div class="card-cta">Launch Prototype <span class="cta-arrow">→</span></div>
-      </a>
-
       <a class="option-card" href="https://jerelproductmanager.github.io/used/sell_used_design_validation.html">
+        <div class="card-thumb"><img src="thumbs/validation.webp" alt="Sell Used design validation dashboard" width="800" height="500" loading="lazy"></div>
         <div class="card-type"><span class="pulse"></span> Dashboard</div>
         <h3 class="card-title">Sell Used Design Validation Data</h3>
         <p class="card-desc">UX behavior dashboard reconstructed from prototype test sessions — conversion funnel across the eight journey steps, friction signals, time and scroll depth per step, search behavior, and the most-clicked dead and rage targets.</p>

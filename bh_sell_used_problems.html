@@ -527,7 +527,25 @@ body {
 .master-text-as   { color: var(--text-mid); flex-shrink: 0; font-size: 15px; margin-top: 1px; min-width: 60px; }
 .master-text-want { font-weight: 600; font-size: 15px; flex: 1; }
 .master-text-so   { font-size: 15px; color: var(--text-mid); flex: 1; }
-</style>
+
+    /* ── Ordinal stage colour (validated navy ramp) ──────
+       Stages are funnel positions, not identities: one hue, monotone lightness.
+       Labels wear text tokens; the ramp rides the top rule and numeral chip. */
+    .ov-card-head {
+      background: var(--white) !important;
+      border-bottom: 1px solid #EEF0F5;
+    }
+    .ov-card-head .ov-title,
+    .ov-card-head > div:not(.ov-num) {
+      color: #11214D !important;
+      font-weight: 700;
+    }
+    .ov-num {
+      font-weight: 700;
+      box-shadow: none !important;
+    }
+
+  </style>
 </head>
 <body>
 
@@ -626,7 +644,7 @@ body {
 var STAGES = [
   {
     num: 1, label: "Findability & Awareness",
-    headerColor: "#7C2D12",
+    headerColor: "#99B1E4", headerInk: "#11214D",
     sub: "Sellers can't find B&H's trade-in program — and many don't know it exists",
     source: "Benchmark: 100% of participants struggled to find the trade-in page · Avg 42 sec to locate · 3.5/5 findability score",
     problems: [
@@ -645,7 +663,7 @@ var STAGES = [
   },
   {
     num: 2, label: "Item Identification",
-    headerColor: "#1E3A8A",
+    headerColor: "#839DD6", headerInk: "#11214D",
     overviewText: "Sell Used search is the #1 cited pain point in the overall customer experience. Customers find it buggy and struggle to find their products. Search terms are treated as OR not AND, returning erroneous result noise.",
     sub: "Once on the page, 67% of participants couldn't find their specific gear in search results",
     source: "Benchmark: 67% struggled to identify gear · Search logic: OR not AND · Results not ranked by relevance",
@@ -666,7 +684,7 @@ var STAGES = [
   },
   {
     num: 3, label: "Condition Self-Assessment",
-    headerColor: "#1D6B48",
+    headerColor: "#6E89C7", headerInk: "#11214D",
     overviewText: "Customers want more detailed descriptions of condition ratings to guide self-assessment given the subjective nature of rating (3rd most cited pain point in customer surveys). In usability testing, sellers intentionally rated gear one level lower than accurate, assuming B&H would be stricter — eroding quote accuracy and trust.",
     sub: "Sellers deliberately under-rate their gear out of fear — and the current scale makes it worse",
     source: "Benchmark: 4.0/5 confidence · Foundational research: users used Gemini to pre-grade · Defensive under-rating observed",
@@ -685,7 +703,7 @@ var STAGES = [
   },
   {
     num: 4, label: "Accessories",
-    headerColor: "#92400E",
+    headerColor: "#5A76B9", headerInk: "#FFFFFF",
     sub: "Sellers don't know what's expected — and can't see how it affects their value",
     source: "Foundational research: sellers unaware which accessories are valued or expected",
     problems: [
@@ -700,7 +718,7 @@ var STAGES = [
   },
   {
     num: 5, label: "Quote Transparency",
-    headerColor: "#6B21A8",
+    headerColor: "#4763A8", headerInk: "#FFFFFF",
     sub: "A 66% funnel drop-off sits between 'item found' and 'Add to Basket' — partly by design",
     source: "Benchmark: 66% funnel drop-off · Completion paradox · Inconsistent quote delivery (immediate vs. email)",
     problems: [
@@ -718,7 +736,7 @@ var STAGES = [
   },
   {
     num: 6, label: "Submission",
-    headerColor: "#C2410C",
+    headerColor: "#375193", headerInk: "#FFFFFF",
     sub: "The final form step is where committed sellers abandon",
     source: "Foundational research: 'cluttered' and 'confusing' experience · Benchmark: navigation and form friction",
     problems: [
@@ -732,7 +750,7 @@ var STAGES = [
   },
   {
     num: 7, label: "Shipping",
-    headerColor: "#0E7490",
+    headerColor: "#2A417B", headerInk: "#FFFFFF",
     sub: "Logistics friction at the moment of commitment costs conversions",
     source: "Foundational research: shipping ease rated as key decision factor across all archetypes",
     problems: [
@@ -748,7 +766,7 @@ var STAGES = [
   },
   {
     num: 8, label: "Progress Awareness",
-    headerColor: "#1E40AF",
+    headerColor: "#1D3163", headerInk: "#FFFFFF",
     overviewText: "Survey responses show customers want an online status tracker — not email updates — to follow their progress through the sell used journey. Silence after shipping is the highest-anxiety moment.",
     sub: "After the seller ships their gear, silence is the experience",
     source: "Foundational research: transparency post-ship is a top trust driver · MPB praised for speed and communication",
@@ -767,7 +785,7 @@ var STAGES = [
   },
   {
     num: 9, label: "Payment & Getting Paid",
-    headerColor: "#065F46",
+    headerColor: "#11214D", headerInk: "#FFFFFF",
     overviewText: "Payment issues are the 2nd most cited pain point in sell used surveys. Customers want ACH, they don't want to call in to use store credit, and they want to apply store credit online seamlessly.",
     sub: "B&H is perceived as 'store credit only' — a deal-breaker for digital-native sellers",
     source: "Foundational research: payment flexibility named as top decision driver · Store credit perceived as restriction by non-loyalists",
@@ -794,8 +812,8 @@ STAGES.forEach(function(st, i) {
   card.className = 'ov-card';
   card.onclick = function() { goTo(i + 2); }; // +2 for cover + overview
   card.innerHTML =
-    '<div class="ov-card-head" style="background:' + st.headerColor + '">' +
-      '<div class="ov-num" style="background:rgba(255,255,255,.15)">' + st.num + '</div>' +
+    '<div class="ov-card-head" style="border-top:4px solid ' + st.headerColor + '">' +
+      '<div class="ov-num" style="color:' + st.headerInk + '; background:' + st.headerColor + '; opacity:1">' + st.num + '</div>' +
       '<div class="ov-title">' + st.label + '</div>' +
     '</div>' +
     '<div class="ov-card-body">' +
