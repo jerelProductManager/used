@@ -1,0 +1,83 @@
+Payment Page
+ 
+CONTENT AREA BACKGROUND
+Change outer background color from rgb(242,242,242) / #F2F2F2 to rgb(255,255,255) / #FFFFFF and bind to the design system variable
+Remove the inner white card container (339×647px, cornerRadius 8, white fill) — Design has no nested card; the content sits directly on a white background
+Change content area padding to left: 16px, right: 16px, top: 20px, bottom: 20px
+SECTION HEADING
+Change heading text from "Payment Information" to "Payment"
+Change heading font weight from Bold to SemiBold
+Change heading font size from 17.6px to 18px
+Change heading line-height from 25.45px to 24px
+Change heading color from rgb(27,27,27) to rgb(0,0,0)
+RADIO CARDS (Payment Options) — GENERAL
+Change all radio cards to 12px padding (top, bottom, left right)
+Change label size from 18px to 16px
+Change label line-height from 24px to 22px
+Change label color from rgb(27,27,27) to rgb(0,0,0)
+Change description line-height from 22px to 19px
+Change all radio buttons from plain RECTANGLE (24×24px, cornerRadius 50, stroke rgb(118,118,118)) to Radio component instances (20×20px) from the design system
+Change gap between radio cards from 12px to 16px
+B&H TRADE IN CREDIT CARD
+Change description "Tax-free toward future phone or store orders only" font size from 16px to 14px
+Change "Save up to 4.5% with delivery to 10001" promo banner from three separate text nodes (Bold 18px green + Regular 13.5px gray + Bold 18px dark) to a single mixed-style text node at 12px, line-height 16px, inside a Tax Savings frame (343×32px)
+Change the promo banner icon to bag_percent svg (attached)
+CTA BUTTON
+Change button text from "Continue" to "Review Quote"
+Change button from a plain frame (119×43px) to a Button component instance (343×38px) — full width
+Change button text font from Arial Bold 15px to Open Sans SemiBold 16px
+Change button text line-height from AUTO to 22px
+Change button width from 119px to full width of content area
+GLOBAL
+Change all black text color from rgb(27,27,27) to rgb(0,0,0) wherever it appears
+Change all instances of Arial font to Open Sans throughout the Prototype
+
+Review Page
+CONTENT AREA STRUCTURE
+Change the content structure from a single Background container with nested Background+Border cards to separate section frames (Shipping, Payment, Items, Quote Summary) in a vertical stack
+GLOBAL CARD (Shipping Address, Payment, Items)
+Remove the 1px stroke border rgb(226,226,226) — Design has no card border
+Change card width from 339px (with 18px side margin) to 375px (full width)
+Change card corner radius from 8 to 0
+Change card layout padding left: 16px, right: 16px, top: 20px, bottom: 20px
+Change heading font size from 20px to 18px
+Change heading color from rgb(27,27,27) to rgb(0,0,0)
+Change  heading line-height from 27px to 24px
+Change "Change" and "Edit" button from a plain outlined frame (76×30px, Arial Regular 13px, stroke rgb(204,204,204), cornerRadius 6) to a Button component instance (65×25px, Open Sans SemiBold 12px, line-height 9px)
+ 
+ITEMS / QUOTE REVIEW SECTION
+Change section heading text from "Items" to "Quote Review"
+PRODUCT CARD 
+Change product image size from 64×54px to 40×40px
+Change product name from 16px to 14px
+Change price font from Open Sans Bold 15px to Open Sans SemiBold 14px
+Change price color from rgb(27,27,27) to rgb(0,0,0)
+Change price line-height from 21.75px to 19px
+Change "Condition: {Condition Rating}" from a single text node (Regular 14px, 19px line-height) to two separate text nodes: "Condition:" (SemiBold 12px, line-height 16px) + "{Condition Rating}" (Regular 12px, line-height 16px)
+Change condition value from "Rough" to "Excellent"
+Add "Accessories: {Number of Accessories Selected}" label (Open Sans SemiBold 12px, line-height 16px) below the condition row
+Add expanded accessories list below the label with each item on its own line (Open Sans Regular 12px, line-height 16px, color rgb(0,0,0))
+Display accessories selected from Item Condition Page
+QUOTE TOTAL
+Move Quote Total out of the Items card into a separate Quote Summary section (full width).
+Remove the top border divider (1px stroke rgb(226,226,226), 293px wide) from around the Quote Total — Design has no divider
+Change "Quote Total:" font from Open Sans ExtraBold 17px to Open Sans SemiBold 16px
+Change "Quote Total:" color from rgb(27,27,27) to rgb(0,0,0)
+Change "Quote Total:" line-height from 24.65px to 22
+Change total amount font from Open Sans ExtraBold 17px to Open Sans Bold 16px
+Change total amount color from rgb(27,27,27) to rgb(0,0,0)
+Change total amount line-height from 24.65px to 22px
+Change total amount alignment from LEFT to RIGHT
+DISCLAIMER TEXT
+Move disclaimer text out of the Items card into the Quote Summary section (below the Quote Total row)
+Change disclaimer font size from 12.5px to 12px
+Change disclaimer line-height from 18.13px to 16px
+Change disclaimer text width to full width within card
+SUBMIT BUTTON
+Change button height from 43px to 40px
+Change button from right-aligned to full width
+Change button text font from Arial Bold 15px to Open Sans SemiBold 16px
+Move the button into the Quote Summary section below the disclaimer text
+GLOBAL
+Change all instances of Arial font to Open Sans throughout the Prototype
+Change all text colors from rgb(27,27,27) to rgb(0,0,0) wherever they appear
