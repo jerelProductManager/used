@@ -18,7 +18,7 @@
     --bh-gold:#FFC745;
     --bh-hero:#306F3D;
     --bh-link:#1a6bb0;
-    --ink:#1b1b1b;
+    --ink:#000000;
     --ink-soft:#666;
     --line:#e2e2e2;
     --bg:#ffffff;
@@ -210,7 +210,7 @@
   .acc em{color:#666666;font-style:normal}
 
   .cond-actions{display:flex;justify-content:flex-end;gap:12px;margin-top:26px}
-  .btn{border-radius:6px;padding:12px 26px;font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--bh-green-btn)}
+  .btn{border-radius:6px;padding:12px 26px;font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--bh-green-btn);font-family:inherit}
   .btn.ghost{background:#fff;color:var(--bh-green-btn)}
   .btn.solid{background:var(--bh-green-btn);color:#fff;border-color:var(--bh-green-btn)}
   .btn:disabled{opacity:.55;cursor:not-allowed}
@@ -304,6 +304,8 @@
   .rev-total{display:flex;justify-content:flex-end;gap:18px;font-weight:800;font-size:17px;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
   .rev-fine{color:var(--ink-soft);font-size:12.5px;margin-top:10px}
   .rev-submit{display:flex;justify-content:flex-end;margin-top:4px}
+  .rb-quote .rev-total{border-top:0;margin-top:0;padding-top:0}
+  .rb-quote .rev-submit{margin-top:16px}
 
   .confirm-card{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:8px;padding:34px 30px}
   .confirm-card .tick{text-align:center;color:var(--bh-green-btn);font-size:30px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:10px}
@@ -409,6 +411,100 @@
     .formcard,.pay-card{padding:18px}
     .row2{grid-template-columns:1fr}
     .excl-list{gap:8px 12px}
+  }
+
+  /* =====================================================================
+     MOBILE REDESIGN — PAYMENT + REVIEW  (spec: Aug 2026 mobile handoff)
+     ===================================================================== */
+  @media (max-width:900px){
+
+    /* ---------- PAYMENT PAGE ---------- */
+    /* content area sits directly on the white design-system background */
+    #view-payment .cond-bg{background:var(--bg);padding:0 0 24px}
+    #view-payment .wrap{padding:0}
+    /* no nested white card */
+    #view-payment .pay-card{background:transparent;border:0;border-radius:0;
+      max-width:none;margin:0;padding:20px 16px}
+
+    #view-payment .pay-card h3{margin:0 0 16px;font-size:18px;line-height:24px;
+      font-weight:600;color:var(--ink)}
+
+    /* radio cards */
+    #view-payment .pay-opt{padding:12px;margin-bottom:16px;gap:8px;align-items:flex-start}
+    #view-payment .pay-opt:last-of-type{margin-bottom:20px}
+    #view-payment .pay-opt.trade-opt{padding:0;align-items:stretch}
+    #view-payment .pay-opt.trade-opt .pay-opt-main{padding:12px;gap:8px}
+    #view-payment .pay-opt b{font-size:16px;line-height:22px;color:var(--ink);font-weight:400}
+    #view-payment .pay-opt span{line-height:19px}
+    #view-payment .pay-opt .trade-desc{font-size:14px;line-height:19px}
+
+    /* design-system Radio component (20x20) */
+    #view-payment .pay-opt input[type=radio]{appearance:none;-webkit-appearance:none;
+      width:20px;height:20px;flex:none;margin:1px 0 0;border:1.5px solid #767676;
+      border-radius:50%;background:#fff;position:relative;cursor:pointer;transition:.12s}
+    #view-payment .pay-opt input[type=radio]:checked{border-color:#3F9A59;border-width:1.5px}
+    #view-payment .pay-opt input[type=radio]:checked::after{content:'';position:absolute;
+      left:50%;top:50%;width:10px;height:10px;border-radius:50%;background:#3F9A59;
+      transform:translate(-50%,-50%)}
+
+    /* Tax Savings frame — one mixed-style line, 12/16 */
+    #view-payment .pay-opt .pay-save{width:100%;height:32px;padding:8px 12px;gap:8px;
+      font-size:12px;line-height:16px;color:var(--ink)}
+    #view-payment .pay-opt .pay-save>span{font-size:12px;line-height:16px}
+    #view-payment .pay-opt .pay-save b{font-size:12px;line-height:16px}
+    #view-payment .pay-opt .pay-save .ico{width:16px;height:16px}
+
+    /* full-width Button component */
+    #view-payment .form-actions{display:block;margin-top:0}
+    #view-payment .form-actions .btn{display:block;width:100%;height:38px;padding:0 12px;
+      font-size:16px;line-height:22px;font-weight:600}
+
+    /* ---------- REVIEW PAGE ---------- */
+    #view-review .cond-bg{padding:0 0 24px}
+    #view-review .wrap{padding:0}
+    #view-review .review-card{max-width:none;margin:0;padding:0;
+      display:flex;flex-direction:column;gap:8px}
+
+    /* separate full-bleed section frames, no border, no radius */
+    #view-review .review-block{width:100%;margin:0;border:0;border-radius:0;
+      background:var(--bg);padding:20px 16px}
+
+    #view-review .review-block h3{font-size:18px;line-height:24px;font-weight:600;color:var(--ink)}
+    #view-review .rb-head{margin-bottom:12px}
+
+    /* Change / Edit — design-system Button component (65x25) */
+    #view-review .smallbtn{display:inline-flex;align-items:center;justify-content:center;
+      width:65px;height:25px;padding:0;border-radius:6px;border:1px solid var(--bh-green-btn);
+      background:#fff;color:var(--bh-green-btn);font-family:inherit;font-size:12px;
+      font-weight:600;line-height:9px;flex:none}
+
+    /* product card */
+    #view-review .li-row{padding:12px 0;gap:12px}
+    #view-review .li-row:first-child{padding-top:0}
+    #view-review .li-thumb{width:40px;height:40px}
+    #view-review .li-thumb .ico{width:22px;height:22px}
+    #view-review .li-info .li-name{font-size:14px;line-height:19px}
+    #view-review .li-info .li-cond,
+    #view-review .li-info .li-acc{margin-top:4px;font-size:12px;line-height:16px}
+    #view-review .li-info .li-cond b,
+    #view-review .li-info .li-acc b{font-size:12px;line-height:16px;font-weight:600}
+    #view-review .li-info .li-cond span,
+    #view-review .li-info .li-acc span{font-size:12px;line-height:16px;font-weight:400}
+    #view-review .acc-bullets{list-style:none;margin:2px 0 0;padding-left:0}
+    #view-review .acc-bullets li{margin:0;font-size:12px;line-height:16px;font-weight:400}
+    #view-review .li-price{font-size:14px;line-height:19px;font-weight:600;
+      color:var(--ink);text-align:right}
+
+    /* Quote Summary section */
+    #view-review .rb-quote .rev-total{display:flex;justify-content:space-between;
+      align-items:baseline;gap:12px;border-top:0;margin:0;padding:0}
+    #view-review .rb-quote .rt-label{font-size:16px;line-height:22px;font-weight:600;color:var(--ink)}
+    #view-review .rb-quote .rt-amount{font-size:16px;line-height:22px;font-weight:700;
+      color:var(--ink);text-align:right;margin-left:auto}
+    #view-review .rev-fine{width:100%;margin-top:12px;font-size:12px;line-height:16px}
+    #view-review .rev-submit{display:block;margin-top:16px}
+    #view-review .rev-submit .btn{display:block;width:100%;height:40px;padding:0 12px;
+      font-size:16px;line-height:22px;font-weight:600}
   }
 
   /* ===================== HOMEPAGE ===================== */
@@ -1034,7 +1130,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 16.5h7"/></symbol>
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></symbol>
   <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5.5 9v6M18.5 9v6"/></symbol>
-  <symbol id="i-bagpct" viewBox="0 0 24 24"><path d="M8.5 6.5h7l1.5 2.2c1.6 2.3 2.5 4.9 2.5 7.3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4c0-2.4.9-5 2.5-7.3z"/><path d="M9.5 6.5c0-1.4.6-3 2.5-3s2.5 1.6 2.5 3"/><path d="M10 16l4-4"/><circle cx="10.2" cy="12.2" r=".6"/><circle cx="13.8" cy="15.8" r=".6"/></symbol>
+  <symbol id="i-bagpct" viewBox="0 0 16 16" fill="none"><path d="M8.96658 4.39844C8.96658 4.39844 9.60658 4.55844 10.2933 5.2451C11.5466 6.49177 13.1666 8.95177 13.1666 10.5784C13.1666 13.4584 10.8533 14.6718 7.99992 14.6718C5.14659 14.6718 2.83325 13.4584 2.83325 10.5784C2.83325 8.95177 4.36659 6.39177 5.70659 5.2451C6.47992 4.5851 7.14659 4.4051 7.14659 4.4051" stroke="#306F3D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.73327 4.50083C6.23327 4.10083 5.68661 3.42083 5.53994 2.60083C5.37994 1.70749 5.78661 1.29416 6.52661 1.53416C7.21327 1.76083 7.49994 1.58083 8.00661 1.58083C8.43994 1.58083 8.67327 1.80749 9.28661 1.52749C10.2199 1.10749 10.6533 1.70749 10.4666 2.60083C10.2933 3.42083 9.77327 4.10083 9.27327 4.50083" stroke="#306F3D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.33326 9.00115C6.74195 9.00115 7.07326 8.66685 7.07326 8.25448C7.07326 7.84211 6.74195 7.50781 6.33326 7.50781C5.92457 7.50781 5.59326 7.84211 5.59326 8.25448C5.59326 8.66685 5.92457 9.00115 6.33326 9.00115Z" fill="#306F3D"/><path d="M9.66651 12.0011C10.0752 12.0011 10.4065 11.6669 10.4065 11.2545C10.4065 10.8421 10.0752 10.5078 9.66651 10.5078C9.25782 10.5078 8.92651 10.8421 8.92651 11.2545C8.92651 11.6669 9.25782 12.0011 9.66651 12.0011Z" fill="#306F3D"/><path d="M6.22656 11.5003L9.77323 7.93359" stroke="#306F3D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></symbol>
   <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2 3h3l2.4 12h11l2-8H6"/><circle cx="9" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></symbol>
@@ -1397,9 +1493,9 @@ function bhImgFail(el){ el.onerror=null; el.src=PLACEHOLDER; el.style.objectFit=
   <div class="cond-bg">
     <div class="wrap">
       <div class="panel pay-card">
-        <h3>Payment Information</h3>
+        <h3>Payment</h3>
         <label class="pay-opt trade-opt"><span class="pay-opt-main"><input type="radio" name="pay" value="B&amp;H Trade In Credit">
-          <span class="pay-opt-txt"><b>B&amp;H Trade In Credit</b><span>Tax-free toward future phone or store orders only</span></span></span>
+          <span class="pay-opt-txt"><b>B&amp;H Trade In Credit</b><span class="trade-desc">Tax-free toward future phone or store orders only</span></span></span>
           <span class="pay-save"><svg class="ico"><use href="#i-bagpct"/></svg><span><b>Save up to 4.5%</b> with delivery to <b class="zip" id="paySaveZip">10001</b></span></span></label>
         <label class="pay-opt"><input type="radio" name="pay" value="B&amp;H Electronic Gift Card">
           <div><b>B&amp;H Electronic Gift Card</b><span>Applicable towards future orders by phone, in-store, or online</span></div></label>
@@ -1408,7 +1504,7 @@ function bhImgFail(el){ el.onerror=null; el.src=PLACEHOLDER; el.style.objectFit=
         <label class="pay-opt"><input type="radio" name="pay" value="Direct Deposit">
           <div><b>Direct Deposit</b></div></label>
         <div class="form-actions">
-          <button class="btn solid" id="payContinue" disabled onclick="submitPayment()">Continue</button>
+          <button class="btn solid" id="payContinue" disabled onclick="submitPayment()">Review Quote</button>
         </div>
       </div>
     </div>
@@ -1422,21 +1518,23 @@ function bhImgFail(el){ el.onerror=null; el.src=PLACEHOLDER; el.style.objectFit=
   <div class="cond-bg">
     <div class="wrap">
       <div class="review-card">
-        <div class="review-block">
+        <section class="review-block rb-shipping">
           <div class="rb-head"><h3>Shipping Address</h3><button class="smallbtn" onclick="goShipping()">Change</button></div>
           <div class="addr" id="rev-addr"></div>
-        </div>
-        <div class="review-block">
+        </section>
+        <section class="review-block rb-payment">
           <div class="rb-head"><h3>Payment Information</h3><button class="smallbtn" onclick="goPayment()">Change</button></div>
           <div id="rev-pay" class="addr"></div>
-        </div>
-        <div class="review-block">
-          <div class="rb-head"><h3>Items</h3><button class="smallbtn" onclick="showSummary()">Edit</button></div>
+        </section>
+        <section class="review-block rb-items">
+          <div class="rb-head"><h3>Quote Review</h3><button class="smallbtn" onclick="showSummary()">Edit</button></div>
           <div id="rev-items"></div>
-          <div class="rev-total"><span>Quote Total:</span><span id="rev-total"></span></div>
+        </section>
+        <section class="review-block rb-quote">
+          <div class="rev-total"><span class="rt-label">Quote Total:</span><span class="rt-amount" id="rev-total"></span></div>
           <div class="rev-fine">This is a preliminary estimate for your equipment. We assume that the merchandise is in working order, and is supplied accurately with manufacturer accessories. A conclusive trade-in price for any item can only be set after examination by one of our technicians.</div>
-        </div>
-        <div class="rev-submit"><button class="btn solid" onclick="submitQuote()">Submit Free Quote</button></div>
+          <div class="rev-submit"><button class="btn solid" onclick="submitQuote()">Submit Free Quote</button></div>
+        </section>
       </div>
     </div>
   </div>
@@ -2068,9 +2166,9 @@ function goReview(){
       <div class="li-thumb">${thumbHTML(li)}</div>
       <div class="li-info">
         <div class="li-name">${li.name}</div>
-        <div class="li-cond">Condition: ${li.condLabel}</div>
-        ${li.custom&&li.desc?`<div class="li-acc">Description: ${li.desc}</div>`:''}
-        ${li.accList.length?`<div class="li-acc"><b>Accessories (${li.accList.length})</b><ul class="acc-bullets">${li.accList.map(a=>`<li>${a.name}</li>`).join('')}</ul></div>`:''}
+        <div class="li-cond"><b>Condition:</b> <span>${li.condLabel}</span></div>
+        ${li.custom&&li.desc?`<div class="li-acc"><b>Description:</b> <span>${li.desc}</span></div>`:''}
+        ${li.accList.length?`<div class="li-acc"><b>Accessories:</b> <span>${li.accList.length}</span><ul class="acc-bullets">${li.accList.map(a=>`<li>${a.name}</li>`).join('')}</ul></div>`:''}
       </div>
       <div class="li-price">${li.custom?'TBD':fmt(li.total)}</div>
     </div>`).join('');
@@ -2475,7 +2573,7 @@ const PRINT_CSS = `
   *{box-sizing:border-box}
   body{margin:0;background:#fff}
   .pd-page{width:816px;min-height:1056px;padding:48px 54px;margin:0 auto;background:#fff;color:#1b1b1b;
-    font-family:Arial,Helvetica,sans-serif;font-size:13.5px;line-height:1.4;position:relative}
+    font-family:'Open Sans','Segoe UI',Roboto,Helvetica,sans-serif;font-size:13.5px;line-height:1.4;position:relative}
   .pd-head{display:flex;align-items:flex-start;gap:18px}
   .pd-logo{width:70px;height:52px;border:2px solid #c0392b;border-radius:3px;color:#c0392b;font-weight:800;
     display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;flex:none}
