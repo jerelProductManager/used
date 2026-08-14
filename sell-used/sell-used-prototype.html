@@ -1874,15 +1874,20 @@ function highlight(name,q){ const i=name.toLowerCase().indexOf(q.toLowerCase());
   return i<0?name:name.slice(0,i)+'<mark>'+name.slice(i,i+q.length)+'</mark>'+name.slice(i+q.length); }
 
 /* categories / keywords we do NOT purchase -> trigger the inline message */
-const EXCLUDED_KEYWORDS=['8mm','16mm','computer','laptop','desktop','television','televisions',
+const EXCLUDED_KEYWORDS=['tv','8mm','16mm','computer','laptop','desktop','television','televisions',
   'monitor','surveillance','printer','scanner','drone','mobile','phone','ipad','tablet','cell','gopro'];
-function isExcluded(q){ const s=q.trim().toLowerCase(); if(s.length<4) return false;
+function isExcluded(q){ const s=q.trim().toLowerCase(); if(!s) return false;
   const words=s.split(/\s+/);
-  // Excluded when the query is a prefix of an excluded word ("scan" -> "scanner"),
-  // or a whole query word equals an excluded word or its plural ("printers", "drones").
-  // It is NOT enough to be a substring inside a keyword, so "can" never hits "scanner",
-  // and "microphone" never hits "phone".
-  return EXCLUDED_KEYWORDS.some(k=> k.startsWith(s) || words.some(w=> w===k || w===k+'s')); }
+  // A whole query word that equals an excluded keyword or its plural always excludes
+  // ("tv", "tvs", "printers", "drones") — this is the only rule that applies to short
+  // queries, so "can" still never hits "scanner" and "8" never hits "8mm".
+  const exactHit = EXCLUDED_KEYWORDS.some(k=> words.some(w=> w===k || w===k+'s'));
+  if(exactHit) return true;
+  if(s.length<4) return false;
+  // Longer queries also exclude when the query is a prefix of an excluded word
+  // ("scan" -> "scanner"). It is NOT enough to be a substring inside a keyword,
+  // so "microphone" never hits "phone".
+  return EXCLUDED_KEYWORDS.some(k=> k.startsWith(s)); }
 
 const searchMsg=document.getElementById('searchMsg');
 async function runSearch(){
