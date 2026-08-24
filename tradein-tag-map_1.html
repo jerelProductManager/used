@@ -1,0 +1,547 @@
+<title>Trade-In Funnel Tag Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#F2F4F1;--surface:#FFFFFF;--surface-2:#E9EDE7;
+  --ink:#151A17;--ink-2:#3C463F;--muted:#6B776F;
+  --hair:#D3DAD2;--hair-2:#E4E9E2;
+  --accent:#2F5D3A;--accent-soft:#E2ECE0;
+  --amber:#8A5A10;--amber-soft:#F6EBD6;
+  --red:#983029;--red-soft:#F7E2E0;
+  --slate:#465A6B;--slate-soft:#E3EAEF;
+  --shadow:0 1px 0 rgba(21,26,23,.04), 0 2px 10px rgba(21,26,23,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101411;--surface:#171D19;--surface-2:#1F2621;
+    --ink:#E8EDE8;--ink-2:#BCC7BE;--muted:#8B978E;
+    --hair:#2C352E;--hair-2:#232B26;
+    --accent:#8FC79B;--accent-soft:#1E2C22;
+    --amber:#DFAE62;--amber-soft:#2E2517;
+    --red:#E09189;--red-soft:#301E1C;
+    --slate:#9FB8C9;--slate-soft:#1B2530;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101411;--surface:#171D19;--surface-2:#1F2621;
+  --ink:#E8EDE8;--ink-2:#BCC7BE;--muted:#8B978E;
+  --hair:#2C352E;--hair-2:#232B26;
+  --accent:#8FC79B;--accent-soft:#1E2C22;
+  --amber:#DFAE62;--amber-soft:#2E2517;
+  --red:#E09189;--red-soft:#301E1C;
+  --slate:#9FB8C9;--slate-soft:#1B2530;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 80px;display:flex;flex-direction:column;gap:44px}
+.mast{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.dek{margin:0;max-width:66ch;color:var(--ink-2);font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--hair);border-radius:3px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.meta div{flex:1 1 190px;padding:11px 15px;border-right:1px solid var(--hair-2);display:flex;flex-direction:column;gap:3px;min-width:0}
+.meta div:last-child{border-right:0}
+.meta .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.meta .v{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink);font-weight:500;overflow-wrap:anywhere}
+
+.headline{
+  display:flex;flex-direction:column;gap:10px;
+  background:var(--red-soft);border-left:3px solid var(--red);border-radius:2px;padding:18px 22px;
+}
+.headline h2{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:21px;margin:0;border:0;padding:0;letter-spacing:-.01em}
+.headline p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:80ch}
+.headline code{font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--surface);padding:1px 5px;border-radius:2px;border:1px solid var(--hair)}
+
+section{display:flex;flex-direction:column;gap:16px}
+h2{font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:23px;letter-spacing:-.01em;margin:0;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+h3{font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:16px;margin:0}
+.note{margin:0;color:var(--muted);font-size:14.5px;max-width:78ch}
+.surfacehead{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+.surfacehead .url{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:3px;background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:960px;font-size:14px}
+thead th{position:sticky;top:0;z-index:2;background:var(--surface-2);font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:left;padding:11px 13px;border-bottom:1px solid var(--hair);white-space:nowrap}
+tbody td{padding:11px 13px;border-bottom:1px solid var(--hair-2);vertical-align:top;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+tbody tr.dead td{background:var(--red-soft)}
+tbody tr.dead:hover td{background:var(--red-soft)}
+.grouprow td{background:var(--ground);border-bottom:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:9px 13px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px}
+.ev{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:500;white-space:nowrap}
+.nil{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12.5px}
+.trigger{color:var(--ink-2);font-size:13.5px}
+.extra{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);line-height:1.5;display:block;margin-top:3px}
+.flagcell{white-space:nowrap}
+.chip{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.chip.bug{background:var(--red-soft);color:var(--red)}
+.chip.gap{background:var(--amber-soft);color:var(--amber)}
+.chip.info{background:var(--slate-soft);color:var(--slate)}
+.chip.ok{background:var(--accent-soft);color:var(--accent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) tbody tr.dead td{background:#2A1A18}}
+:root[data-theme="dark"] tbody tr.dead td{background:#2A1A18}
+
+.findings{display:flex;flex-direction:column;gap:14px}
+.finding{background:var(--surface);border:1px solid var(--hair);border-radius:3px;border-left:3px solid var(--hair);padding:16px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.finding.bug{border-left-color:var(--red)}
+.finding.gap{border-left-color:var(--amber)}
+.finding.info{border-left-color:var(--slate)}
+.finding.good{border-left-color:var(--accent)}
+.finding .top{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.finding p{margin:0;color:var(--ink-2);font-size:15px;max-width:84ch}
+.finding code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.finding .obs{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);background:var(--surface-2);padding:9px 12px;border-radius:2px;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+.finding ul{margin:0;padding-left:19px;color:var(--ink-2);font-size:15px;display:flex;flex-direction:column;gap:4px}
+.finding li code{font-size:12px}
+
+.vocab{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.vocabcard{background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:15px 18px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.vocabcard h3{font-size:15px}
+.vocabcard .sub{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.vocabcard .list{display:flex;flex-wrap:wrap;gap:6px}
+.vocabcard .list span{font-family:"JetBrains Mono",monospace;font-size:11.5px;padding:3px 7px;border:1px solid var(--hair-2);border-radius:2px;color:var(--ink-2);background:var(--ground)}
+.vocabcard .list span.odd{border-color:var(--amber);color:var(--amber);background:var(--amber-soft)}
+
+.inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:8px}
+.inv span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-2);background:var(--surface);border:1px solid var(--hair-2);border-radius:2px;padding:7px 10px}
+.inv span.hi{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:700}
+
+footer{border-top:1px solid var(--hair);padding-top:18px;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .mono{font-size:12px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:no-preference){tbody tr td{transition:background .12s ease}}
+@media (max-width:640px){.wrap{padding:28px 16px 60px}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">GA4 instrumentation audit · trade-in funnel · live capture</div>
+    <h1>What GA4 knows about a trade-in — and where it goes blind</h1>
+    <p class="dek" style="font-size:15px;color:var(--muted)">Updated with the full quote-creation path: a real quote was placed to capture the conversion event.</p>
+    <p class="dek">The full seller path walked end to end — trade-in landing, quote configurator for a Sony FE 1.4x Teleconverter, a real quote created via <em>Add to Basket</em>, and the review step — plus the new-product PDP for the same lens. Events captured from the live <span class="mono">dataLayer</span> and <span class="mono">gtag</span> call stream, with the shipped bundles and <span class="mono">data-tracking</span> attributes read to separate "not wired" from "not present on this page." Stopped at the address form; nothing was submitted.</p>
+    <div class="meta">
+      <div><span class="k">Surfaces</span><span class="v">3 + full quote flow</span></div>
+      <div><span class="k">GA4 property</span><span class="v">G-SDR56X1SR9</span></div>
+      <div><span class="k">Captured</span><span class="v">2026-08-24</span></div>
+      <div><span class="k">Trade-in components</span><span class="v">7 total</span></div>
+      <div><span class="k">label_value populated</span><span class="v">never</span></div>
+    </div>
+  </header>
+
+  <div class="headline">
+    <h2>The quote configurator emits nothing but a page_view.</h2>
+    <p>Moving the condition slider swung the offer on this lens from <code>$240</code> to <code>$205</code> — a 15% price move, the single largest lever in the whole trade-in experience — and fired zero events. Not <code>gtag</code>, not Universal Analytics, nothing. The same is true of the accessory checkboxes, <em>Select all</em>, and <em>Add Accessories</em>. You can see that a seller reached step 2 and, later, whether a quote was created; you cannot see what condition they chose, whether they moved the slider at all, or where inside the step they gave up.</p>
+  </div>
+
+  <section>
+    <div class="surfacehead">
+      <h2>1 · Trade-in landing</h2>
+      <span class="url">/find/trade-in.jsp</span>
+    </div>
+    <p class="note">Legacy JSP page with jQuery click tracking, not the React app. It still loads the same GA4 property, plus Universal Analytics, two Google Ads accounts, Clarity, Emarsys and Bing.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>eventName</th><th>component</th><th>label</th><th>label_value</th><th>site_type</th><th>page_type</th><th>Trigger &amp; other params</th><th>Flag</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Find Your Item</td>
+            <td class="trigger">Page load and every SPA route change into a trade-in category
+              <span class="extra">content_group: Used - Find Your Item · site_langauge: E · bi: "undefined"</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="nil">absent</td><td class="nil">absent</td>
+            <td class="trigger">Google Ads duplicate — two conversion accounts configured here (AW-1056059933 and AW-1053880347) versus one on the listing page
+              <span class="extra">send_to: google_ads</span></td>
+            <td class="flagcell"><span class="chip info">by design</span></td>
+          </tr>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">Category Groups</td><td class="mono">Digital Cameras &amp; Gear</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Find Your Item</td>
+            <td class="trigger">Category link in the "What would you like to sell?" list — label carries the category name
+              <span class="extra">google_client_id — note the param name differs from g_client_id used everywhere else</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">search · search again</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Find Your Item</td>
+            <td class="trigger">Keyword search submit — component distinguishes the landing search box from the in-flow "Search Again"
+              <span class="extra">original_search: the raw query string · declared in source, fires on valid submit only</span></td>
+            <td class="flagcell"><span class="chip ok">in source</span></td>
+          </tr>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">Other Ways to Sell Your Items to B&amp;H</td><td class="mono">Online Quote Form · Email Us · Trade In Counter</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Find Your Item</td>
+            <td class="trigger">The alternate-route links in the "Other Ways to Sell" panel — tagged declaratively via a <span class="mono">data-tracking</span> attribute on each anchor
+              <span class="extra">google_client_id · label distinguishes the three routes; the phone-number route has no anchor and so no event</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr class="dead">
+            <td class="ev">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="trigger"><strong>No event:</strong> Sell Your Gear · breadcrumb · the three value-prop panels · the SuperStore address link</td>
+            <td class="flagcell"><span class="chip gap">T2</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="surfacehead">
+      <h2>2 · Quote configurator</h2>
+      <span class="url">/c/tradeIn?search=Sony+1.4x+FE+Teleconverter</span>
+    </div>
+    <p class="note">Step 2 of 3 — "Get Your Quote". Search matched a single product and dropped straight into condition selection.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>eventName</th><th>component</th><th>label</th><th>label_value</th><th>site_type</th><th>page_type</th><th>Trigger &amp; other params</th><th>Flag</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Item Condition</td>
+            <td class="trigger">Configurator loaded
+              <span class="extra">content_group: Used - Item Condition · bi: "undefined" · no SKU, no product name, no quote value on the event</span></td>
+            <td class="flagcell"><span class="chip gap">T6</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="nil">absent</td><td class="nil">absent</td>
+            <td class="trigger">Google Ads duplicate<span class="extra">send_to: google_ads</span></td>
+            <td class="flagcell"><span class="chip info">by design</span></td>
+          </tr>
+          <tr class="dead">
+            <td class="ev">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="trigger"><strong>No event:</strong> condition slider, all five positions — verified across three changes with both <span class="mono">gtag</span> and <span class="mono">ga</span> hooked
+              <span class="extra">observed offer: condition 4 → $230 · condition 5 → $240 · condition 3 → $205 — none of it recorded</span></td>
+            <td class="flagcell"><span class="chip bug">T1</span></td>
+          </tr>
+          <tr class="dead">
+            <td class="ev">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="trigger"><strong>No event:</strong> accessory checkbox · Select all · Add Accessories</td>
+            <td class="flagcell"><span class="chip bug">T1</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="surfacehead">
+      <h2>3 · Quote created &amp; review</h2>
+      <span class="url">/c/tradeIn/addToBasket · a real $230 quote on item 70676</span>
+    </div>
+    <p class="note">A quote was actually created for this audit. The walk stopped at the address modal — nothing was filled in or submitted.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>eventName</th><th>component</th><th>label</th><th>label_value</th><th>site_type</th><th>page_type</th><th>Trigger &amp; other params</th><th>Flag</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">add to basket</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Confirmation</td>
+            <td class="trigger">The quote is created — the conversion moment of the whole funnel
+              <span class="extra">tradein_item_id: 70676 · google_client_id — and nothing else</span></td>
+            <td class="flagcell"><span class="chip bug">T8</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Confirmation</td>
+            <td class="trigger">Fires on the add-to-basket transition, <em>before</em> the review page
+              <span class="extra">content_group: Used - Confirmation</span></td>
+            <td class="flagcell"><span class="chip bug">T9</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Review Quote</td>
+            <td class="trigger">Review &amp; Submit Quote screen renders
+              <span class="extra">content_group: Used - Review Quote</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">details</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Review Quote</td>
+            <td class="trigger">"Details" in the quote summary box → returns to the item view (page_type reverts to Used - Item Condition)</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">checkout</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Review Quote</td>
+            <td class="trigger">"Checkout" in the quote summary box</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">tradein_page_clicks</td><td class="mono">customer information updated</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">Used - Review Quote</td>
+            <td class="trigger">Fires when an address is saved — declared in source, downstream of where this audit stopped</td>
+            <td class="flagcell"><span class="chip info">in source</span></td>
+          </tr>
+          <tr class="dead">
+            <td class="ev">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="trigger"><strong>No event:</strong> Enter Information (opens the address modal) · Log In · Edit · Remove · Add More Items
+              <span class="extra">five elements on this page carry data-tracking; none of the five above is one of them</span></td>
+            <td class="flagcell"><span class="chip bug">T10</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="surfacehead">
+      <h2>4 · Product detail page</h2>
+      <span class="url">/c/product/1222777-REG/ · Sony FE 1.4x Teleconverter</span>
+    </div>
+    <p class="note">Back inside the React app. Every event on this surface carries <span class="mono">detail_page_sku</span>, which makes it the best-identified of the three.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>eventName</th><th>component</th><th>label</th><th>label_value</th><th>site_type</th><th>page_type</th><th>Trigger &amp; other params</th><th>Flag</th></tr></thead>
+        <tbody>
+          <tr class="grouprow"><td colspan="8">Page load</td></tr>
+          <tr>
+            <td class="ev">view_item</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Product rendered
+              <span class="extra">currency: USD · value: 598 · detail_page_sku: 1222777-REG</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Page load
+              <span class="extra">content_group: productDetail · bi: NoValue · pwa_source: NoValue · bh_user_id: id_NoValue</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Overview banner and email slide-out impressions
+              <span class="extra">creative_slot: Overview Banner / SLIDER · creative_name: product detail page / Email Slideout Signup · detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Interaction</td></tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Tab Navigation</td><td class="mono">Specs · Reviews</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Overview / Specs / Reviews / Q&amp;A / Accessories / Compatibility tabs — label is the tab name<span class="extra">detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Thumbnail Clicked</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Gallery thumbnail — no label, so which image is unknown<span class="extra">detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip gap">T7</span></td>
+          </tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Trade In - Learn More</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">The in-page "Trade in your gear for cash — Get Started" callout → /find/trade-in.jsp
+              <span class="extra">detail_page_sku: 1222777-REG — the PDP-callout entry point, tagged and SKU-attributed</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">footer_clicks</td><td class="mono">Trade in Your Gear</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Footer trade-in link — a different event family from the in-page callout, same destination<span class="extra">detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr class="dead">
+            <td class="ev">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="trigger"><strong>No event:</strong> Share · image-modal arrows · image-modal zoom (the bundle declares <span class="mono">Modal Thumbnail Clicked</span>, <span class="mono">Image Zoom - Main Image</span> and <span class="mono">360 View in Image Layer</span>, none of which fired)</td>
+            <td class="flagcell"><span class="chip gap">T7</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Findings</h2>
+    <div class="findings">
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">T1 · critical</span><h3>Step 2 of the quote flow is a black box</h3></div>
+        <p>The condition selector and accessory picker — everything that determines the offer a seller is shown — produce no analytics of any kind. I confirmed this by wrapping both <code>gtag</code> and <code>ga</code> and driving the slider through three positions: the displayed offer changed each time, the capture array stayed empty.</p>
+        <p>Concretely, this blocks: condition mix by category (are sellers self-reporting condition 5 and getting corrected on inspection?), whether slider engagement predicts quote completion, and any read on where inside step 2 abandonment happens. Those are the questions that decide whether the condition UI is doing its job, and none of them are answerable from GA4 today.</p>
+      </div>
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">T2 · critical</span><h3>Seven tracked components across the entire trade-in flow</h3></div>
+        <p>The complete inventory, from the shipped JavaScript plus the <code>data-tracking</code> attributes rendered into the markup:</p>
+        <ul>
+          <li><code>Category Groups</code> — label carries each of the nine sell-categories</li>
+          <li><code>search</code> / <code>search again</code> — keyword submit, with <code>original_search</code></li>
+          <li><code>Other Ways to Sell Your Items to B&amp;H</code> — label: Online Quote Form, Email Us, Trade In Counter</li>
+          <li><code>add to basket</code> — with <code>tradein_item_id</code></li>
+          <li><code>details</code> · <code>checkout</code> — the two quote-summary links</li>
+          <li><code>customer information updated</code> — address saved</li>
+        </ul>
+        <p>For comparison, the product listing page declares more than thirty tracked components and the PDP more than forty. Every one of the seven above sits on navigation or a link; not one measures a decision the seller makes about their own item. That is the shape of the problem — the flow is instrumented for movement, not for behavior.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">T3 · reporting</span><h3>Trade-in sits outside the app's page_type vocabulary</h3></div>
+        <p>The React app carries a closed enum of fifteen <code>page_type</code> values. None of them covers trade-in. The JSP pages therefore mint their own free-text values — <code>"Used - Find Your Item"</code>, <code>"Used - Item Condition"</code> — in a different naming style (spaced title case with a hyphen) from every React value (<code>productList</code>, <code>productDetail</code>). Any funnel that spans PDP → trade-in needs a hand-maintained mapping, and the trade-in values will not appear in any report built off the enum.</p>
+        <div class="obs">React enum   home · category · productList · productDetail · cart · checkout · searchZeroResults
+             replacement · modifyOrder · giftIdeas · paybooLandingPage · myAccount · static
+             orderHistoryDetail · leasing
+Trade-in     "Used - Find Your Item" · "Used - Item Condition"</div>
+      </div>
+
+      <div class="finding good">
+        <div class="top"><span class="chip ok">T4 · good news</span><h3>The PDP callout entry point is already tagged, with the SKU</h3></div>
+        <p>The impact framework lists the entry-point breakdown — specifically mega menu and PDP callout — as needing instrumentation. For the PDP callout that turns out to be wrong: <code>detail_page_clicks</code> / <code>Trade In - Learn More</code> fires on the in-page "Trade in your gear for cash" unit and carries <code>detail_page_sku</code>. So you can already report which products drive sellers into the funnel, not just how many.</p>
+        <p>Two caveats. The footer link fires <code>footer_clicks</code> / <code>Trade in Your Gear</code> instead, so a complete entry-point count has to union two event families. And the bundle declares a second component, <code>Trade In Phobio - Learn More</code>, for the third-party trade-in path — on products that surface it, trade-in intent splits across two components and will undercount if a report only matches one.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">T5 · continuity</span><h3>Nothing carries source across the PDP → trade-in boundary</h3></div>
+        <p>The PDP click knows the SKU. The trade-in landing <code>page_view</code> that follows carries no referring component, no source parameter, and no SKU. Joining the two means reconstructing session paths in GA4 rather than reading a parameter — workable for a one-off analysis, fragile as a recurring metric. Passing the originating SKU or a source token into the landing page would make PDP-attributed trade-in volume a direct query.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">T6 · identification</span><h3>The configurator page_view doesn't say what's being quoted</h3></div>
+        <p>The only event on the highest-intent page in the funnel carries no SKU, no product name, and no offer value. Even without new click tagging, adding the item identifier and quote amount to this <code>page_view</code> would immediately yield quote-value distribution and category mix — the "median quote value" and "quote by category" cuts that currently have to come out of the quote system rather than GA4.</p>
+      </div>
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">T8 · critical</span><h3>The conversion event carries an internal ID and nothing else</h3></div>
+        <p><code>add to basket</code> is the moment a quote comes into existence — the closest thing this funnel has to a purchase. It sends one meaningful parameter: <code>tradein_item_id: 70676</code>. No quote value, no condition, no product name, no category. It is not a GA4 ecommerce event either, so there is no <code>value</code>, no <code>currency</code>, no <code>items[]</code> — meaning trade-in volume cannot be valued alongside anything else in GA4.</p>
+        <p>What makes this the easiest fix on the list: all three missing values are already in the URL of the very request that fires it.</p>
+        <div class="obs">/c/tradeIn/addToBasket?itemCondition=450&accessories=&usersPrice=230&id=70676
+
+fires →  tradein_page_clicks { component: "add to basket", tradein_item_id: "70676" }
+missing →  usersPrice (230)   itemCondition (450)   accessories (empty)</div>
+        <p>Mapping <code>usersPrice</code> to <code>value</code>, <code>itemCondition</code> to <code>label_value</code>, and the product name to <code>label</code> would deliver quote-value distribution, condition mix and category mix in one change — and it needs no new event, only three more parameters on an event that already fires.</p>
+      </div>
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">T9 · critical</span><h3>"Used - Confirmation" fires when nothing has been confirmed</h3></div>
+        <p>The page_type sequence through the funnel runs: <code>Used - Find Your Item</code> → <code>Used - Item Condition</code> → <code>Used - Confirmation</code> → <code>Used - Review Quote</code>. The value named "Confirmation" fires on the add-to-basket transition, <em>before</em> the seller has reviewed anything, entered an address, or submitted. The genuinely final step is the one called "Review Quote."</p>
+        <p>Anyone building a funnel report in good faith will treat "Confirmation" as the completion step and will overstate submitted trade-ins by everyone who adds an item and walks away — which, given the address form sits after it, is likely a substantial share. If any existing dashboard or KPI already counts this value as a completion, its trade-in numbers are wrong and have been for as long as the naming has been in place.</p>
+      </div>
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">T10 · critical</span><h3>The last step before submission is entirely untagged</h3></div>
+        <p>On the review screen, exactly five elements carry a <code>data-tracking</code> attribute — <em>details</em>, <em>checkout</em>, and the three "Other Ways to Sell" links. Not among them: <strong>Enter Information</strong> (the primary CTA, which opens the address modal), <strong>Log In</strong>, <strong>Edit</strong>, <strong>Remove</strong>, and <strong>Add More Items</strong>. Opening the address modal fires no event and no page_view, so the seller stays on <code>Used - Review Quote</code> throughout.</p>
+        <p>So the drop-off between "quote created" and "address entered" — the single most actionable number in the funnel, and the one that tells you whether the friction is the offer or the form — has no event marking either boundary.</p>
+      </div>
+
+      <div class="finding info">
+        <div class="top"><span class="chip info">T11 · leverage</span><h3>Universal Analytics is capturing the context GA4 is missing</h3></div>
+        <p>The trade-in pages still run Universal Analytics (<code>UA-48894505-1</code>) alongside GA4, and it is set up far more richly. On the add-to-basket step it sets sixty-plus custom dimensions, including several that answer questions GA4 currently cannot:</p>
+        <ul>
+          <li><code>dimension62</code> — the referring page, <code>https://www.bhphotovideo.com/find/trade-in.jsp</code> (this is exactly the cross-surface source that T5 says GA4 lacks)</li>
+          <li><code>dimension8</code> — the previous URL, including the original search query</li>
+          <li><code>dimension68</code> — the full breadcrumb path</li>
+          <li><code>dimension12</code> — page type, mirroring the GA4 value</li>
+        </ul>
+        <p>Two implications. First, the source-continuity fix is a port rather than a build — the values are already being computed on the page. Second, roughly fifty of those dimensions are being sent as the literal string <code>"null"</code>, and the whole UA property is collecting on a platform that no longer processes data, so this is dead weight that also happens to hold the map for the GA4 work.</p>
+      </div>
+
+      <div class="finding info">
+        <div class="top"><span class="chip info">T7 · hygiene</span><h3>Three smaller inconsistencies worth folding into the same ticket</h3></div>
+        <ul>
+          <li><strong>Null sentinels disagree.</strong> Trade-in sends <code>bi: "undefined"</code>; the React app sends <code>bi: "NoValue"</code>. Neither is empty, so both pollute reports differently.</li>
+          <li><strong>Client-ID param renamed.</strong> Trade-in sends <code>google_client_id</code>; everywhere else it is <code>g_client_id</code>. Two custom dimensions for one value.</li>
+          <li><strong>label_value is unused across all three surfaces.</strong> On the listing page exactly one component fills it (<code>Other Buying Options</code>, carrying the SKU). It is the natural home for the condition value, the quote amount, and the gallery image index — all currently missing.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>page_type across the four surfaces audited</h2>
+    <div class="vocab">
+      <div class="vocabcard">
+        <span class="sub">React app</span>
+        <h3>Closed enum, camelCase</h3>
+        <div class="list">
+          <span>productList</span><span>productDetail</span><span>home</span><span>category</span>
+          <span>cart</span><span>checkout</span><span>myAccount</span><span>giftIdeas</span>
+          <span>leasing</span><span>static</span><span>replacement</span><span>modifyOrder</span>
+          <span>searchZeroResults</span><span>paybooLandingPage</span><span>orderHistoryDetail</span>
+        </div>
+      </div>
+      <div class="vocabcard">
+        <span class="sub">Trade-in JSP · in funnel order</span>
+        <h3>Free text, title case</h3>
+        <div class="list">
+          <span class="odd">Used - Find Your Item</span>
+          <span class="odd">Used - Item Condition</span>
+          <span class="odd">Used - Confirmation</span>
+          <span class="odd">Used - Review Quote</span>
+        </div>
+        <p class="note">Set per page rather than drawn from a shared list, so a new step can introduce a new value without anyone noticing — and, as T9 covers, the third value is named for a step that hasn't happened yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>PDP components declared in the bundle</h2>
+    <p class="note">The product page is densely instrumented — this is the inventory available to <span class="mono">detail_page_clicks</span>, with the two trade-in routes highlighted. Most did not fire in this session simply because this lens doesn't surface them.</p>
+    <div class="inv">
+      <span class="hi">Trade In - Learn More</span>
+      <span class="hi">Trade In Phobio - Learn More</span>
+      <span>Tab Navigation</span>
+      <span>Thumbnail Clicked</span>
+      <span>Image Zoom - Main Image</span>
+      <span>Image Zoom - See More</span>
+      <span>Image Zoom - Video</span>
+      <span>Modal Thumbnail Clicked</span>
+      <span>360 View</span>
+      <span>360 View in Image Layer</span>
+      <span>Quick Overview</span>
+      <span>Use Case Videos</span>
+      <span>Item In Action</span>
+      <span>Key Features - Show More Less</span>
+      <span>More Details - Overview</span>
+      <span>Open Box Flag Tooltip</span>
+      <span>Open Box Flag ItemsIncluded</span>
+      <span>Price Drop Badge Tooltip</span>
+      <span>Upgrade available</span>
+      <span>Build Bundle</span>
+      <span>Recommended Accessories</span>
+      <span>Promoted Accessories CTA</span>
+      <span>Accessory Modal</span>
+      <span>Similar Item</span>
+      <span>My Gear - Check Compatibility Link</span>
+      <span>My Gear - Show Compatibility With</span>
+      <span>Change Camera</span>
+      <span>Reviews - Header</span>
+      <span>Reviews Filter</span>
+      <span>Reviews - Write Review</span>
+      <span>QA - Header</span>
+      <span>Share Product</span>
+      <span>Share Link Copy Button</span>
+      <span>Print</span>
+      <span>Financing options</span>
+      <span>Apply Now</span>
+      <span>See Promo Details</span>
+      <span>Tax Note</span>
+      <span>Experts - Live Chat</span>
+      <span>Experts - Video Chat</span>
+      <span>Experts - Request Callback</span>
+      <span>Feedback form</span>
+      <span>Let Us Know</span>
+      <span>Scroll To Top</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Captured live from a desktop session · landing, configurator, quote creation, review, PDP · property G-SDR56X1SR9</span>
+    <span class="mono">stopped at the address form — submission events unverified</span>
+  </footer>
+
+</div>

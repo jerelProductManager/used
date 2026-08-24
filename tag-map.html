@@ -1,0 +1,617 @@
+<title>Listing Page Tag Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#F2F4F1;
+  --surface:#FFFFFF;
+  --surface-2:#E9EDE7;
+  --ink:#151A17;
+  --ink-2:#3C463F;
+  --muted:#6B776F;
+  --hair:#D3DAD2;
+  --hair-2:#E4E9E2;
+  --accent:#2F5D3A;
+  --accent-soft:#E2ECE0;
+  --amber:#8A5A10;
+  --amber-soft:#F6EBD6;
+  --red:#983029;
+  --red-soft:#F7E2E0;
+  --slate:#465A6B;
+  --slate-soft:#E3EAEF;
+  --shadow:0 1px 0 rgba(21,26,23,.04), 0 2px 10px rgba(21,26,23,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101411;
+    --surface:#171D19;
+    --surface-2:#1F2621;
+    --ink:#E8EDE8;
+    --ink-2:#BCC7BE;
+    --muted:#8B978E;
+    --hair:#2C352E;
+    --hair-2:#232B26;
+    --accent:#8FC79B;
+    --accent-soft:#1E2C22;
+    --amber:#DFAE62;
+    --amber-soft:#2E2517;
+    --red:#E09189;
+    --red-soft:#301E1C;
+    --slate:#9FB8C9;
+    --slate-soft:#1B2530;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101411;
+  --surface:#171D19;
+  --surface-2:#1F2621;
+  --ink:#E8EDE8;
+  --ink-2:#BCC7BE;
+  --muted:#8B978E;
+  --hair:#2C352E;
+  --hair-2:#232B26;
+  --accent:#8FC79B;
+  --accent-soft:#1E2C22;
+  --amber:#DFAE62;
+  --amber-soft:#2E2517;
+  --red:#E09189;
+  --red-soft:#301E1C;
+  --slate:#9FB8C9;
+  --slate-soft:#1B2530;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 80px;display:flex;flex-direction:column;gap:44px}
+
+/* ---------- masthead ---------- */
+.mast{display:flex;flex-direction:column;gap:18px}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;
+}
+h1{
+  font-family:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;
+  letter-spacing:-.02em;margin:0;text-wrap:balance;
+}
+.dek{margin:0;max-width:64ch;color:var(--ink-2);font-size:17px}
+.meta{
+  display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--hair);
+  border-radius:3px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow);
+}
+.meta div{
+  flex:1 1 190px;padding:11px 15px;border-right:1px solid var(--hair-2);
+  display:flex;flex-direction:column;gap:3px;min-width:0;
+}
+.meta div:last-child{border-right:0}
+.meta dt,.meta .k{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+}
+.meta .v{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px;
+  color:var(--ink);font-weight:500;overflow-wrap:anywhere;
+}
+
+/* ---------- constants callout ---------- */
+.const{
+  display:grid;grid-template-columns:auto 1fr;gap:0 20px;align-items:start;
+  background:var(--accent-soft);border-left:3px solid var(--accent);
+  border-radius:2px;padding:16px 20px;
+}
+.const .lede{
+  font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:15px;
+  grid-column:1/-1;margin:0 0 6px;
+}
+.const p{margin:0;grid-column:1/-1;color:var(--ink-2);font-size:15px;max-width:78ch}
+.const code{font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--surface);padding:1px 5px;border-radius:2px;border:1px solid var(--hair)}
+
+/* ---------- sections ---------- */
+section{display:flex;flex-direction:column;gap:16px}
+h2{
+  font-family:"Familjen Grotesk",sans-serif;font-weight:600;
+  font-size:23px;letter-spacing:-.01em;margin:0;
+  padding-bottom:9px;border-bottom:2px solid var(--ink);
+}
+h3{
+  font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:16px;margin:0;
+}
+.note{margin:0;color:var(--muted);font-size:14.5px;max-width:76ch}
+
+/* ---------- table ---------- */
+.tablewrap{
+  overflow-x:auto;border:1px solid var(--hair);border-radius:3px;
+  background:var(--surface);box-shadow:var(--shadow);
+}
+table{border-collapse:collapse;width:100%;min-width:960px;font-size:14px}
+thead th{
+  position:sticky;top:0;z-index:2;background:var(--surface-2);
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+  text-align:left;padding:11px 13px;border-bottom:1px solid var(--hair);
+  white-space:nowrap;
+}
+tbody td{
+  padding:11px 13px;border-bottom:1px solid var(--hair-2);vertical-align:top;
+  font-variant-numeric:tabular-nums;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+.grouprow td{
+  background:var(--ground);border-bottom:1px solid var(--hair);
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  padding:9px 13px;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px}
+.ev{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:500;color:var(--ink);white-space:nowrap}
+.dim{color:var(--muted)}
+.nil{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12.5px}
+.trigger{color:var(--ink-2);font-size:13.5px}
+.extra{
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);
+  line-height:1.5;display:block;margin-top:3px;
+}
+.flagcell{white-space:nowrap}
+
+/* ---------- chips ---------- */
+.chip{
+  display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;white-space:nowrap;
+}
+.chip.bug{background:var(--red-soft);color:var(--red)}
+.chip.gap{background:var(--amber-soft);color:var(--amber)}
+.chip.info{background:var(--slate-soft);color:var(--slate)}
+.chip.ok{background:var(--accent-soft);color:var(--accent)}
+
+/* ---------- findings ---------- */
+.findings{display:flex;flex-direction:column;gap:14px}
+.finding{
+  background:var(--surface);border:1px solid var(--hair);border-radius:3px;
+  border-left:3px solid var(--hair);padding:16px 20px;
+  display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);
+}
+.finding.bug{border-left-color:var(--red)}
+.finding.gap{border-left-color:var(--amber)}
+.finding.info{border-left-color:var(--slate)}
+.finding .top{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.finding p{margin:0;color:var(--ink-2);font-size:15px;max-width:82ch}
+.finding code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.finding .obs{
+  font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);
+  background:var(--surface-2);padding:9px 12px;border-radius:2px;
+  overflow-x:auto;white-space:pre-wrap;word-break:break-word;
+}
+
+/* ---------- inventory ---------- */
+.inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:8px}
+.inv span{
+  font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--hair-2);border-radius:2px;
+  padding:7px 10px;
+}
+.taxo{display:flex;flex-wrap:wrap;gap:7px}
+.taxo span{
+  font-family:"JetBrains Mono",monospace;font-size:12px;padding:5px 9px;
+  border:1px solid var(--hair);border-radius:2px;color:var(--muted);background:var(--surface);
+}
+.taxo span.here{background:var(--accent);color:var(--surface);border-color:var(--accent);font-weight:700}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .taxo span.here{color:#101411}}
+:root[data-theme="dark"] .taxo span.here{color:#101411}
+
+footer{
+  border-top:1px solid var(--hair);padding-top:18px;color:var(--muted);font-size:13.5px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+footer .mono{font-size:12px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:no-preference){tbody tr td{transition:background .12s ease}}
+@media (max-width:640px){.wrap{padding:28px 16px 60px}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">GA4 instrumentation audit · live capture</div>
+    <h1>Digital Cameras listing — what GA4 actually receives</h1>
+    <p class="dek">Every event observed firing on the Digital Cameras category page, captured by hooking <span class="mono">dataLayer.push</span>, <span class="mono">fetch</span>, <span class="mono">XHR</span> and <span class="mono">sendBeacon</span> in a live session and cross-checked against the <span class="mono">/g/collect</span> payloads and the shipped <span class="mono">analyticsWorker</span> bundle.</p>
+    <div class="meta">
+      <div><span class="k">Page</span><span class="v">/c/buy/Digital-Cameras/ci/9811</span></div>
+      <div><span class="k">GA4 property</span><span class="v">G-SDR56X1SR9</span></div>
+      <div><span class="k">Captured</span><span class="v">2026-08-24</span></div>
+      <div><span class="k">Hits observed</span><span class="v">34</span></div>
+      <div><span class="k">Transport</span><span class="v">gtag → /g/collect</span></div>
+    </div>
+  </header>
+
+  <div class="const">
+    <p class="lede">site_type and page_type are page-level constants, not per-event values.</p>
+    <p>Every GA4 event on this page carries <code>site_type: "Desktop"</code> and <code>page_type: "productList"</code>, stamped by the analytics worker rather than by the component that fired. They are reproduced in every row below so the grid is complete, but the only rows where they vary are the Google Ads remarketing sends, which omit both. There is no dataLayer in the GTM sense — B&H pushes <code>gtag('event', name, params)</code> directly from a service-worker-backed analytics module.</p>
+  </div>
+
+  <section>
+    <h2>The grid</h2>
+    <p class="note">Grouped by what triggers the event. <span class="chip ok">observed</span> rows were captured firing in-session; the <span class="chip bug">bug</span> and <span class="chip gap">gap</span> flags are explained in Findings below. Columns beyond the six requested carry the parameters that actually distinguish one row from another.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>eventName</th>
+            <th>component</th>
+            <th>label</th>
+            <th>label_value</th>
+            <th>site_type</th>
+            <th>page_type</th>
+            <th>Trigger &amp; other params</th>
+            <th>Flag</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="grouprow"><td colspan="8">Page load</td></tr>
+          <tr>
+            <td class="ev">page_view</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Initial render and every filter/sort/paging change (pushState)
+              <span class="extra">content_group: productList · site_langauge: E · bi: NoValue · pwa_source: NoValue · bh_user_id · category_page_id: 9811</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_item_list</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Results grid rendered — 28 items in one send
+              <span class="extra">items[]: item_id, item_code, item_list_name, index, sales_comment · position_index: 1</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_item_list</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">absent</td>
+            <td class="nil">absent</td>
+            <td class="trigger">Google Ads remarketing duplicate — separate send, not the GA4 property
+              <span class="extra">send_to: google_ads · ecomm_pagetype: productList · ecomm_prodid[] · tag: AW-1056059933</span></td>
+            <td class="flagcell"><span class="chip info">by design</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Hero banner impression — the Nikon trade-in unit
+              <span class="extra">creative_name: IO Image Banner · creative_slot: HERO · promotion_name: 3385025 - BHUX 35089 Nikon Z6III Listing Page · promotion_url: /a/trade-in/64435</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Sponsored carousel — one event per slot
+              <span class="extra">creative_name: spotfront list item · creative_slot: TOP · promotion_position: 1, 2, 3 · promotion_id (uuid) · promotion_url</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Email slide-out and mega-menu banner impressions
+              <span class="extra">creative_name: Email Slideout Signup / IO Banner · creative_slot: SLIDER / Top Nav · promotion_id: ESS</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Refinements</td></tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Filters</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Left-rail facet checkbox
+              <span class="extra">filter_value: Full Frame (35mm) · filter_section: Sensor Size · filter_n_value: fct_sensor-size_3087 · from: left refinements</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Filters</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Left-rail <em>Categories</em> link (Mirrorless Cameras)
+              <span class="extra">filter_value: "undefined" · filter_section: Category · filter_n_value: Mirrorless Cameras · from: "undefined"</span></td>
+            <td class="flagcell"><span class="chip bug">F1</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Filter Labels</td>
+            <td class="mono">Still Image Resolution</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Facet accordion expand/collapse — label carries the section name</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Listing See All Info</td>
+            <td class="mono">left refinements</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">"See all + 10" opens the full-facet modal — label carries placement, not which facet</td>
+            <td class="flagcell"><span class="chip gap">F3</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Listing See All Modal</td>
+            <td class="mono">Clear All</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Clear All inside the modal — the only modal control that emits anything</td>
+            <td class="flagcell"><span class="chip gap">F2</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Listing controls</td></tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Sort By</td>
+            <td class="nil">"" (empty)</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Opening the sort dropdown — fires with an empty label before any choice is made</td>
+            <td class="flagcell"><span class="chip gap">F4</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Sort By</td>
+            <td class="mono">PRICE_LOW_TO_HIGH</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Sort selected — label is the enum, not the visible "Price: Low to High"</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">View</td>
+            <td class="mono">Grid View · List View</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Grid/list density toggle</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Paging</td>
+            <td class="mono">page 2</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Pagination control — label is the literal <span class="mono">"page "</span> prefix plus the number</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Product tile</td></tr>
+          <tr>
+            <td class="ev">select_item</td>
+            <td class="mono">Item List</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Product title click — GA4 ecommerce event, not a <span class="mono">listing_page_clicks</span>
+              <span class="extra">items: [{ item_id }] · section_path: Category</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Other Buying Options</td>
+            <td class="mono">Used</td>
+            <td class="mono">1910936-REG</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">"Used for $39.95" link on a tile — the only component on this page that populates label_value
+              <span class="extra">section_path: Category · label = buying-option type · label_value = SKU</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Show More</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Expanding a tile's Key Features
+              <span class="extra">section_path: Category — no item_id, so it cannot be tied to a product</span></td>
+            <td class="flagcell"><span class="chip gap">F5</span></td>
+          </tr>
+          <tr>
+            <td class="ev">listing_page_clicks</td>
+            <td class="mono">Add to Compare</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Compare checkbox on a tile — no label, no item identifier</td>
+            <td class="flagcell"><span class="chip gap">F5</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Promo &amp; navigation</td></tr>
+          <tr>
+            <td class="ev">select_promotion</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Hero banner click — mirrors the view_promotion params
+              <span class="extra">creative_name: IO Image Banner · creative_slot: HERO · promotion_url: /a/trade-in/64435</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">breadcrumbs</td>
+            <td class="mono">Breadcrumb</td>
+            <td class="nil">—</td>
+            <td class="nil">—</td>
+            <td class="mono">Desktop</td>
+            <td class="mono">productList</td>
+            <td class="trigger">Breadcrumb link click
+              <span class="extra">breadcrumbs: Photography — destination in its own param rather than label</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Findings</h2>
+
+    <div class="findings">
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">F1 · bug</span><h3>Category refinements send the string "undefined"</h3></div>
+        <p>Clicking a link in the left-rail <em>Categories</em> block fires a <code>Filters</code> event whose <code>filter_value</code> and <code>from</code> are the literal string <code>"undefined"</code>, and whose <code>filter_n_value</code> holds the human-readable name — the inverse of how every other facet populates. Sensor Size sends <code>filter_value: "Full Frame (35mm)"</code> / <code>filter_n_value: "fct_sensor-size_3087"</code>; Category sends the display name in the machine-code slot and nothing usable in the other two.</p>
+        <div class="obs">Sensor Size  filter_value: "Full Frame (35mm)"  filter_n_value: "fct_sensor-size_3087"  from: "left refinements"
+Category     filter_value: "undefined"          filter_n_value: "Mirrorless Cameras"  from: "undefined"</div>
+        <p>Any GA4 report that segments refinement usage by <code>filter_value</code> silently buckets all category navigation into a single "undefined" row, and <code>from</code> can't distinguish left-rail from top-bar for these clicks at all.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">F2 · gap</span><h3>The See-All facet modal is almost entirely untagged</h3></div>
+        <p>Opening the modal fires. <code>Clear All</code> fires. Nothing else does — not the individual facet checkboxes inside it, not <em>Select All</em>, not <em>Cancel</em>, not <em>Apply Selection</em>. So a filter applied from the modal is invisible, while the same filter applied from the rail is captured. Facet-usage numbers are biased toward the rail by an unknown factor, and the modal's abandon rate can't be measured at all.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">F3 · gap</span><h3>"See all" doesn't say which facet was opened</h3></div>
+        <p><code>Listing See All Info</code> sends <code>label: "left refinements"</code> — the placement, which is already implied by the component. The facet name (Sensor Size, Brand, Still Image Resolution) is never sent, so you can see that shoppers open the modal without seeing which attributes drive them there. Since <code>Filter Labels</code> already proves the section name is available at this layer, this is a one-line fix.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">F4 · gap</span><h3>Sort fires twice, once with an empty label</h3></div>
+        <p>Opening the dropdown emits <code>Sort By</code> with <code>label: ""</code>; choosing an option emits it again with the enum. Unless reports filter on a non-empty label, sort engagement is inflated roughly 2× and the empty-label rows read as a broken value rather than an open-menu signal. Separately, the label is the raw enum <code>PRICE_LOW_TO_HIGH</code> rather than the displayed text, so anyone reading the report has to translate.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">F5 · gap</span><h3>Tile-level interactions carry no item identifier</h3></div>
+        <p><code>Show More</code> and <code>Add to Compare</code> both fire with no <code>label</code>, no <code>label_value</code>, and no <code>items[]</code>. You get a count of how often shoppers expand specs or compare, but never which products — which is exactly the cut needed to tell whether spec-hunger clusters on particular categories or price bands. The worker's schema already supports <code>items: [{ item_id }]</code> on this event family (<code>select_item</code> and <code>Other Buying Options</code> both use it), so the plumbing exists.</p>
+      </div>
+
+      <div class="finding info">
+        <div class="top"><span class="chip info">F6 · note</span><h3>The Used entry point is the best-tagged thing on the page</h3></div>
+        <p><code>Other Buying Options</code> is the only component here that fills all of <code>component</code>, <code>label</code> and <code>label_value</code> — <code>label: "Used"</code> identifies the buying-option type and <code>label_value: "1910936-REG"</code> the SKU. That means used-inventory click-through from new-product listings is measurable per SKU today, without new tagging. Paired with the hero <code>select_promotion</code> pointing at <code>/a/trade-in/64435</code>, both listing-page routes into the Used and trade-in funnel are already instrumented — the entry-point breakdown that the trade-in measurement framework flags as "needs tagging" is, for this surface, already available.</p>
+      </div>
+
+      <div class="finding info">
+        <div class="top"><span class="chip info">F7 · note</span><h3>Two things worth knowing about the schema</h3></div>
+        <p>There is no GTM dataLayer to inspect — <code>window.dataLayer</code> is empty until the analytics module boots and then receives <code>gtag()</code> calls directly. Universal Analytics (<code>analytics.js</code>) is still loading on this page alongside GA4. And despite the <code>/c/buy/</code> URL, the page identifies as <code>page_type: productList</code> and emits <code>listing_page_clicks</code>; the separate <code>category_page_clicks</code> event in the taxonomy belongs to a different template, so don't look for this page's traffic there.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Declared but not observed</h2>
+    <p class="note">Components the listing bundle registers for tracking that did not fire during this session — either the control wasn't present on this category, or it isn't wired. Each is a QA candidate rather than a confirmed gap.</p>
+    <div class="inv">
+      <span>Filter By</span>
+      <span>Selected Filters Button</span>
+      <span>Clear all</span>
+      <span>Range Filter Slider</span>
+      <span>Listing Info Range Slider Clear All</span>
+      <span>ListingTextInput</span>
+      <span>ListingSeeAllModal</span>
+      <span>Tooltip - Open modal</span>
+      <span>More info - Tooltip</span>
+      <span>SEO Text</span>
+      <span>Search Feedback button</span>
+      <span>Search Feedback Modal Send Feedback Button</span>
+      <span>Search Feedback Modal Cancel Button</span>
+      <span>Compare items</span>
+      <span>open compare sheet</span>
+      <span>Remove compare item</span>
+      <span>Clear compare</span>
+      <span>Close compare</span>
+      <span>Store Pickup - Call</span>
+      <span>Store Pickup - Hours</span>
+      <span>Free store pickup</span>
+      <span>Check-Store-Display-List</span>
+      <span>Browse all brand products</span>
+    </div>
+    <p class="note"><strong>Worth chasing:</strong> <span class="mono">ListingSeeAllModal</span> is the one component in this list whose source explicitly populates <code>label_value</code> — <code>label: "Slider Arrows" / "Navigation Dots"</code> with <code>label_value: "Previous Page" / "Next Page"</code>. It only appears on facets wide enough to paginate, which Sensor Size is not.</p>
+  </section>
+
+  <section>
+    <h2>Where this page sits in the event taxonomy</h2>
+    <p class="note">The full set of click-event names the analytics worker can emit across the site. This page emits only the highlighted one.</p>
+    <div class="taxo">
+      <span class="here">listing_page_clicks</span>
+      <span>category_page_clicks</span>
+      <span>detail_page_clicks</span>
+      <span>header_clicks</span>
+      <span>mega_menu_clicks</span>
+      <span>typeahead_suggestion_clicks</span>
+      <span>footer_clicks</span>
+      <span>home_page_clicks</span>
+      <span>nav_drawer_clicks</span>
+      <span>cart_page_clicks</span>
+      <span>checkout_page_clicks</span>
+      <span>checkout_impression</span>
+      <span>login_layer_clicks</span>
+      <span>profile_menu_clicks</span>
+      <span>my_account_clicks</span>
+      <span>order_history_detail_clicks</span>
+      <span>modify_order_page_clicks</span>
+      <span>static_pages_clicks</span>
+      <span>gift_ideas_clicks</span>
+      <span>leasing_page_clicks</span>
+      <span>payboo_page_clicks</span>
+      <span>payboo_sdk_clicks</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Captured live from a desktop session · single GA4 property G-SDR56X1SR9</span>
+    <span class="mono">/c/buy/Digital-Cameras/ci/9811/N/4288586282</span>
+  </footer>
+
+</div>
