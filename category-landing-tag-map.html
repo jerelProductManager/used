@@ -1,0 +1,332 @@
+<title>Category Landing Tag Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#F2F4F1;--surface:#FFFFFF;--surface-2:#E9EDE7;
+  --ink:#151A17;--ink-2:#3C463F;--muted:#6B776F;
+  --hair:#D3DAD2;--hair-2:#E4E9E2;
+  --accent:#2F5D3A;--accent-soft:#E2ECE0;
+  --amber:#8A5A10;--amber-soft:#F6EBD6;
+  --red:#983029;--red-soft:#F7E2E0;
+  --slate:#465A6B;--slate-soft:#E3EAEF;
+  --shadow:0 1px 0 rgba(21,26,23,.04), 0 2px 10px rgba(21,26,23,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101411;--surface:#171D19;--surface-2:#1F2621;
+    --ink:#E8EDE8;--ink-2:#BCC7BE;--muted:#8B978E;
+    --hair:#2C352E;--hair-2:#232B26;
+    --accent:#8FC79B;--accent-soft:#1E2C22;
+    --amber:#DFAE62;--amber-soft:#2E2517;
+    --red:#E09189;--red-soft:#301E1C;
+    --slate:#9FB8C9;--slate-soft:#1B2530;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101411;--surface:#171D19;--surface-2:#1F2621;
+  --ink:#E8EDE8;--ink-2:#BCC7BE;--muted:#8B978E;
+  --hair:#2C352E;--hair-2:#232B26;
+  --accent:#8FC79B;--accent-soft:#1E2C22;
+  --amber:#DFAE62;--amber-soft:#2E2517;
+  --red:#E09189;--red-soft:#301E1C;
+  --slate:#9FB8C9;--slate-soft:#1B2530;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 80px;display:flex;flex-direction:column;gap:44px}
+.mast{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.dek{margin:0;max-width:66ch;color:var(--ink-2);font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--hair);border-radius:3px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.meta div{flex:1 1 180px;padding:11px 15px;border-right:1px solid var(--hair-2);display:flex;flex-direction:column;gap:3px;min-width:0}
+.meta div:last-child{border-right:0}
+.meta .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.meta .v{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink);font-weight:500;overflow-wrap:anywhere}
+
+.headline{display:flex;flex-direction:column;gap:10px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:2px;padding:18px 22px}
+.headline h2{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:21px;margin:0;border:0;padding:0;letter-spacing:-.01em}
+.headline p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:82ch}
+.headline code{font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--surface);padding:1px 5px;border-radius:2px;border:1px solid var(--hair)}
+
+section{display:flex;flex-direction:column;gap:16px}
+h2{font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:23px;letter-spacing:-.01em;margin:0;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+h3{font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:16px;margin:0}
+.note{margin:0;color:var(--muted);font-size:14.5px;max-width:78ch}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:3px;background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:960px;font-size:14px}
+thead th{position:sticky;top:0;z-index:2;background:var(--surface-2);font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:left;padding:11px 13px;border-bottom:1px solid var(--hair);white-space:nowrap}
+tbody td{padding:11px 13px;border-bottom:1px solid var(--hair-2);vertical-align:top;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+tbody tr.star td{background:var(--accent-soft)}
+tbody tr.star:hover td{background:var(--accent-soft)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) tbody tr.star td{background:#18241B}}
+:root[data-theme="dark"] tbody tr.star td{background:#18241B}
+.grouprow td{background:var(--ground);border-bottom:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:9px 13px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px}
+.ev{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:500;white-space:nowrap}
+.nil{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12.5px}
+.trigger{color:var(--ink-2);font-size:13.5px}
+.extra{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);line-height:1.5;display:block;margin-top:3px}
+.flagcell{white-space:nowrap}
+.chip{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.chip.bug{background:var(--red-soft);color:var(--red)}
+.chip.gap{background:var(--amber-soft);color:var(--amber)}
+.chip.info{background:var(--slate-soft);color:var(--slate)}
+.chip.ok{background:var(--accent-soft);color:var(--accent)}
+.chip.model{background:var(--accent);color:var(--surface)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip.model{color:#101411}}
+:root[data-theme="dark"] .chip.model{color:#101411}
+
+.scoreboard{overflow-x:auto;border:1px solid var(--hair);border-radius:3px;background:var(--surface);box-shadow:var(--shadow)}
+.scoreboard table{min-width:700px}
+.scoreboard td.yes{color:var(--accent);font-weight:700}
+.scoreboard td.partial{color:var(--amber);font-weight:700}
+.scoreboard td.no{color:var(--red);font-weight:700}
+.scoreboard tbody tr.here td:first-child{font-weight:700;color:var(--accent)}
+
+.findings{display:flex;flex-direction:column;gap:14px}
+.finding{background:var(--surface);border:1px solid var(--hair);border-radius:3px;border-left:3px solid var(--hair);padding:16px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.finding.bug{border-left-color:var(--red)}
+.finding.gap{border-left-color:var(--amber)}
+.finding.info{border-left-color:var(--slate)}
+.finding.good{border-left-color:var(--accent)}
+.finding .top{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.finding p{margin:0;color:var(--ink-2);font-size:15px;max-width:84ch}
+.finding code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.finding .obs{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);background:var(--surface-2);padding:10px 12px;border-radius:2px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;line-height:1.6}
+.finding ul{margin:0;padding-left:19px;color:var(--ink-2);font-size:15px;display:flex;flex-direction:column;gap:4px}
+
+.inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.inv span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-2);background:var(--surface);border:1px solid var(--hair-2);border-radius:2px;padding:7px 10px}
+.inv span.warn{border-color:var(--amber);color:var(--amber);background:var(--amber-soft)}
+
+footer{border-top:1px solid var(--hair);padding-top:18px;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .mono{font-size:12px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:no-preference){tbody tr td{transition:background .12s ease}}
+@media (max-width:640px){.wrap{padding:28px 16px 60px}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">GA4 instrumentation audit · category landing · live capture</div>
+    <h1>The Photography landing page is the reference implementation</h1>
+    <p class="dek">Fifth surface in the series, and the first one that gets the schema right. This is the only page audited so far where <span class="mono">label</span> and <span class="mono">label_value</span> are both populated systematically, on the component that matters most to the page. Worth reading as the template the other surfaces should be measured against.</p>
+    <div class="meta">
+      <div><span class="k">Page</span><span class="v">/c/browse/Photography/ci/989</span></div>
+      <div><span class="k">page_type</span><span class="v">category</span></div>
+      <div><span class="k">Event family</span><span class="v">category_page_clicks</span></div>
+      <div><span class="k">label_value</span><span class="v">populated</span></div>
+      <div><span class="k">Captured</span><span class="v">2026-08-24</span></div>
+    </div>
+  </header>
+
+  <div class="headline">
+    <h2>Category Groups fills both label fields — section in one, destination in the other.</h2>
+    <p>Clicking the "Digital Cameras" tile fires <code>label: "Cameras &amp; Lenses"</code> with <code>label_value: "Digital Cameras"</code>. The section heading goes in <code>label</code>, the thing that was clicked goes in <code>label_value</code>. That single convention makes the whole page reportable: which sections earn attention, which tiles within them, and the ratio between the two. It is exactly the shape the listing page's <code>Sort By</code>, the used PDP's <code>Used Item Condition</code>, and the trade-in configurator all need and don't have.</p>
+  </div>
+
+  <section>
+    <h2>The grid</h2>
+    <p class="note">Every event carries <span class="mono">category_page_id: 989</span> and <span class="mono">site_type: Desktop</span>. Green rows are the ones worth copying elsewhere.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>eventName</th><th>component</th><th>label</th><th>label_value</th><th>site_type</th><th>page_type</th><th>Trigger &amp; other params</th><th>Flag</th></tr></thead>
+        <tbody>
+
+          <tr class="grouprow"><td colspan="8">Page load</td></tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Page load — <code>page_type</code> and <code>content_group</code> both correctly distinct from productList
+              <span class="extra">content_group: category · category_page_id: 989 · site_langauge: E · bi: NoValue · pwa_source: NoValue · bh_user_id: id_NoValue</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="nil">absent</td><td class="nil">absent</td>
+            <td class="trigger">Google Ads remarketing duplicate<span class="extra">send_to: google_ads · ecomm_pagetype: category</span></td>
+            <td class="flagcell"><span class="chip info">by design</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Top spotfront banner — <strong>the trade-in unit</strong>, impression-tracked
+              <span class="extra">creative_name: spotfront banner · creative_slot: TOP · promotion_position: 1 · promotion_id: e82f9b63-… · promotion_url: /a/trade-in/64435</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Spotfront product rail and bottom banner — one event per slot, with position
+              <span class="extra">creative_slot: LIST (positions 1–3) · BOTTOM (position 5) · SLIDER (email slide-out) · promotion_url per item</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Navigation into the catalog</td></tr>
+          <tr class="star">
+            <td class="ev">category_page_clicks</td><td class="mono">Category Groups</td><td class="mono">Cameras &amp; Lenses</td><td class="mono">Digital Cameras</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Category tile — label is the section, label_value the destination<span class="extra">category_page_id: 989</span></td>
+            <td class="flagcell"><span class="chip model">model</span></td>
+          </tr>
+          <tr class="star">
+            <td class="ev">category_page_clicks</td><td class="mono">Category Groups</td><td class="mono">Accessories</td><td class="mono">Lens Accessories</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Same component, second section — the convention holds across the page</td>
+            <td class="flagcell"><span class="chip model">model</span></td>
+          </tr>
+          <tr class="star">
+            <td class="ev">category_page_clicks</td><td class="mono">Category Groups</td><td class="mono">Applications</td><td class="mono">Portrait Photography</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">The "What would you like to shoot?" rail — reports under its internal key, <code>Applications</code>
+              <span class="extra">the only section whose label doesn't match its visible heading</span></td>
+            <td class="flagcell"><span class="chip gap">C3</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Content &amp; banners</td></tr>
+          <tr>
+            <td class="ev">category_page_clicks</td><td class="mono">Explora banner</td><td class="mono">Venus Optics Delivers Two New Ultra-Macro Laowa Lenses</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Editorial rail — label carries the full article title, so content performance is readable</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">category_page_clicks</td><td class="mono">Category Banner</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">The Hasselblad "Learn More" unit — no label, so which brand banner was clicked is unknowable</td>
+            <td class="flagcell"><span class="chip gap">C2</span></td>
+          </tr>
+          <tr>
+            <td class="ev">category_page_clicks</td><td class="mono">chatBanner</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">"Video Chat with a Photography Expert" strip — opens the chat widget, sends nothing about which expert path</td>
+            <td class="flagcell"><span class="chip gap">C2</span></td>
+          </tr>
+          <tr>
+            <td class="ev">category_page_clicks</td><td class="mono">SEO Text</td><td class="mono">Show More</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Expanding the bottom copy block — same component and label as on the listing page</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Promotions &amp; exits</td></tr>
+          <tr>
+            <td class="ev">select_promotion</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Trade-in banner clicked — mirrors its impression event exactly, same <code>promotion_id</code>
+              <span class="extra">creative_slot: TOP · promotion_url: /a/trade-in/64435</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">select_promotion</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Spotfront product rail item clicked — impression and click share <code>promotion_id</code> and <code>promotion_position</code>, so slot-level CTR is directly computable</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">footer_clicks</td><td class="mono">Trade in Your Gear</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">category</td>
+            <td class="trigger">Footer trade-in link — a different event family from the banner above it, same destination</td>
+            <td class="flagcell"><span class="chip info">C5</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>label_value across the five surfaces</h2>
+    <p class="note">The through-line of this whole audit series. The schema supports the field everywhere; only implementation discipline varies.</p>
+    <div class="scoreboard">
+      <table>
+        <thead><tr><th>Surface</th><th>page_type</th><th>Components with label</th><th>Components with label_value</th><th>Verdict</th></tr></thead>
+        <tbody>
+          <tr class="here"><td>Category landing</td><td class="mono">category</td><td>Category Groups, Explora banner, SEO Text</td><td>Category Groups (all sections)</td><td class="yes">Reference</td></tr>
+          <tr><td>Product listing</td><td class="mono">productList</td><td>Sort By, View, Paging, Filter Labels, See All</td><td>Other Buying Options only</td><td class="partial">Partial</td></tr>
+          <tr><td>Product detail (new)</td><td class="mono">productDetail</td><td>Tab Navigation</td><td class="no">none</td><td class="no">Missing</td></tr>
+          <tr><td>Product detail (used)</td><td class="mono">productDetail</td><td>Other Buying Options</td><td class="no">none</td><td class="no">Missing</td></tr>
+          <tr><td>Trade-in funnel</td><td class="mono">"Used - …"</td><td>Category Groups, Other Ways to Sell</td><td class="no">none</td><td class="no">Missing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Findings</h2>
+    <div class="findings">
+
+      <div class="finding good">
+        <div class="top"><span class="chip model">C1 · model</span><h3>Copy this call site</h3></div>
+        <p>The whole convention is one object in the bundle, applied twice — once for the tile and once for its sub-links:</p>
+        <div class="obs">trackingMetadata: { type: CLICK_REG, component: "Category Groups", label: e,  labelValue: s }        ← tile: label = section, value = tile
+trackingMetadata: { type: CLICK_REG, component: "Category Groups", label: s,  labelValue: e.name }   ← sub-link: label = tile, value = link</div>
+        <p>Note what makes it work: <code>component</code> stays fixed while the two variable parts move into <code>label</code> and <code>label_value</code>. That keeps component cardinality low — one row in a report, not one per section — and puts the detail where it can be pivoted. Every one of the gaps found on the other four surfaces is a failure to follow this shape: <code>Used Item Condition</code> has the grade sitting beside the tracking object, <code>Sort By</code> has the display text, the trade-in configurator has the condition value and the offer.</p>
+      </div>
+
+      <div class="finding good">
+        <div class="top"><span class="chip ok">C4 · strength</span><h3>Promotion tracking here is the best on the site</h3></div>
+        <p>Every merchandising slot fires a <code>view_promotion</code> on render and a matching <code>select_promotion</code> on click, sharing <code>promotion_id</code>, <code>creative_slot</code> and <code>promotion_position</code>. That means slot-level click-through is computable without any joining guesswork — <code>TOP</code>, <code>LIST</code> positions 1–3, <code>BOTTOM</code>, <code>SLIDER</code> all separable.</p>
+        <p>For the Used Department specifically: the <code>TOP</code> spotfront banner on this page points at <code>/a/trade-in/64435</code> and is fully tracked on both impression and click. Together with the listing page's <code>HERO</code> banner to the same destination, the PDP's <code>Trade In - Learn More</code>, and the footer link, that is four measurable entry points into the trade-in funnel across the catalog surfaces. The entry-point breakdown is more complete than the impact framework assumes.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">C2 · gap</span><h3>Banner components don't say which banner</h3></div>
+        <p><code>Category Banner</code> and <code>chatBanner</code> both fire with empty <code>label</code> and <code>label_value</code>. On this page the category banner is a Hasselblad brand unit; on the next category it will be someone else, and the events are indistinguishable. Since <code>Explora banner</code> on the same page proves the pattern — it carries the full article title in <code>label</code> — this is inconsistency within a single template rather than a missing capability.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">C3 · naming</span><h3>One section reports under its internal key</h3></div>
+        <p>The rail headed "What would you like to shoot?" sends <code>label: "Applications"</code>. The other two sections send their visible headings verbatim. It's a small thing, but it means anyone reading a GA4 report has to know the internal taxonomy to recognise a section that shoppers see by a different name — and it hints that the label is being pulled from a config key rather than the rendered heading, which is worth confirming before the same pattern spreads.</p>
+      </div>
+
+      <div class="finding info">
+        <div class="top"><span class="chip info">C5 · cardinality</span><h3>A component name built by string concatenation</h3></div>
+        <p>The bundle contains the literal <code>"Shop "</code> — with a trailing space — used as a <code>component</code> value and concatenated with a brand name. That produces <code>Shop Nikon</code>, <code>Shop Canon</code>, <code>Shop Sony</code> and so on as distinct components, which is the opposite of the discipline shown by <code>Category Groups</code>. The brand belongs in <code>label</code>; the component should stay <code>Shop Brand</code>. Left alone, it turns a clean component dimension into an unbounded list.</p>
+        <p>Related, and consistent with what the earlier audits found: the trade-in footer link fires <code>footer_clicks</code> while the banner above it fires <code>select_promotion</code>. Any complete count of trade-in entries has to union three event families across the site.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Declared but not observed</h2>
+    <p class="note">Components the category template registers that didn't fire on the Photography landing — mostly because this category doesn't render those modules. QA candidates rather than confirmed gaps.</p>
+    <div class="inv">
+      <span>Category Group Banner</span>
+      <span>Category Page - Show More</span>
+      <span>Category - Deals - Item Details</span>
+      <span>View All Deals</span>
+      <span>Compare All Featured</span>
+      <span>Sort see all results</span>
+      <span>Item List</span>
+      <span>Breadcrumb</span>
+      <span>Manufacture Logo</span>
+      <span>Log In to EDU</span>
+      <span>Sign Up to EDU</span>
+      <span>My Gear - Find Compatible Link</span>
+      <span>My Gear Filter Removed Notification</span>
+      <span>Change Camera</span>
+      <span>Open Box Flag Tooltip</span>
+      <span>Open Box Flag ItemsIncluded</span>
+      <span class="warn">"Shop " + brand name</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Captured live from a desktop session · fifth surface in the B&amp;H GA4 audit series · property G-SDR56X1SR9</span>
+    <span class="mono">/c/browse/Photography/ci/989/N/4294538916</span>
+  </footer>
+
+</div>
