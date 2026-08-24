@@ -1,0 +1,355 @@
+<title>Used PDP Tag Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#F2F4F1;--surface:#FFFFFF;--surface-2:#E9EDE7;
+  --ink:#151A17;--ink-2:#3C463F;--muted:#6B776F;
+  --hair:#D3DAD2;--hair-2:#E4E9E2;
+  --accent:#2F5D3A;--accent-soft:#E2ECE0;
+  --amber:#8A5A10;--amber-soft:#F6EBD6;
+  --red:#983029;--red-soft:#F7E2E0;
+  --slate:#465A6B;--slate-soft:#E3EAEF;
+  --shadow:0 1px 0 rgba(21,26,23,.04), 0 2px 10px rgba(21,26,23,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101411;--surface:#171D19;--surface-2:#1F2621;
+    --ink:#E8EDE8;--ink-2:#BCC7BE;--muted:#8B978E;
+    --hair:#2C352E;--hair-2:#232B26;
+    --accent:#8FC79B;--accent-soft:#1E2C22;
+    --amber:#DFAE62;--amber-soft:#2E2517;
+    --red:#E09189;--red-soft:#301E1C;
+    --slate:#9FB8C9;--slate-soft:#1B2530;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101411;--surface:#171D19;--surface-2:#1F2621;
+  --ink:#E8EDE8;--ink-2:#BCC7BE;--muted:#8B978E;
+  --hair:#2C352E;--hair-2:#232B26;
+  --accent:#8FC79B;--accent-soft:#1E2C22;
+  --amber:#DFAE62;--amber-soft:#2E2517;
+  --red:#E09189;--red-soft:#301E1C;
+  --slate:#9FB8C9;--slate-soft:#1B2530;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 2px 12px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Source Sans 3","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 28px 80px;display:flex;flex-direction:column;gap:44px}
+.mast{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-family:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.dek{margin:0;max-width:66ch;color:var(--ink-2);font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--hair);border-radius:3px;background:var(--surface);overflow:hidden;box-shadow:var(--shadow)}
+.meta div{flex:1 1 180px;padding:11px 15px;border-right:1px solid var(--hair-2);display:flex;flex-direction:column;gap:3px;min-width:0}
+.meta div:last-child{border-right:0}
+.meta .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.meta .v{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink);font-weight:500;overflow-wrap:anywhere}
+
+.headline{display:flex;flex-direction:column;gap:10px;background:var(--red-soft);border-left:3px solid var(--red);border-radius:2px;padding:18px 22px}
+.headline h2{font-family:"Familjen Grotesk",sans-serif;font-weight:700;font-size:21px;margin:0;border:0;padding:0;letter-spacing:-.01em}
+.headline p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:82ch}
+.headline code{font-family:"JetBrains Mono",monospace;font-size:13px;background:var(--surface);padding:1px 5px;border-radius:2px;border:1px solid var(--hair)}
+
+section{display:flex;flex-direction:column;gap:16px}
+h2{font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:23px;letter-spacing:-.01em;margin:0;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+h3{font-family:"Familjen Grotesk",sans-serif;font-weight:600;font-size:16px;margin:0}
+.note{margin:0;color:var(--muted);font-size:14.5px;max-width:78ch}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:3px;background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;min-width:960px;font-size:14px}
+thead th{position:sticky;top:0;z-index:2;background:var(--surface-2);font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:left;padding:11px 13px;border-bottom:1px solid var(--hair);white-space:nowrap}
+tbody td{padding:11px 13px;border-bottom:1px solid var(--hair-2);vertical-align:top;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:var(--surface-2)}
+tbody tr.dead td{background:var(--red-soft)}
+tbody tr.dead:hover td{background:var(--red-soft)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) tbody tr.dead td{background:#2A1A18}}
+:root[data-theme="dark"] tbody tr.dead td{background:#2A1A18}
+.grouprow td{background:var(--ground);border-bottom:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:9px 13px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px}
+.ev{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:500;white-space:nowrap}
+.nil{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12.5px}
+.trigger{color:var(--ink-2);font-size:13.5px}
+.extra{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);line-height:1.5;display:block;margin-top:3px}
+.flagcell{white-space:nowrap}
+.chip{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.chip.bug{background:var(--red-soft);color:var(--red)}
+.chip.gap{background:var(--amber-soft);color:var(--amber)}
+.chip.info{background:var(--slate-soft);color:var(--slate)}
+.chip.ok{background:var(--accent-soft);color:var(--accent)}
+
+.compare{overflow-x:auto;border:1px solid var(--hair);border-radius:3px;background:var(--surface);box-shadow:var(--shadow)}
+.compare table{min-width:640px}
+.compare td.same{color:var(--red);font-weight:600}
+.compare td.diff{color:var(--accent);font-weight:600}
+
+.findings{display:flex;flex-direction:column;gap:14px}
+.finding{background:var(--surface);border:1px solid var(--hair);border-radius:3px;border-left:3px solid var(--hair);padding:16px 20px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.finding.bug{border-left-color:var(--red)}
+.finding.gap{border-left-color:var(--amber)}
+.finding.info{border-left-color:var(--slate)}
+.finding.good{border-left-color:var(--accent)}
+.finding .top{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.finding p{margin:0;color:var(--ink-2);font-size:15px;max-width:84ch}
+.finding code{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--surface-2);padding:1px 5px;border-radius:2px}
+.finding .obs{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);background:var(--surface-2);padding:10px 12px;border-radius:2px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;line-height:1.6}
+.finding ul{margin:0;padding-left:19px;color:var(--ink-2);font-size:15px;display:flex;flex-direction:column;gap:4px}
+
+.fixgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.fix{background:var(--surface);border:1px solid var(--hair);border-radius:3px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow)}
+.fix .p{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--accent);font-weight:700}
+.fix .src{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted)}
+.fix p{margin:0;font-size:14px;color:var(--ink-2)}
+
+.inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.inv span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-2);background:var(--surface);border:1px solid var(--hair-2);border-radius:2px;padding:7px 10px}
+.inv span.hi{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);font-weight:700}
+
+footer{border-top:1px solid var(--hair);padding-top:18px;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .mono{font-size:12px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:no-preference){tbody tr td{transition:background .12s ease}}
+@media (max-width:640px){.wrap{padding:28px 16px 60px}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">GA4 instrumentation audit · used product detail · live capture</div>
+    <h1>A used PDP looks exactly like a new one in GA4</h1>
+    <p class="dek">Walked the used listing for a Sony RX10 V — condition grade 9, $2,136.95 against $2,298 new. Events captured live from the <span class="mono">dataLayer</span>, with the shipped React bundle read to establish what the page knows about itself versus what it reports.</p>
+    <div class="meta">
+      <div><span class="k">SKU</span><span class="v">803528607-USE</span></div>
+      <div><span class="k">page_type</span><span class="v">productDetail</span></div>
+      <div><span class="k">Condition on page</span><span class="v">9 · minor surface marks</span></div>
+      <div><span class="k">Condition in GA4</span><span class="v">never sent</span></div>
+      <div><span class="k">Captured</span><span class="v">2026-08-24</span></div>
+    </div>
+  </header>
+
+  <div class="headline">
+    <h2>Nothing in the GA4 payload says this product is used.</h2>
+    <p><code>page_type</code> is <code>productDetail</code>, identical to a new PDP. The <code>items[]</code> array carries no <code>item_category</code>, no <code>item_variant</code>, no condition. The only marker that this is a used unit is the <code>-USE</code> suffix on the SKU string — a substring match, not a dimension. Meanwhile the Google Ads tag on the very same page load sends <code>ecomm_pcat: ["BH Photo", "Used Department", "Photography", …]</code>. The classification exists, is computed, and is transmitted — to the ad platform, not to the analytics property the Used Department reports from.</p>
+  </div>
+
+  <section>
+    <h2>The grid</h2>
+    <p class="note">Every event on this page carries <span class="mono">detail_page_sku: 803528607-USE</span> and <span class="mono">site_type: Desktop</span>. Used-specific rows are grouped separately from the generic PDP furniture.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>eventName</th><th>component</th><th>label</th><th>label_value</th><th>site_type</th><th>page_type</th><th>Trigger &amp; other params</th><th>Flag</th></tr></thead>
+        <tbody>
+
+          <tr class="grouprow"><td colspan="8">Page load</td></tr>
+          <tr>
+            <td class="ev">view_item</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Product rendered — the richest payload on the page, and still condition-blind
+              <span class="extra">currency: USD · value: 2136.95 · items: [{ item_id: 803528607-USE, item_code: 3528607, price: 2136.95, stock_status: IN_STOCK, shipping_message: FREE_ONE_DAY_DELIVERY, store_pickup_message: AVAILABLE_IN_PICKUP_TIME }]</span></td>
+            <td class="flagcell"><span class="chip bug">U1 U5</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_item</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="nil">absent</td><td class="nil">absent</td>
+            <td class="trigger">Google Ads remarketing — <strong>this one knows it's used</strong>
+              <span class="extra">ecomm_pcat: ["BH Photo", "Used Department", "Photography", "Point &amp; Shoot Cameras", "Sony RX10 V"] · ecomm_prodid: 803528607-USE · ecomm_totalvalue: 2136.95</span></td>
+            <td class="flagcell"><span class="chip info">U1</span></td>
+          </tr>
+          <tr>
+            <td class="ev">page_view</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Page load — <code>content_group</code> also <code>productDetail</code>, so neither dimension separates used from new
+              <span class="extra">site_langauge: E · bi: NoValue · pwa_source: NoValue · bh_user_id: id_NoValue</span></td>
+            <td class="flagcell"><span class="chip bug">U1</span></td>
+          </tr>
+          <tr>
+            <td class="ev">view_promotion</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Overview banner (an Explora article on this camera) and the email slide-out
+              <span class="extra">creative_slot: Overview Banner / SLIDER · promotion_name · detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Used-specific interaction</td></tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Used Item Condition</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">"Condition: 9 Minor surface marks" → opens the B&amp;H Used Equipment Rating System drawer
+              <span class="extra">detail_page_sku only — the grade the shopper just clicked on is not sent</span></td>
+            <td class="flagcell"><span class="chip bug">U2</span></td>
+          </tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Other Buying Options</td><td class="mono">New</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">"New for $2,298.00" — the used → new switch
+              <span class="extra">no label_value, though the same component on the listing page sends the SKU there</span></td>
+            <td class="flagcell"><span class="chip bug">U4</span></td>
+          </tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Trade In - Learn More</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">"Trade in your gear for cash — Get Started" — present and tagged on used PDPs exactly as on new ones<span class="extra">detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">breadcrumbs</td><td class="mono">Breadcrumb</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Breadcrumb click — the one place "Used Department" reaches GA4 as a value
+              <span class="extra">breadcrumbs: "Used Department" · only fires if someone actually clicks it</span></td>
+            <td class="flagcell"><span class="chip info">U6</span></td>
+          </tr>
+
+          <tr class="grouprow"><td colspan="8">Generic PDP furniture</td></tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">searchDropdown</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">The header search scope selector, which is pre-set to "Used" on this page — but the event doesn't say which scope was chosen</td>
+            <td class="flagcell"><span class="chip gap">U2</span></td>
+          </tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Add to Compare</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Compare checkbox — carries the SKU here, unlike its listing-page counterpart, which carries nothing</td>
+            <td class="flagcell"><span class="chip ok">observed</span></td>
+          </tr>
+          <tr>
+            <td class="ev">detail_page_clicks</td><td class="mono">Tab Navigation</td><td class="mono">Specs · Reviews · Q&amp;A</td><td class="nil">—</td>
+            <td class="mono">Desktop</td><td class="mono">productDetail</td>
+            <td class="trigger">Content tabs — not exercised on this page; carried over from the new-PDP audit, where label carried the tab name<span class="extra">detail_page_sku</span></td>
+            <td class="flagcell"><span class="chip info">new PDP</span></td>
+          </tr>
+          <tr class="dead">
+            <td class="ev">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td><td class="nil">—</td>
+            <td class="trigger"><strong>No event:</strong> Share · Print · the "Used Savings $161.05" figure · the "Warranty: B&amp;H 90 Days" line · the 90-Second Intro video badge</td>
+            <td class="flagcell"><span class="chip gap">U7</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Used PDP versus new PDP, side by side</h2>
+    <p class="note">Same audit method, run against the new Sony teleconverter PDP earlier in this series. Red means the two are indistinguishable on that dimension.</p>
+    <div class="compare">
+      <table>
+        <thead><tr><th>Dimension</th><th>New PDP (1222777-REG)</th><th>Used PDP (803528607-USE)</th><th>Separable?</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">page_type</td><td class="mono">productDetail</td><td class="mono">productDetail</td><td class="same">No</td></tr>
+          <tr><td class="mono">content_group</td><td class="mono">productDetail</td><td class="mono">productDetail</td><td class="same">No</td></tr>
+          <tr><td class="mono">items[].item_category</td><td class="nil">not sent</td><td class="nil">not sent</td><td class="same">No</td></tr>
+          <tr><td class="mono">items[].item_variant</td><td class="nil">not sent</td><td class="nil">not sent</td><td class="same">No</td></tr>
+          <tr><td class="mono">condition / grade</td><td class="nil">n/a</td><td class="nil">not sent</td><td class="same">No</td></tr>
+          <tr><td class="mono">detail_page_sku</td><td class="mono">1222777-REG</td><td class="mono">803528607-USE</td><td class="diff">Suffix only</td></tr>
+          <tr><td class="mono">ecomm_pcat (Google Ads)</td><td class="mono">no Used Department node</td><td class="mono">includes Used Department</td><td class="diff">Yes — wrong platform</td></tr>
+          <tr><td class="mono">Used Item Condition component</td><td class="nil">absent</td><td class="mono">fires</td><td class="diff">Yes — on click only</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Findings</h2>
+    <div class="findings">
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">U1 · critical</span><h3>Used inventory has no dimension in GA4</h3></div>
+        <p>To report used-versus-new performance today, an analyst has to string-match <code>-USE</code> against <code>item_id</code> or <code>detail_page_sku</code>. That works until it doesn't: it can't be used as a GA4 audience dimension without a custom definition, it silently misses open-box and demo inventory that carries different suffixes, and every report that forgets the filter quietly blends used revenue into new.</p>
+        <p>The frustrating part is that the app already knows. The bundle sets a global used mode from the product payload:</p>
+        <div class="obs">useEffect(() =&gt; { product &amp;&amp; store.setUsedMode(Boolean(product.conditionFlags?.isUsed)) }, [product])</div>
+        <p><code>conditionFlags.isUsed</code> is a boolean available at every tracking call site on the page. It drives the UI. It never becomes a parameter.</p>
+      </div>
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">U2 · critical</span><h3>The condition grade is one variable away from being tracked</h3></div>
+        <p>Clicking the condition line fires <code>detail_page_clicks</code> / <code>Used Item Condition</code> with an empty <code>label</code> and an empty <code>label_value</code>. In the source, the tracking metadata and the grade string sit inside the same JSX expression — the grade is the sibling of the object that would carry it:</p>
+        <div class="obs">onClick: m,
+"data-selenium": "usedItemCondition",
+trackingMetadata: { type: CLICK_REG, component: "Used Item Condition" },
+children: ["Condition:", &lt;Icon/&gt;, g]        ← g is the grade, e.g. "9 Minor surface marks"</div>
+        <p>Adding <code>label_value: g</code> would give you condition mix by category, the click-through rate on the rating explainer by grade, and — once paired with add-to-cart — whether grade 8 units convert differently from grade 9s. That last question is the one that decides how aggressively the department should price by grade, and it is currently unanswerable.</p>
+      </div>
+
+      <div class="finding bug">
+        <div class="top"><span class="chip bug">U4 · consistency</span><h3>Other Buying Options behaves differently on each surface</h3></div>
+        <p>Same component name, two implementations. On the category listing it fires <code>label: "Used"</code> with <code>label_value: "1910936-REG"</code> — the SKU. Here on the used PDP it fires <code>label: "New"</code> with no <code>label_value</code> at all.</p>
+        <p>So the new → used direction is measurable per SKU and the used → new direction is only countable in aggregate. Since these two are the same behavioral question asked from opposite ends — how often does a shopper cross between conditions, and on what products — the asymmetry makes the round trip impossible to analyze as one funnel. Adding <code>label_value</code> to the PDP side is a one-line change that closes it.</p>
+      </div>
+
+      <div class="finding gap">
+        <div class="top"><span class="chip gap">U5 · ecommerce</span><h3>items[] omits the GA4 standard fields</h3></div>
+        <p>The array sends <code>item_id</code>, <code>item_code</code>, <code>price</code>, <code>stock_status</code>, <code>shipping_message</code> and <code>store_pickup_message</code>. It does not send <code>item_name</code>, <code>item_brand</code>, <code>item_category</code> or <code>item_variant</code> — none of those field names appears anywhere in the bundle. Three of the four B&amp;H already has on the page, and <code>item_variant</code> is the field GA4's own ecommerce model reserves for exactly this kind of distinction. Populating <code>item_variant</code> with the condition grade would make used performance visible in every standard ecommerce report without a single custom dimension.</p>
+      </div>
+
+      <div class="finding good">
+        <div class="top"><span class="chip ok">U6 · what works</span><h3>Four things are already right</h3></div>
+        <ul>
+          <li><code>detail_page_sku</code> rides on every event including <code>view_promotion</code> and <code>breadcrumbs</code> — better SKU coverage than the listing page manages.</li>
+          <li><code>Used Item Condition</code> exists as a distinct component, so the hook for the grade is already in place.</li>
+          <li><code>breadcrumbs</code> sends "Used Department" as a value.</li>
+          <li><code>Trade In - Learn More</code> fires here too, so the used PDP → trade-in loop is measurable on both new and used pages.</li>
+        </ul>
+      </div>
+
+      <div class="finding info">
+        <div class="top"><span class="chip info">U7 · smaller gaps</span><h3>Untagged on this page</h3></div>
+        <p>Share, Print, the 90-Second Intro video badge, the "Used Savings $161.05" figure and the warranty line all fire nothing. The savings figure is the most interesting of these — it is the used value proposition rendered as a number, and no event records whether shoppers engage with it. The <code>searchDropdown</code> event also fires without saying which scope was selected, even though this page pre-sets it to "Used".</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>The four parameters that would fix this</h2>
+    <p class="note">Each already exists in the page's own state. None requires a new event — only additional fields on events that already fire.</p>
+    <div class="fixgrid">
+      <div class="fix">
+        <span class="p">item_variant</span>
+        <span class="src">from conditionFlags → grade</span>
+        <p>Condition grade on <code>view_item</code> and <code>add_to_cart</code>. Makes used performance visible in standard ecommerce reports.</p>
+      </div>
+      <div class="fix">
+        <span class="p">item_category</span>
+        <span class="src">from ecomm_pcat, already computed</span>
+        <p>"Used Department" as a real dimension rather than a SKU-suffix match. The value is already being sent to Google Ads.</p>
+      </div>
+      <div class="fix">
+        <span class="p">label_value</span>
+        <span class="src">on Used Item Condition</span>
+        <p>The grade the shopper clicked. Currently the sibling variable of the tracking object.</p>
+      </div>
+      <div class="fix">
+        <span class="p">label_value</span>
+        <span class="src">on Other Buying Options</span>
+        <p>The target SKU, matching how the same component already behaves on the listing page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Used and condition components in the bundle</h2>
+    <p class="note">Everything the PDP bundle declares for used, open-box and condition UI. Only the highlighted one fired on this page; the rest depend on inventory type.</p>
+    <div class="inv">
+      <span class="hi">Used Item Condition</span>
+      <span>Used Condition Modal - Warranty Policies Link</span>
+      <span>Used Condition Modal - Grey Market Link</span>
+      <span>Open Box Flag Tooltip</span>
+      <span>Open Box Flag ItemsIncluded</span>
+      <span>Conditional Rebates Modal Rebate File Link</span>
+      <span>mini-Product-Page-Conditional-Rebates</span>
+    </div>
+    <p class="note">The two <span class="mono">Used Condition Modal</span> components are tagged inside the rating drawer — so B&amp;H tracks clicks on the warranty-policies and grey-market links within the explainer, but not which grade prompted the shopper to open it. That ordering is worth noting on its own: the detail inside the modal is instrumented more finely than the decision that led to it.</p>
+  </section>
+
+  <footer>
+    <span>Captured live from a desktop session · Sony RX10 V, condition 9, $2,136.95 · property G-SDR56X1SR9</span>
+    <span class="mono">803528607-USE</span>
+  </footer>
+
+</div>
